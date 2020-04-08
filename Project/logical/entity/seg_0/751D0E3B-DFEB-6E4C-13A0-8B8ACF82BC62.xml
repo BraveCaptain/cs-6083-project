@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2A9268C3-A804-A03F-2AE5-E6D43D1597AB" name="DRIVER_AUTO">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="751D0E3B-DFEB-6E4C-13A0-8B8ACF82BC62" name="POLICY">
 <createdBy>tqy</createdBy>
-<createdTime>2020-04-08 15:43:23 UTC</createdTime>
+<createdTime>2020-04-08 19:28:19 UTC</createdTime>
 <ownerDesignName>Project</ownerDesignName>
 <engineerTo>
 <item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
@@ -15,35 +15,45 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="vin" id="E66E59E5-4DFC-DA26-0680-DEAC9C142053">
+<Attribute name="policyID" id="71F72DAC-9D4D-F67A-075D-2BF1BD2C96DD">
 <createdBy>tqy</createdBy>
-<createdTime>2020-04-08 19:32:53 UTC</createdTime>
-<generatorID>AA4C2BFC-2C23-5E1F-D36D-7E3C24261B27</generatorID>
+<createdTime>2020-04-08 19:30:02 UTC</createdTime>
 <ownerDesignName>Project</ownerDesignName>
 <engineerTo>
 <item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
 </engineerTo>
-<referedAttribute>15984F4C-7FC5-3164-409E-55B54D83C957</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>8</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="licenseNum" id="4B1E75AC-D371-3291-B444-5D96E4E94CDA">
+<Attribute name="type" id="422692E6-700F-A188-4615-AB469CC1A118">
 <createdBy>tqy</createdBy>
-<createdTime>2020-04-08 19:35:03 UTC</createdTime>
-<generatorID>CF8DD56C-4A09-89A7-5E2B-67D3AA6DA51D</generatorID>
+<createdTime>2020-04-08 19:30:16 UTC</createdTime>
 <ownerDesignName>Project</ownerDesignName>
 <engineerTo>
 <item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
 </engineerTo>
-<referedAttribute>7BBE642C-94DA-EA20-8579-FFD045513E81</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>8</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="40CA6B17-1EBA-0F94-02E8-3897E018409A" name="POLICY PK">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 19:30:09 UTC</createdTime>
+<ownerDesignName>Project</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>71F72DAC-9D4D-F67A-075D-2BF1BD2C96DD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
 </Entity>
