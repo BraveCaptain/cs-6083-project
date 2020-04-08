@@ -15,21 +15,6 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="customerID" id="83481534-BA52-6AF0-6602-6A782C4DC527">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 17:55:24 UTC</createdTime>
-<generatorID>2E87B160-08D6-B49C-B399-E68B2754CFEB</generatorID>
-<ownerDesignName>Project</ownerDesignName>
-<engineerTo>
-<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
-</engineerTo>
-<referedAttribute>18313AA4-D5B3-89BB-25EC-5B7CC37F5CB5</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>8</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="homeID" id="0181EA85-46F1-043E-9AA0-D49BFAAB2846">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 19:00:19 UTC</createdTime>
@@ -147,6 +132,21 @@
 <dataTypeSize>1</dataTypeSize>
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="customerID" id="1B9FBC4D-C07B-A3CF-1CF2-D8C2EAC602B2">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 20:40:08 UTC</createdTime>
+<generatorID>FB28BC28-4757-F826-10D3-BB10F2CD7A7C</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<referedAttribute>18313AA4-D5B3-89BB-25EC-5B7CC37F5CB5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="BC769617-FB81-B053-BF9C-00DB0856F43E" name="HOME PK">
@@ -159,7 +159,6 @@
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>0181EA85-46F1-043E-9AA0-D49BFAAB2846</attributeRef>
-<attributeRef>83481534-BA52-6AF0-6602-6A782C4DC527</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

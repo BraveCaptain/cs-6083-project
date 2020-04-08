@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="34A459EE-B74C-E812-0CF5-E0BBACCDE18E" containerWithKeyObject="1CD7AEF3-7F60-DDE7-06C3-F20392F4F095" localFKIndex="CE9EA3B8-104A-5B4B-064A-4010EC6365B1" name="HPOLICY_POLICY_FK">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>95E813A3-D937-18EF-E092-10C3DFD1D6C8</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<referredTableLongName>POLICY</referredTableLongName>
+<arc>B23E6F63-72B6-6881-F5E5-23EC0F478578</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2B972B6F-AEB0-1AB8-5D07-DA24EE20EF87</referredTableID>
+<keyObject>057331DA-2568-969C-437C-0DC3AF0AB67C</keyObject>
+<referredKeyID>057331DA-2568-969C-437C-0DC3AF0AB67C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>policyID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<discriminatorValue>H</discriminatorValue>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

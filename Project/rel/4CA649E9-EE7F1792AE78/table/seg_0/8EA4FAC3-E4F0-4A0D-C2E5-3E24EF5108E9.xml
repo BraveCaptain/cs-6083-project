@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8EA4FAC3-E4F0-4A0D-C2E5-3E24EF5108E9" name="DRIVER_AUTO">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>2A9268C3-A804-A03F-2AE5-E6D43D1597AB</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="AUTO_vin" id="B8B87EDF-53D9-ED3B-8A62-6618E87158F1">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>E66E59E5-4DFC-DA26-0680-DEAC9C142053</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5A2951A6-DBED-1203-478E-6B86918C0854" referredColumn="C5E18FAE-BAD5-8059-B0E3-066DC8AA0A5A"/>
+</associations>
+</Column>
+<Column name="DRIVER_licenseNum" id="2F61DC5D-1485-EC2C-8BD7-C7CF649D6D33">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>4B1E75AC-D371-3291-B444-5D96E4E94CDA</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F1695092-874A-3E1A-6EC0-CA2D9C21159E" referredColumn="4DA20E2E-4A1F-FB72-9E2F-E88A96667740"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B22CF261-10AF-38AE-4EA9-D9A1CE535AC6" name="DRIVER_AUTO_DRIVER_FK">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>CF8DD56C-4A09-89A7-5E2B-67D3AA6DA51D</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2F61DC5D-1485-EC2C-8BD7-C7CF649D6D33"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="59658B3C-BCC2-E1B6-74BC-8C5F54DC2ABD" name="DRIVER_AUTO_AUTO_FK">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>AA4C2BFC-2C23-5E1F-D36D-7E3C24261B27</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B8B87EDF-53D9-ED3B-8A62-6618E87158F1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

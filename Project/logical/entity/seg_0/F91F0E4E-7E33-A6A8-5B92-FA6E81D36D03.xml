@@ -106,15 +106,15 @@
 <dataTypePrecision>8</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="customerID" id="BE97E525-EC08-14BA-64E2-9E4B5E88A028">
+<Attribute name="policyID" id="5433AFD6-F078-BC26-D160-369A745DF433">
 <createdBy>tqy</createdBy>
-<createdTime>2020-04-08 19:53:08 UTC</createdTime>
-<generatorID>79E3EB78-700D-A009-30A7-A6C9CCC62649</generatorID>
+<createdTime>2020-04-08 20:42:54 UTC</createdTime>
+<generatorID>961A6ACD-EE58-B60A-087D-35F0EFC3CCA5</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <engineerTo>
 <item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
 </engineerTo>
-<referedAttribute>83481534-BA52-6AF0-6602-6A782C4DC527</referedAttribute>
+<referedAttribute>71F72DAC-9D4D-F67A-075D-2BF1BD2C96DD</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>

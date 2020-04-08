@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5D64F4E9-3BC5-08E4-7C54-5CB45FC4DEEE" name="HCUSTOMER">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>B8E264E7-E7BC-2640-9C7B-30801DB9A6E2</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="customerID" id="52AB9AA3-36F6-E074-1EC9-82C89EC40BAD">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>18313AA4-D5B3-89BB-25EC-5B7CC37F5CB5</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="57EBA816-58F8-8919-1DF0-5202B0C99C1B" referredColumn="A48A5947-8EE4-C5F3-5088-A2905DAB9131"/>
+</associations>
+</Column>
+<Column name="HCUSTOMER_TYPE" id="61B78A7D-FB9E-6B6F-6B9F-A5935581934A">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<ownerDesignName>Project</ownerDesignName>
+<constraintName>CH_INH_HCUSTOMER</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<listOfValues>
+<valueDef value="H" description="entity HCUSTOMER"/>
+</listOfValues>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isDiscriminatorColumn>true</isDiscriminatorColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5E15B36B-FD75-AC83-6D74-E8B90E5A8133" name="HCUSTOMER_PK">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>DF0BF40D-D6D8-3565-E71D-2E5C2AE09E58</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="52AB9AA3-36F6-E074-1EC9-82C89EC40BAD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="43CEE39C-2871-950D-B3A2-36B86607F28B" name="HCUSTOMER_CUSTOMER_FK">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>06CFF963-C1F7-34A3-252A-43D1F29DCAF0</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="52AB9AA3-36F6-E074-1EC9-82C89EC40BAD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

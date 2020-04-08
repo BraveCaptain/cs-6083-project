@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="AC5E5732-0F56-6122-3560-425598C221C9" containerWithKeyObject="C89618DD-F4C3-D440-B2B3-B42AF4B660BF" localFKIndex="EBE8BAAC-C041-4C7E-9F71-FF979E3892F3" name="HOME_HPOLICY_HOME_FK">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>79E3EB78-700D-A009-30A7-A6C9CCC62649</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<referredTableLongName>HOME</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>3903C338-6B50-3763-C0FA-C5E6A3C81B6F</referredTableID>
+<keyObject>4AB1C22D-350D-F07F-49D9-C99338C06F16</keyObject>
+<referredKeyID>4AB1C22D-350D-F07F-49D9-C99338C06F16</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>homeID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

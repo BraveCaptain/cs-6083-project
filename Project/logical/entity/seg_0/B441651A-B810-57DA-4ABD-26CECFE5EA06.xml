@@ -81,5 +81,20 @@
 <dataTypeSize>1 CHAR</dataTypeSize>
 <ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="policyID" id="C3174F7C-FD9D-F6A6-E401-4F86EB7D7702">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 20:42:44 UTC</createdTime>
+<generatorID>3F87472F-085A-F258-46C9-1B0C2A734812</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<referedAttribute>71F72DAC-9D4D-F67A-075D-2BF1BD2C96DD</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 </Entity>

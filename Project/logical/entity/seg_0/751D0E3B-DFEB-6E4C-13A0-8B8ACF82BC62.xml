@@ -14,6 +14,9 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
+<generateDiscrimColumn>true</generateDiscrimColumn>
+<discriminatorAttributeID>422692E6-700F-A188-4615-AB469CC1A118</discriminatorAttributeID>
+<completeSubtypes>true</completeSubtypes>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
 <Attribute name="policyID" id="71F72DAC-9D4D-F67A-075D-2BF1BD2C96DD">
 <createdBy>tqy</createdBy>
