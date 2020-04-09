@@ -11,6 +11,7 @@
 <Column name="licenseNum" id="4DA20E2E-4A1F-FB72-9E2F-E88A96667740">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique license number of driver]]></commentInRDBMS>
 <generatorID>7BBE642C-94DA-EA20-8579-FFD045513E81</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -23,6 +24,7 @@
 <Column name="fname" id="FF79ABDE-AF40-54D2-D8EF-FE9622552D75">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the first name of driver, must be in upper case]]></commentInRDBMS>
 <generatorID>933084B3-DA00-7832-76C9-2AE0E2FDDE7E</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -35,6 +37,7 @@
 <Column name="lname" id="907D3C3D-FF78-A36E-AA44-617C4906B246">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the last name of driver, must be in upper case]]></commentInRDBMS>
 <generatorID>45F39FA9-3E27-D8ED-69CB-1EFCD9F86933</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -47,6 +50,7 @@
 <Column name="birthDate" id="BD292A5B-70BC-3F7E-4BA3-E99F6DE8B0AC">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the birthdate of driver]]></commentInRDBMS>
 <generatorID>FE2EB598-E81B-D22A-643C-54B49FA5F9E6</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>

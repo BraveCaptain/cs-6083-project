@@ -11,6 +11,7 @@
 <Column name="apID" id="9BD4ED02-F2D3-15A0-3CFA-7052743090BB">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID standing for the relationship between a specific auto and a specific auto policy]]></commentInRDBMS>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -25,6 +26,7 @@
 <Column name="startDate" id="221C887F-CEF8-A68A-5C30-5B391160B8E5">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[auto insurance policy start date]]></commentInRDBMS>
 <generatorID>B37D1554-29AD-7712-B75C-F522A036E494</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -36,6 +38,7 @@
 <Column name="endDate" id="7CA3ED6F-DDE3-C8A7-3A71-8DDB0DCD38B4">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[auto insurance policy end date]]></commentInRDBMS>
 <generatorID>09E95142-9FE3-F495-5A7A-59769CFD9444</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -48,6 +51,7 @@
 <Column name="premuimAmount" id="FC6A76A2-CA14-C929-9AB1-66E252FE0B2B">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[auto insurance premium amount]]></commentInRDBMS>
 <generatorID>0A68BC19-EAE5-3684-9256-795978D74B5D</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -60,6 +64,7 @@
 <Column name="status" id="ADA14CD1-0E6A-B102-4815-DE34315A2FAA">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show auto policy insurance status. If auto insurance policy term is current, status column should have value "C", and if it is expired, it should have value "P". ]]></commentInRDBMS>
 <generatorID>636CC8F6-1F3E-3424-C704-BD4B05B6DF02</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -72,6 +77,7 @@
 <Column name="vin" id="57F7FC58-0FC9-B78F-39DF-02C4CF20E548">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[unqiue vehicle VIN (vehicle identification number)]]></commentInRDBMS>
 <generatorID>10A682AC-E23D-E337-CD86-4684E646586E</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -88,6 +94,7 @@
 <Column name="policyID" id="37622A57-FEA4-BCE8-24E1-69DC33057C9F">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID of policy]]></commentInRDBMS>
 <generatorID>C3174F7C-FD9D-F6A6-E401-4F86EB7D7702</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>

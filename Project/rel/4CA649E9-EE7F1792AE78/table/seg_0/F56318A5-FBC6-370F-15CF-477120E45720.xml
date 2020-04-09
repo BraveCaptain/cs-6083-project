@@ -11,6 +11,7 @@
 <Column name="invoiceID" id="8E24F927-4E68-B503-2111-609F9F787995">
 <createdBy>Maitotoxin</createdBy>
 <createdTime>2020-04-09 15:12:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique of invoice]]></commentInRDBMS>
 <generatorID>CB687CE4-2860-B528-E0FE-02FDDC07D74F</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -23,6 +24,7 @@
 <Column name="paymentDueDate" id="E85D4886-032D-D072-ED18-4BB06D160F03">
 <createdBy>Maitotoxin</createdBy>
 <createdTime>2020-04-09 15:12:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show payment due date]]></commentInRDBMS>
 <generatorID>FEEE8305-8B35-8E88-C543-14419FBEF24A</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -34,6 +36,7 @@
 <Column name="amount" id="0F86EC26-FA9D-7E06-EE63-84A710FBB3EE">
 <createdBy>Maitotoxin</createdBy>
 <createdTime>2020-04-09 15:12:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show invoice amount]]></commentInRDBMS>
 <generatorID>0640634D-4A74-38EC-569C-2EE85DCB7B4C</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>

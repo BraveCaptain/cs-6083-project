@@ -11,6 +11,7 @@
 <Column name="homeID" id="C18EF200-2977-7CBA-C5C8-D2EDCE0EBF7D">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique home ID]]></commentInRDBMS>
 <generatorID>0181EA85-46F1-043E-9AA0-D49BFAAB2846</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -23,6 +24,7 @@
 <Column name="purchaseDate" id="6270E24C-7C95-FDB1-5964-EBE00D2AAA5B">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[home purchase date]]></commentInRDBMS>
 <generatorID>27A8E4A8-6C70-6646-7CAF-CC296837BD9D</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -34,6 +36,7 @@
 <Column name="purchaseValue" id="17260B61-0077-5C60-6336-EBA6B9863115">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[home purchase value]]></commentInRDBMS>
 <generatorID>990249BD-0A3B-8A43-BDCF-E8C4329E4CF3</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -46,6 +49,7 @@
 <Column name="area" id="629D97D0-17CC-D182-3079-012755C0968E">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[home area in Sq. Ft]]></commentInRDBMS>
 <generatorID>8E067042-149E-88AC-34A1-029F9F2D9EF6</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -58,6 +62,7 @@
 <Column name="type" id="F84FF16E-5E05-903C-1B5B-AD29E74B19C3">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show the type of home, can be S,M,C,T representing Single family, Multi Family, Condominium, Town house respectively]]></commentInRDBMS>
 <generatorID>4E341CDF-E3EA-F4F5-E1D6-AB9E1B03B940</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -70,6 +75,7 @@
 <Column name="autoFireNotification" id="8B6FF3E6-B458-B30D-A9AD-8D42F07FCDBE">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show whether there is automatic fire notification to the fire department. 1 for there is and 0 for there is not.]]></commentInRDBMS>
 <generatorID>AEA8C7B6-B991-B437-B294-9CA15DC5F8F3</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -82,6 +88,7 @@
 <Column name="securitySystem" id="27E0B71D-5E37-E5F7-D37E-7D059702203A">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show whether there is the home security system. 1 for there is and 0 for there is not.]]></commentInRDBMS>
 <generatorID>6A72F5BA-6642-AA3F-4BC7-FD2B127817E7</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -94,6 +101,7 @@
 <Column name="swimmingPool" id="24978976-69EB-DCC8-3F6F-94F356646C08">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show which type of the swimming pool and whether there is a swimming pool. Not mendatory attribute, and blank means null showing there is no swimming pool. Can be U,O,I,M, representing Underground swimming pool, Overground swimming pool, Indoor swimming pool and Multiple swimming pool respectively.]]></commentInRDBMS>
 <generatorID>0D562BD9-8D2F-CF81-3D28-EBC5D1F97DFF</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -107,6 +115,7 @@
 <Column name="basement" id="F2EEEC22-8A72-AA8D-871F-D9DA6AB12F5C">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show whether there is basement. 1 for there is and 0 for there is not.]]></commentInRDBMS>
 <generatorID>B95F997F-E8EF-1AE4-9611-3D55B1C1F83C</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -119,6 +128,7 @@
 <Column name="customerID" id="4655C5A1-9829-97AD-7120-50D009F931DD">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID for customer]]></commentInRDBMS>
 <generatorID>1B9FBC4D-C07B-A3CF-1CF2-D8C2EAC602B2</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>

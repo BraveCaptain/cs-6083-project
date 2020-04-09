@@ -11,6 +11,7 @@
 <Column name="paymentID" id="1AD28A06-ABD9-1214-54D2-5B0211F6DEC0">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID for payment]]></commentInRDBMS>
 <generatorID>29AF50B2-C27B-B142-314D-B60674FF44E8</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -23,6 +24,7 @@
 <Column name="date" id="912ABBE9-C7EF-C6BF-0C0D-59C4B1EDABA8">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[payment date ]]></commentInRDBMS>
 <generatorID>5209DABE-CF51-65A1-2569-D885CBF5026E</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -34,6 +36,7 @@
 <Column name="method" id="0F9226D5-A781-677F-00FF-4721BC21965D">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show method of payment, can be either as "PayPal", "Credit", "Debit", "Check" ]]></commentInRDBMS>
 <generatorID>61C52F54-7F16-EFAB-1B9B-493FFE6661AE</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -46,6 +49,7 @@
 <Column name="hpID" id="A1F0A029-8FAB-8F82-17FF-FDED29235F6F">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID standing for the relationship between a specific home and a specific home policy]]></commentInRDBMS>
 <ownerDesignName>Project</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -62,6 +66,7 @@
 <Column name="apID" id="94FCDCF3-DEB1-C3F4-3EC0-415DA988772E">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID standing for the relationship between a specific auto and a specific auto policy]]></commentInRDBMS>
 <ownerDesignName>Project</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>

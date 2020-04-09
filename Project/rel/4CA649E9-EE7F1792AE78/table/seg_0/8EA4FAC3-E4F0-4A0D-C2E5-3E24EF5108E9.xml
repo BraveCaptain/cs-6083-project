@@ -11,6 +11,7 @@
 <Column name="vin" id="B8B87EDF-53D9-ED3B-8A62-6618E87158F1">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[unqiue vehicle VIN (vehicle identification number)]]></commentInRDBMS>
 <generatorID>E66E59E5-4DFC-DA26-0680-DEAC9C142053</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -27,6 +28,7 @@
 <Column name="licenseNum" id="2F61DC5D-1485-EC2C-8BD7-C7CF649D6D33">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique license number of driver]]></commentInRDBMS>
 <generatorID>4B1E75AC-D371-3291-B444-5D96E4E94CDA</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>

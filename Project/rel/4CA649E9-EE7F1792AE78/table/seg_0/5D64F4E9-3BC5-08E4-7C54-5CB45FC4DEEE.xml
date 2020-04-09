@@ -11,6 +11,7 @@
 <Column name="customerID" id="52AB9AA3-36F6-E074-1EC9-82C89EC40BAD">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID for customer]]></commentInRDBMS>
 <generatorID>18313AA4-D5B3-89BB-25EC-5B7CC37F5CB5</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -26,6 +27,7 @@
 <Column name="type" id="C4EBF86F-C9DC-154C-2EB4-6EDC538A6B32">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-09 20:14:53 UTC</createdTime>
+<commentInRDBMS><![CDATA[to show whether the customer is Automobile Insurance customer or Home Insurance customer or both, can only be "A" or "H"]]></commentInRDBMS>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>

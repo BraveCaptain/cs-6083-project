@@ -11,6 +11,7 @@
 <Column name="hpID" id="2210A2D1-9C21-AE62-8297-787988F3901B">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID standing for the relationship between a specific home and a specific home policy]]></commentInRDBMS>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -25,6 +26,7 @@
 <Column name="startDate" id="EBA629F3-1EF2-E6CC-E894-B58324B27469">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[ home insurance policy start date]]></commentInRDBMS>
 <generatorID>CDDDC1E1-6B5F-E3D0-7FE7-B7F012A1A25D</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -36,9 +38,9 @@
 <Column name="endDate" id="85769506-315E-F3AF-0CAC-A1D2B0EB4349">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[home insurance policy end date]]></commentInRDBMS>
 <generatorID>EDC9F1A3-C982-1EDA-1940-E19A8976E8AD</generatorID>
 <ownerDesignName>Project</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>
@@ -48,6 +50,7 @@
 <Column name="premuimAmount" id="C9AFDB4D-1CBB-5EA6-18CA-04F08C8E05CE">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[home insurance premium amount]]></commentInRDBMS>
 <generatorID>7D841140-8F0D-BC85-B88A-4E63767CD574</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -60,6 +63,7 @@
 <Column name="status" id="6B7492F0-7B2D-0C25-62A7-7CB9D0960018">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show home policy insurance status. If home insurance policy term is current, status column should have value "C", and if it is expired, it should have value "P". ]]></commentInRDBMS>
 <generatorID>0D6423D2-7A34-10E5-430F-5D8E2A585075</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -69,32 +73,10 @@
 <ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="dueDate" id="39543257-CA3D-0688-A4CB-037AD2FC61FC">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<generatorID>D6670270-1A6A-FEBE-C57E-02A203BD0C2E</generatorID>
-<ownerDesignName>Project</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="invoiceAmount" id="0B05F4A6-7CC3-BA49-ADA5-B6DB01C4D7F9">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<generatorID>B8C5DAF6-1D1A-961C-63F2-8B1C2606AAC6</generatorID>
-<ownerDesignName>Project</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>8</dataTypePrecision>
-<ownDataTypeParameters>,8,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="homeID" id="4739C98E-657F-116E-12AD-D943F69E6B88">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique home ID]]></commentInRDBMS>
 <generatorID>E671C1FA-9DDE-2826-074A-1909F20E75FA</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -111,6 +93,7 @@
 <Column name="policyID" id="58DDCA79-0C03-FB81-9F27-7383BB2D3D81">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID of policy]]></commentInRDBMS>
 <generatorID>5433AFD6-F078-BC26-D160-369A745DF433</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>

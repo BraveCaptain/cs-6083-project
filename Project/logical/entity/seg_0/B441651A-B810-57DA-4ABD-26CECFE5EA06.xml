@@ -41,7 +41,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>8</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="startDate" id="B37D1554-29AD-7712-B75C-F522A036E494">
 <createdBy>tqy</createdBy>
@@ -62,7 +62,6 @@
 <engineerTo>
 <item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>

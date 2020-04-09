@@ -11,6 +11,7 @@
 <Column name="policyID" id="5D98BD60-CB66-40C9-A4AF-D3CB0270EAF6">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID of policy]]></commentInRDBMS>
 <generatorID>71F72DAC-9D4D-F67A-075D-2BF1BD2C96DD</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>

@@ -11,6 +11,7 @@
 <Column name="vin" id="C5E18FAE-BAD5-8059-B0E3-066DC8AA0A5A">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[unqiue vehicle VIN (vehicle identification number)]]></commentInRDBMS>
 <generatorID>15984F4C-7FC5-3164-409E-55B54D83C957</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -23,6 +24,7 @@
 <Column name="modelYear" id="BA76541E-5022-B460-10AF-6D72DFF97E3E">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[vehicle make-model year]]></commentInRDBMS>
 <generatorID>6226186C-F33F-D9FF-AEB8-06590FCD6717</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -34,6 +36,8 @@
 <Column name="status" id="9982E618-12C8-79FE-91EA-FF89A84DCB5C">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show the status of the vehicle, can be one of “L”, “F”, or “O” representing "Leased", "Financed", and "Owned"
+]]></commentInRDBMS>
 <generatorID>3F475C7A-87BC-C00F-1B21-5D6E04B2DB39</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -46,6 +50,7 @@
 <Column name="customerID" id="005E3F93-5ED7-5E5B-491A-354DE7A2A501">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID for customer]]></commentInRDBMS>
 <generatorID>B0A66BDD-2A61-BCDF-F14F-4C6CB62F2ACD</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>

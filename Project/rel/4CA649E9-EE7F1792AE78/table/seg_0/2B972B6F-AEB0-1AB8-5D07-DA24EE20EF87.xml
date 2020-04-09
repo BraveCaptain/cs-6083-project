@@ -11,6 +11,7 @@
 <Column name="policyID" id="3E79EA45-9A5D-99CF-D534-C7217CB952ED">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID of policy]]></commentInRDBMS>
 <generatorID>71F72DAC-9D4D-F67A-075D-2BF1BD2C96DD</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -23,6 +24,7 @@
 <Column name="type" id="D0E64CD2-5A68-3F24-B3E2-D60AC0E9C024">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show the type of policy, a policy can either be Home Insurance policy or Auto Insurance policy, but cannot be both, can be "H" or "A"]]></commentInRDBMS>
 <generatorID>422692E6-700F-A188-4615-AB469CC1A118</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <constraintName>CH_INH_POLICY</constraintName>
