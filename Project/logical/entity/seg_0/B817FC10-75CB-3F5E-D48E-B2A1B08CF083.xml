@@ -66,6 +66,21 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="type" id="01377838-48E3-02A2-5D56-5CFD6C0F76F7">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-09 20:20:02 UTC</createdTime>
+<generatorID>29939399-0D0B-554D-9B03-E157CA9CDDED</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<referedAttribute>46EE0F75-AFF1-849C-BD64-8999F6C2C264</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>

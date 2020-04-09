@@ -23,22 +23,6 @@
 <colAssociation fkAssociation="ECA8C6A7-7F65-AE19-2AA8-75A586ADE33F" referredColumn="3E79EA45-9A5D-99CF-D534-C7217CB952ED"/>
 </associations>
 </Column>
-<Column name="APOLICY_TYPE" id="B69D2235-0DC0-A898-559B-12C1299930B7">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<ownerDesignName>Project</ownerDesignName>
-<constraintName>CH_INH_APOLICY</constraintName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<listOfValues>
-<valueDef value="A" description="entity APOLICY"/>
-</listOfValues>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-<isDiscriminatorColumn>true</isDiscriminatorColumn>
-</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="E978D930-9FFE-14C3-1C1B-F5F58FBBFFBA" name="APOLICY_PK">

@@ -23,21 +23,20 @@
 <colAssociation fkAssociation="57EBA816-58F8-8919-1DF0-5202B0C99C1B" referredColumn="A48A5947-8EE4-C5F3-5088-A2905DAB9131"/>
 </associations>
 </Column>
-<Column name="HCUSTOMER_TYPE" id="61B78A7D-FB9E-6B6F-6B9F-A5935581934A">
+<Column name="type" id="C4EBF86F-C9DC-154C-2EB4-6EDC538A6B32">
 <createdBy>tqy</createdBy>
-<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<createdTime>2020-04-09 20:14:53 UTC</createdTime>
 <ownerDesignName>Project</ownerDesignName>
-<constraintName>CH_INH_HCUSTOMER</constraintName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
+<logicalDatatype>LOGDT025</logicalDatatype>
 <dataTypeSize>1</dataTypeSize>
-<listOfValues>
-<valueDef value="H" description="entity HCUSTOMER"/>
-</listOfValues>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
-<isDiscriminatorColumn>true</isDiscriminatorColumn>
+<associations>
+<colAssociation fkAssociation="57EBA816-58F8-8919-1DF0-5202B0C99C1B" referredColumn="23C8DDDA-711A-F2A8-9C91-55FFD74301A5"/>
+</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
@@ -62,6 +61,7 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="52AB9AA3-36F6-E074-1EC9-82C89EC40BAD"/>
+<colUsage columnID="C4EBF86F-C9DC-154C-2EB4-6EDC538A6B32"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

@@ -31,6 +31,19 @@
 <dataTypePrecision>8</dataTypePrecision>
 <ownDataTypeParameters>,8,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="type" id="46EE0F75-AFF1-849C-BD64-8999F6C2C264">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 16:07:14 UTC</createdTime>
+<ownerDesignName>Project</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="fname" id="4028D140-DB58-37CE-FA2C-E7F1928F65AA">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 16:03:09 UTC</createdTime>
@@ -136,19 +149,6 @@
 <dataTypeSize>1 CHAR</dataTypeSize>
 <ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="type" id="46EE0F75-AFF1-849C-BD64-8999F6C2C264">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 16:07:14 UTC</createdTime>
-<ownerDesignName>Project</ownerDesignName>
-<engineerTo>
-<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>1 CHAR</dataTypeSize>
-<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="DF0BF40D-D6D8-3565-E71D-2E5C2AE09E58" name="CUSTOMER PK">
@@ -161,6 +161,7 @@
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>18313AA4-D5B3-89BB-25EC-5B7CC37F5CB5</attributeRef>
+<attributeRef>46EE0F75-AFF1-849C-BD64-8999F6C2C264</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

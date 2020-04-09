@@ -20,6 +20,24 @@
 <ownDataTypeParameters>,8,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="type" id="23C8DDDA-711A-F2A8-9C91-55FFD74301A5">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>46EE0F75-AFF1-849C-BD64-8999F6C2C264</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<constraintName>CH_INH_CUSTOMER</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<listOfValues>
+<valueDef value="A" description="entity ACUSTOMER"/>
+<valueDef value="H" description="entity HCUSTOMER"/>
+</listOfValues>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isDiscriminatorColumn>true</isDiscriminatorColumn>
+</Column>
 <Column name="fname" id="C650A786-4743-094C-7D9B-F768179E1689">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
@@ -117,24 +135,6 @@
 <ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="type" id="23C8DDDA-711A-F2A8-9C91-55FFD74301A5">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<generatorID>46EE0F75-AFF1-849C-BD64-8999F6C2C264</generatorID>
-<ownerDesignName>Project</ownerDesignName>
-<constraintName>CH_INH_CUSTOMER</constraintName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<listOfValues>
-<valueDef value="A" description="entity ACUSTOMER"/>
-<valueDef value="H" description="entity HCUSTOMER"/>
-</listOfValues>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-<isDiscriminatorColumn>true</isDiscriminatorColumn>
-</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="10D20C2E-AF1C-1CF4-F4F9-70E686FFFE7C" name="CUSTOMER_PK">
@@ -147,6 +147,7 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="A48A5947-8EE4-C5F3-5088-A2905DAB9131"/>
+<colUsage columnID="23C8DDDA-711A-F2A8-9C91-55FFD74301A5"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

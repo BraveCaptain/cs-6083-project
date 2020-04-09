@@ -147,6 +147,21 @@
 <dataTypePrecision>8</dataTypePrecision>
 <ownDataTypeParameters>,8,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="type1" id="5C64E2F6-DCDF-4BC0-1D6A-0C8A48023B5E">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-09 20:20:02 UTC</createdTime>
+<generatorID>FB28BC28-4757-F826-10D3-BB10F2CD7A7C</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<referedAttribute>46EE0F75-AFF1-849C-BD64-8999F6C2C264</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="BC769617-FB81-B053-BF9C-00DB0856F43E" name="HOME PK">
