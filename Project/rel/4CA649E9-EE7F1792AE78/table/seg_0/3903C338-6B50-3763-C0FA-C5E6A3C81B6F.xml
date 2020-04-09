@@ -116,7 +116,7 @@
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="HCUSTOMER_customerID" id="4655C5A1-9829-97AD-7120-50D009F931DD">
+<Column name="customerID" id="4655C5A1-9829-97AD-7120-50D009F931DD">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
 <generatorID>1B9FBC4D-C07B-A3CF-1CF2-D8C2EAC602B2</generatorID>
@@ -129,7 +129,7 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="19220AFD-EE04-D9F4-1FCD-DB92FC656353" referredColumn="52AB9AA3-36F6-E074-1EC9-82C89EC40BAD"/>
+<colAssociation fkAssociation="FD72C3FA-3F60-73BD-E992-C1C5FCA06F3C" referredColumn="52AB9AA3-36F6-E074-1EC9-82C89EC40BAD"/>
 </associations>
 </Column>
 </columns>
@@ -146,9 +146,9 @@
 <colUsage columnID="C18EF200-2977-7CBA-C5C8-D2EDCE0EBF7D"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="3135EB86-8CE7-F007-4C0F-016DD00BB452" name="HOME_HCUSTOMER_FK">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<ind_PK_UK id="AF6DE33A-314F-D1E6-7F67-C6827C4D84A1" name="HOME_HCUSTOMER_FK">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:12:52 UTC</createdTime>
 <generatorID>FB28BC28-4757-F826-10D3-BB10F2CD7A7C</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <indexState>Foreign Key</indexState>

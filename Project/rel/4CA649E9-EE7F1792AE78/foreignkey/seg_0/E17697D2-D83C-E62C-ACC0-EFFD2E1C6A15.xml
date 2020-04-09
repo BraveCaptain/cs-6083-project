@@ -9,7 +9,7 @@
 <referredTableID>14889934-44FD-38C5-1A39-648D1B60C529</referredTableID>
 <keyObject>43AB001A-423C-DDE8-4941-3D4719F6D834</keyObject>
 <referredKeyID>43AB001A-423C-DDE8-4941-3D4719F6D834</referredKeyID>
-<mandatory>true</mandatory>
+<mandatory>false</mandatory>
 <refColNames>AUTO_APOLICY_ID</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>

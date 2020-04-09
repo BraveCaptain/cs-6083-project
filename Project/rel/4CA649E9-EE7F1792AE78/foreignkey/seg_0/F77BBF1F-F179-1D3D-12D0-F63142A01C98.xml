@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4473B07B-376A-F0D7-9B9A-397CF256476E" containerWithKeyObject="14889934-44FD-38C5-1A39-648D1B60C529" localFKIndex="5A9421C3-0A9B-190D-3CDB-45CF6B05BAF4" name="AUTO_APOLICY_APOLICY_FK">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F77BBF1F-F179-1D3D-12D0-F63142A01C98" containerWithKeyObject="14889934-44FD-38C5-1A39-648D1B60C529" localFKIndex="25748E08-58D9-1A2E-21E5-856A92A3E911" name="AUTO_APOLICY_APOLICY_FK">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:12:52 UTC</createdTime>
 <generatorID>3F87472F-085A-F258-46C9-1B0C2A734812</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <referredTableLongName>APOLICY</referredTableLongName>

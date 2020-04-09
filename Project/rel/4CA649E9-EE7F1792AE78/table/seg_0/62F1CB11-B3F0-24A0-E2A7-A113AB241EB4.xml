@@ -43,13 +43,15 @@
 <ownDataTypeParameters>6 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="HOME_HPOLICY_HOME_HPOLICY_ID" id="A1F0A029-8FAB-8F82-17FF-FDED29235F6F">
+<Column name="hpID" id="A1F0A029-8FAB-8F82-17FF-FDED29235F6F">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
 <ownerDesignName>Project</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -57,18 +59,36 @@
 <colAssociation fkAssociation="F26C4591-B21C-81D8-F206-9D161FBCD297" referredColumn="2210A2D1-9C21-AE62-8297-787988F3901B"/>
 </associations>
 </Column>
-<Column name="AUTO_APOLICY_AUTO_APOLICY_ID" id="94FCDCF3-DEB1-C3F4-3EC0-415DA988772E">
+<Column name="apID" id="94FCDCF3-DEB1-C3F4-3EC0-415DA988772E">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
 <ownerDesignName>Project</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="E17697D2-D83C-E62C-ACC0-EFFD2E1C6A15" referredColumn="9BD4ED02-F2D3-15A0-3CFA-7052743090BB"/>
+</associations>
+</Column>
+<Column name="invoiceID" id="C5F4B516-0D9D-237D-D110-510AA0797B1A">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:12:52 UTC</createdTime>
+<generatorID>1DDB1FA7-D216-67C8-2D2A-7B236B00128A</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BCADE9FD-1085-3470-0904-8EA0C4D0FDF5" referredColumn="8E24F927-4E68-B503-2111-609F9F787995"/>
 </associations>
 </Column>
 </columns>
@@ -105,6 +125,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="94FCDCF3-DEB1-C3F4-3EC0-415DA988772E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0ED0641A-9E25-74A6-6312-1EE8BF9D3B98" name="PAYMENT_INVOICE_FK">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:12:52 UTC</createdTime>
+<generatorID>800102E1-C4A4-3BA2-4B39-6F07C7DD98EA</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C5F4B516-0D9D-237D-D110-510AA0797B1A"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

@@ -43,7 +43,7 @@
 <ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="ACUSTOMER_customerID" id="005E3F93-5ED7-5E5B-491A-354DE7A2A501">
+<Column name="customerID" id="005E3F93-5ED7-5E5B-491A-354DE7A2A501">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
 <generatorID>B0A66BDD-2A61-BCDF-F14F-4C6CB62F2ACD</generatorID>
@@ -56,7 +56,7 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="8FD8CFD9-89B5-7A1B-34C9-E4A27BBC1D2A" referredColumn="3EC6744F-7C52-4893-481A-7A7DBF81E14E"/>
+<colAssociation fkAssociation="86A1C1B6-7D01-9ECF-226C-DF7CD90303BA" referredColumn="3EC6744F-7C52-4893-481A-7A7DBF81E14E"/>
 </associations>
 </Column>
 </columns>
@@ -73,9 +73,9 @@
 <colUsage columnID="C5E18FAE-BAD5-8059-B0E3-066DC8AA0A5A"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="3D2E5503-B3B5-62D9-E12E-3A61EFA5E7A2" name="AUTO_ACUSTOMER_FK">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<ind_PK_UK id="49D0B859-8FC0-4998-C815-2F863CE6AD37" name="AUTO_ACUSTOMER_FK">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:12:52 UTC</createdTime>
 <generatorID>29939399-0D0B-554D-9B03-E157CA9CDDED</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <indexState>Foreign Key</indexState>

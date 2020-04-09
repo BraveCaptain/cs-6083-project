@@ -8,21 +8,19 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="AUTO_vin" id="57F7FC58-0FC9-B78F-39DF-02C4CF20E548">
+<Column name="apID" id="9BD4ED02-F2D3-15A0-3CFA-7052743090BB">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<generatorID>10A682AC-E23D-E337-CD86-4684E646586E</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>8</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="FD8296E1-2C9C-8C72-56B7-9B70CF02E671" referredColumn="C5E18FAE-BAD5-8059-B0E3-066DC8AA0A5A"/>
-</associations>
+<isSurrogateColumn>true</isSurrogateColumn>
 </Column>
 <Column name="startDate" id="221C887F-CEF8-A68A-5C30-5B391160B8E5">
 <createdBy>tqy</createdBy>
@@ -71,7 +69,23 @@
 <ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="APOLICY_policyID" id="37622A57-FEA4-BCE8-24E1-69DC33057C9F">
+<Column name="vin" id="57F7FC58-0FC9-B78F-39DF-02C4CF20E548">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>10A682AC-E23D-E337-CD86-4684E646586E</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FD8296E1-2C9C-8C72-56B7-9B70CF02E671" referredColumn="C5E18FAE-BAD5-8059-B0E3-066DC8AA0A5A"/>
+</associations>
+</Column>
+<Column name="policyID" id="37622A57-FEA4-BCE8-24E1-69DC33057C9F">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
 <generatorID>C3174F7C-FD9D-F6A6-E401-4F86EB7D7702</generatorID>
@@ -84,21 +98,8 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="4473B07B-376A-F0D7-9B9A-397CF256476E" referredColumn="452296E6-F76D-357E-A64F-477B05F13386"/>
+<colAssociation fkAssociation="F77BBF1F-F179-1D3D-12D0-F63142A01C98" referredColumn="452296E6-F76D-357E-A64F-477B05F13386"/>
 </associations>
-</Column>
-<Column name="AUTO_APOLICY_ID" id="9BD4ED02-F2D3-15A0-3CFA-7052743090BB">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<ownerDesignName>Project</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementColumn>true</autoIncrementColumn>
-<identityColumn>true</identityColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<isSurrogateColumn>true</isSurrogateColumn>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
@@ -112,17 +113,6 @@
 <colUsage columnID="9BD4ED02-F2D3-15A0-3CFA-7052743090BB"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="5A9421C3-0A9B-190D-3CDB-45CF6B05BAF4" name="AUTO_APOLICY_APOLICY_FK">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<generatorID>3F87472F-085A-F258-46C9-1B0C2A734812</generatorID>
-<ownerDesignName>Project</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="37622A57-FEA4-BCE8-24E1-69DC33057C9F"/>
-</indexColumnUsage>
-</ind_PK_UK>
 <ind_PK_UK id="4AE5B753-193B-4E2B-AF41-703BD611B388" name="AUTO_APOLICY_AUTO_FK">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
@@ -132,6 +122,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="57F7FC58-0FC9-B78F-39DF-02C4CF20E548"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="25748E08-58D9-1A2E-21E5-856A92A3E911" name="AUTO_APOLICY_APOLICY_FK">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:12:52 UTC</createdTime>
+<generatorID>3F87472F-085A-F258-46C9-1B0C2A734812</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="37622A57-FEA4-BCE8-24E1-69DC33057C9F"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

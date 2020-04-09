@@ -8,7 +8,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="AUTO_vin" id="B8B87EDF-53D9-ED3B-8A62-6618E87158F1">
+<Column name="vin" id="B8B87EDF-53D9-ED3B-8A62-6618E87158F1">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
 <generatorID>E66E59E5-4DFC-DA26-0680-DEAC9C142053</generatorID>
@@ -24,7 +24,7 @@
 <colAssociation fkAssociation="5A2951A6-DBED-1203-478E-6B86918C0854" referredColumn="C5E18FAE-BAD5-8059-B0E3-066DC8AA0A5A"/>
 </associations>
 </Column>
-<Column name="DRIVER_licenseNum" id="2F61DC5D-1485-EC2C-8BD7-C7CF649D6D33">
+<Column name="licenseNum" id="2F61DC5D-1485-EC2C-8BD7-C7CF649D6D33">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
 <generatorID>4B1E75AC-D371-3291-B444-5D96E4E94CDA</generatorID>
@@ -42,6 +42,18 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E7857843-F5B9-4C78-6F1B-92C0573A4892" name="DRIVER_AUTO_PK">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:38:17 UTC</createdTime>
+<ownerDesignName>Project</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B8B87EDF-53D9-ED3B-8A62-6618E87158F1"/>
+<colUsage columnID="2F61DC5D-1485-EC2C-8BD7-C7CF649D6D33"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="B22CF261-10AF-38AE-4EA9-D9A1CE535AC6" name="DRIVER_AUTO_DRIVER_FK">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>

@@ -8,6 +8,20 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="hpID" id="2210A2D1-9C21-AE62-8297-787988F3901B">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<ownerDesignName>Project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
 <Column name="startDate" id="EBA629F3-1EF2-E6CC-E894-B58324B27469">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
@@ -78,7 +92,7 @@
 <ownDataTypeParameters>,8,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="HOME_homeID" id="4739C98E-657F-116E-12AD-D943F69E6B88">
+<Column name="homeID" id="4739C98E-657F-116E-12AD-D943F69E6B88">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
 <generatorID>E671C1FA-9DDE-2826-074A-1909F20E75FA</generatorID>
@@ -94,7 +108,7 @@
 <colAssociation fkAssociation="AC5E5732-0F56-6122-3560-425598C221C9" referredColumn="C18EF200-2977-7CBA-C5C8-D2EDCE0EBF7D"/>
 </associations>
 </Column>
-<Column name="HPOLICY_policyID" id="58DDCA79-0C03-FB81-9F27-7383BB2D3D81">
+<Column name="policyID" id="58DDCA79-0C03-FB81-9F27-7383BB2D3D81">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
 <generatorID>5433AFD6-F078-BC26-D160-369A745DF433</generatorID>
@@ -107,21 +121,8 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="3682956F-489B-92EC-2D35-5890F48727E3" referredColumn="5D98BD60-CB66-40C9-A4AF-D3CB0270EAF6"/>
+<colAssociation fkAssociation="445E7F05-C640-EA4B-905E-1AB31B4258B1" referredColumn="5D98BD60-CB66-40C9-A4AF-D3CB0270EAF6"/>
 </associations>
-</Column>
-<Column name="HOME_HPOLICY_ID" id="2210A2D1-9C21-AE62-8297-787988F3901B">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<ownerDesignName>Project</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementColumn>true</autoIncrementColumn>
-<identityColumn>true</identityColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<isSurrogateColumn>true</isSurrogateColumn>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
@@ -135,17 +136,6 @@
 <colUsage columnID="2210A2D1-9C21-AE62-8297-787988F3901B"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="6C3F3489-0192-B9A6-0323-71A786CEB30C" name="HOME_HPOLICY_HPOLICY_FK">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<generatorID>961A6ACD-EE58-B60A-087D-35F0EFC3CCA5</generatorID>
-<ownerDesignName>Project</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="58DDCA79-0C03-FB81-9F27-7383BB2D3D81"/>
-</indexColumnUsage>
-</ind_PK_UK>
 <ind_PK_UK id="EBE8BAAC-C041-4C7E-9F71-FF979E3892F3" name="HOME_HPOLICY_HOME_FK">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
@@ -155,6 +145,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="4739C98E-657F-116E-12AD-D943F69E6B88"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FFC004CC-91F1-F952-EE83-3A1E6275D078" name="HOME_HPOLICY_HPOLICY_FK">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:12:52 UTC</createdTime>
+<generatorID>961A6ACD-EE58-B60A-087D-35F0EFC3CCA5</generatorID>
+<ownerDesignName>Project</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="58DDCA79-0C03-FB81-9F27-7383BB2D3D81"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

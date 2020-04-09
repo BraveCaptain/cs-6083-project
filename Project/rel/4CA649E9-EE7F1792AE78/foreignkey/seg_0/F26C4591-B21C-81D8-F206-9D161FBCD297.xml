@@ -9,7 +9,7 @@
 <referredTableID>C89618DD-F4C3-D440-B2B3-B42AF4B660BF</referredTableID>
 <keyObject>F8854E70-1FCD-3F22-B76F-B9E4971442E6</keyObject>
 <referredKeyID>F8854E70-1FCD-3F22-B76F-B9E4971442E6</referredKeyID>
-<mandatory>true</mandatory>
+<mandatory>false</mandatory>
 <refColNames>HOME_HPOLICY_ID</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_14" directorySegmentName="seg_0" id="800102E1-C4A4-3BA2-4B39-6F07C7DD98EA">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 14:48:54 UTC</createdTime>
+<ownerDesignName>Project</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<sourcePk>F9FB2775-83BB-5C07-C8E3-63EC97A87453</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>528914F9-E051-68DF-E4BE-7D6DB5BE136F</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>8A1A43AC-493A-B7E0-5D1E-8E0D67AF243C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -15,6 +15,19 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="hpID" id="2E4A46F4-CC0A-F063-7A17-3ED93B73A359">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:29:10 UTC</createdTime>
+<ownerDesignName>Project</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="startDate" id="CDDDC1E1-6B5F-E3D0-7FE7-B7F012A1A25D">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 18:15:49 UTC</createdTime>
@@ -66,31 +79,6 @@
 <dataTypeSize>1 CHAR</dataTypeSize>
 <ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="dueDate" id="D6670270-1A6A-FEBE-C57E-02A203BD0C2E">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 19:11:01 UTC</createdTime>
-<ownerDesignName>Project</ownerDesignName>
-<engineerTo>
-<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="invoiceAmount" id="B8C5DAF6-1D1A-961C-63F2-8B1C2606AAC6">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 19:11:59 UTC</createdTime>
-<ownerDesignName>Project</ownerDesignName>
-<engineerTo>
-<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>8</dataTypePrecision>
-<ownDataTypeParameters>,8,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="homeID" id="E671C1FA-9DDE-2826-074A-1909F20E75FA">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 19:00:27 UTC</createdTime>
@@ -122,4 +110,18 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C0E617D9-470F-6B00-D8E7-FFF646164F7B" name="HOME_HPOLICY PK">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:30:09 UTC</createdTime>
+<ownerDesignName>Project</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2E4A46F4-CC0A-F063-7A17-3ED93B73A359</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
 </Entity>

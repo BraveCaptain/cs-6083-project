@@ -105,7 +105,7 @@
 <ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="status" id="87622285-84B5-069C-FE41-51D06417C969">
+<Column name="maritalStatus" id="87622285-84B5-069C-FE41-51D06417C969">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
 <generatorID>E4C6EF13-A5C1-404A-8D76-7550DE802E5E</generatorID>
