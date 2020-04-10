@@ -2,7 +2,6 @@
 alter table customer add constraints c_customer_id check (customerid >= 10000000);
 alter table customer add constraints c_customer_gender check (gender in ('M', 'F'));
 alter table customer add constraints c_customer_maritalstatus check (maritalstatus in ('M', 'S', 'W'));
---alter table customer add constraints c_customer_type check (type in ('A', 'H'));
 
 --driver
 alter table driver add constraints c_driver_num check (licenseNum >= 10000000);
@@ -15,11 +14,10 @@ alter table home_hpolicy add constraints c_home_hpolicy_status check (status in 
 --home
 alter table home add constraints c_home_id check (homeid >= 10000000);
 alter table home add constraints c_home_type check (type in ('S', 'M', 'C','T'));
+alter table home add constraints c_home_autoFireNotification check (autoFireNotification in ('1', '0'));
+alter table home add constraints c_home_securitySystem check (securitySystem in ('1', '0'));
 alter table home add constraints c_home_swimmingpool check(swimmingpool in ('U', 'O', 'I', 'M'));
-alter table home add constraints c_home_autofirenotification check (autofirenotification in ('0','1'));
-alter table home add constraints c_home_securitysystem check (securitysystem in ('0','1'));
-alter table home add constraints c_home_swimmingpool check (swimmingpool in ('0','1'));
-alter table home add constraints c_home_basement check (basement in ('0','1'));
+alter table home add constraints c_home_basement check (basement in ('1', '0'));
 
 --payment
 alter table payment add constraints c_payment_id check (paymentid >= 10000000);
@@ -132,29 +130,5 @@ insert into driver_auto (vin, licensenum) values (10000006, 10000006);
 insert into driver_auto (vin, licensenum) values (10000007, 10000007);
 insert into driver_auto (vin, licensenum) values (10000008, 10000008);
 insert into driver_auto (vin, licensenum) values (10000009, 10000009);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
