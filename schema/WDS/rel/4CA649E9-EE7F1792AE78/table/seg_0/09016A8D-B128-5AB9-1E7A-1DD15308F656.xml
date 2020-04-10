@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="09016A8D-B128-5AB9-1E7A-1DD15308F656" name="APOLICY">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>D80B328E-61F4-362B-8163-BCBABDBC677C</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="policyID" id="452296E6-F76D-357E-A64F-477B05F13386">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID of policy]]></commentInRDBMS>
+<generatorID>71F72DAC-9D4D-F67A-075D-2BF1BD2C96DD</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ECA8C6A7-7F65-AE19-2AA8-75A586ADE33F" referredColumn="3E79EA45-9A5D-99CF-D534-C7217CB952ED"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E978D930-9FFE-14C3-1C1B-F5F58FBBFFBA" name="APOLICY_PK">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>40CA6B17-1EBA-0F94-02E8-3897E018409A</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="452296E6-F76D-357E-A64F-477B05F13386"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D778DF23-A493-4FE1-B08A-7555F730ED28" name="APOLICY_POLICY_FK">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>76E127F7-B005-F33D-8EC4-6458C587B760</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="452296E6-F76D-357E-A64F-477B05F13386"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

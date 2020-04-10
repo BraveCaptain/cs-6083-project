@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CD63CFA0-E321-C0C4-5C0F-0FA185A5B813" name="DRIVER">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 15:40:44 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="licenseNum" id="7BBE642C-94DA-EA20-8579-FFD045513E81">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 19:34:47 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fname" id="933084B3-DA00-7832-76C9-2AE0E2FDDE7E">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 19:35:04 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="lname" id="45F39FA9-3E27-D8ED-69CB-1EFCD9F86933">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 19:35:19 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="birthDate" id="FE2EB598-E81B-D22A-643C-54B49FA5F9E6">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 19:35:34 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8D96EA1C-1902-7399-FE9A-E7B3542BBFF6" name="DRIVER PK">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 19:35:00 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>7BBE642C-94DA-EA20-8579-FFD045513E81</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

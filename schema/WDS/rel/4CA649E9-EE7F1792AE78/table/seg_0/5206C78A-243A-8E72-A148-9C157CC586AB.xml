@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5206C78A-243A-8E72-A148-9C157CC586AB" name="ACUSTOMER">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>6767E2A9-8BFA-2FAD-0025-1ADE22140079</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="customerID" id="3EC6744F-7C52-4893-481A-7A7DBF81E14E">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID for customer]]></commentInRDBMS>
+<generatorID>18313AA4-D5B3-89BB-25EC-5B7CC37F5CB5</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="73C31ACA-EC41-3B16-C867-D8A6F8049880" referredColumn="A48A5947-8EE4-C5F3-5088-A2905DAB9131"/>
+</associations>
+</Column>
+<Column name="type" id="DDFF27EC-A719-B65E-39BF-78779FA34C25">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-09 20:14:53 UTC</createdTime>
+<commentInRDBMS><![CDATA[to show whether the customer is Automobile Insurance customer or Home Insurance customer or both, can only be "A" or "H"]]></commentInRDBMS>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="73C31ACA-EC41-3B16-C867-D8A6F8049880" referredColumn="23C8DDDA-711A-F2A8-9C91-55FFD74301A5"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="494DAE02-5888-279F-0C74-54F44EDA03CA" name="ACUSTOMER_PK">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>DF0BF40D-D6D8-3565-E71D-2E5C2AE09E58</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3EC6744F-7C52-4893-481A-7A7DBF81E14E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B94CB77B-A243-9AD7-5B11-ECE32E6115C7" name="ACUSTOMER_CUSTOMER_FK">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>AEC5AFCA-6682-3677-BB47-E144A0C89C92</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3EC6744F-7C52-4893-481A-7A7DBF81E14E"/>
+<colUsage columnID="DDFF27EC-A719-B65E-39BF-78779FA34C25"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

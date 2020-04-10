@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F91F0E4E-7E33-A6A8-5B92-FA6E81D36D03" name="HOME_HPOLICY">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 15:23:27 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="hpID" id="2E4A46F4-CC0A-F063-7A17-3ED93B73A359">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:29:10 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="startDate" id="CDDDC1E1-6B5F-E3D0-7FE7-B7F012A1A25D">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 18:15:49 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="endDate" id="EDC9F1A3-C982-1EDA-1940-E19A8976E8AD">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 18:16:05 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="premuimAmount" id="7D841140-8F0D-BC85-B88A-4E63767CD574">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 18:16:22 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="status" id="0D6423D2-7A34-10E5-430F-5D8E2A585075">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 18:16:42 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="homeID" id="E671C1FA-9DDE-2826-074A-1909F20E75FA">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 19:00:27 UTC</createdTime>
+<generatorID>79E3EB78-700D-A009-30A7-A6C9CCC62649</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<referedAttribute>0181EA85-46F1-043E-9AA0-D49BFAAB2846</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="policyID" id="5433AFD6-F078-BC26-D160-369A745DF433">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 20:42:54 UTC</createdTime>
+<generatorID>961A6ACD-EE58-B60A-087D-35F0EFC3CCA5</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<referedAttribute>71F72DAC-9D4D-F67A-075D-2BF1BD2C96DD</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C0E617D9-470F-6B00-D8E7-FFF646164F7B" name="HOME_HPOLICY PK">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:30:09 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<engineerTo>
+<item key="4CA649E9-5732-2C1D-7FB1-EE7F1792AE78" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2E4A46F4-CC0A-F063-7A17-3ED93B73A359</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

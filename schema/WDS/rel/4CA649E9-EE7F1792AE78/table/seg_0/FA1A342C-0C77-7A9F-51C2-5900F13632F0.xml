@@ -1,0 +1,164 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FA1A342C-0C77-7A9F-51C2-5900F13632F0" name="CUSTOMER">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>3D47D9E9-E19E-E2D5-40E6-071597A4E4FC</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="customerID" id="A48A5947-8EE4-C5F3-5088-A2905DAB9131">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique ID for customer]]></commentInRDBMS>
+<generatorID>18313AA4-D5B3-89BB-25EC-5B7CC37F5CB5</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="type" id="23C8DDDA-711A-F2A8-9C91-55FFD74301A5">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[to show whether the customer is Automobile Insurance customer or Home Insurance customer or both, can only be "A" or "H"]]></commentInRDBMS>
+<generatorID>46EE0F75-AFF1-849C-BD64-8999F6C2C264</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<constraintName>CH_INH_CUSTOMER</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<listOfValues>
+<valueDef value="A" description="entity ACUSTOMER"/>
+<valueDef value="H" description="entity HCUSTOMER"/>
+</listOfValues>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isDiscriminatorColumn>true</isDiscriminatorColumn>
+</Column>
+<Column name="fname" id="C650A786-4743-094C-7D9B-F768179E1689">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the first name of customer]]></commentInRDBMS>
+<generatorID>4028D140-DB58-37CE-FA2C-E7F1928F65AA</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="lname" id="8241AD47-39CE-878B-1D12-CC0350D0E6FB">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the last name of customer]]></commentInRDBMS>
+<generatorID>349AFD15-3D9A-0DD2-16C0-CC83627FBF46</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="state" id="5F736887-2ACD-1D8A-6CB0-FF45F64573B1">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the state where customer lives]]></commentInRDBMS>
+<generatorID>9486E538-632C-3827-E64A-7558DF473851</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="city" id="31737670-646E-AD48-6D2F-05B8A634AE1E">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the city where customer lives]]></commentInRDBMS>
+<generatorID>B02790CB-E545-CC21-7EE3-DE040E2CA012</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="street" id="BCB9260C-E797-7DD6-13D1-BEEF81BA0A7F">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the street where customer lives]]></commentInRDBMS>
+<generatorID>B4D423AF-9043-75A6-993E-513FAC5755DA</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="zipcode" id="AEB3DC16-CA86-87C3-9483-0A7A88419E83">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the zipcode that where customer lives uses]]></commentInRDBMS>
+<generatorID>C5E9B51C-A92E-7F3B-8115-A8CBDA40C515</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gender" id="E71DC1EE-DB23-CA95-32A3-12119DCD4130">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show whether customer is male or female, can only be "M" or "F", customer may choose not to provide gender data]]></commentInRDBMS>
+<generatorID>08133AF4-6828-0BD0-D8E8-0FBB84B5EF74</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="maritalStatus" id="87622285-84B5-069C-FE41-51D06417C969">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show marital status of customer, must be either "M", "S", or "W", representing "Married", "Single", and "Widow/Widower" respectively]]></commentInRDBMS>
+<generatorID>E4C6EF13-A5C1-404A-8D76-7550DE802E5E</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="10D20C2E-AF1C-1CF4-F4F9-70E686FFFE7C" name="CUSTOMER_PK">
+<createdBy>tqy</createdBy>
+<createdTime>2020-04-08 21:17:52 UTC</createdTime>
+<generatorID>DF0BF40D-D6D8-3565-E71D-2E5C2AE09E58</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A48A5947-8EE4-C5F3-5088-A2905DAB9131"/>
+<colUsage columnID="23C8DDDA-711A-F2A8-9C91-55FFD74301A5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

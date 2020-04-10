@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BCADE9FD-1085-3470-0904-8EA0C4D0FDF5" containerWithKeyObject="62F1CB11-B3F0-24A0-E2A7-A113AB241EB4" localFKIndex="0ED0641A-9E25-74A6-6312-1EE8BF9D3B98" name="PAYMENT_INVOICE_FK">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:12:52 UTC</createdTime>
+<generatorID>800102E1-C4A4-3BA2-4B39-6F07C7DD98EA</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<referredTableLongName>INVOICE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>F56318A5-FBC6-370F-15CF-477120E45720</referredTableID>
+<keyObject>F85D4B44-BB63-3058-1EEC-07732158913C</keyObject>
+<referredKeyID>F85D4B44-BB63-3058-1EEC-07732158913C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>invoiceID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

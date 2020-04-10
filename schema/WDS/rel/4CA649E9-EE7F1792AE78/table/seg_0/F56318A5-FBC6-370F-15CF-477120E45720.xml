@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F56318A5-FBC6-370F-15CF-477120E45720" name="INVOICE">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:12:52 UTC</createdTime>
+<generatorID>528914F9-E051-68DF-E4BE-7D6DB5BE136F</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="invoiceID" id="8E24F927-4E68-B503-2111-609F9F787995">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:12:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[the unique of invoice]]></commentInRDBMS>
+<generatorID>CB687CE4-2860-B528-E0FE-02FDDC07D74F</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="paymentDueDate" id="E85D4886-032D-D072-ED18-4BB06D160F03">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:12:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show payment due date]]></commentInRDBMS>
+<generatorID>FEEE8305-8B35-8E88-C543-14419FBEF24A</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="amount" id="0F86EC26-FA9D-7E06-EE63-84A710FBB3EE">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:12:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[show invoice amount]]></commentInRDBMS>
+<generatorID>0640634D-4A74-38EC-569C-2EE85DCB7B4C</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F85D4B44-BB63-3058-1EEC-07732158913C" name="INVOICE_PK">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-09 15:12:52 UTC</createdTime>
+<generatorID>F9FB2775-83BB-5C07-C8E3-63EC97A87453</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8E24F927-4E68-B503-2111-609F9F787995"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
