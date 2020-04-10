@@ -43,7 +43,7 @@
 <Column name="fname" id="C650A786-4743-094C-7D9B-F768179E1689">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<commentInRDBMS><![CDATA[the first name of customer, must be in upper case]]></commentInRDBMS>
+<commentInRDBMS><![CDATA[the first name of customer]]></commentInRDBMS>
 <generatorID>4028D140-DB58-37CE-FA2C-E7F1928F65AA</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -56,7 +56,7 @@
 <Column name="lname" id="8241AD47-39CE-878B-1D12-CC0350D0E6FB">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<commentInRDBMS><![CDATA[the last name of customer, must be in upper case]]></commentInRDBMS>
+<commentInRDBMS><![CDATA[the last name of customer]]></commentInRDBMS>
 <generatorID>349AFD15-3D9A-0DD2-16C0-CC83627FBF46</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>

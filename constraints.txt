@@ -12,7 +12,7 @@ alter table home_hpolicy add constraints c_home_hpolicy_hpID check (hpID >= 1000
 alter table home_hpolicy add constraints c_home_hpolicy_status check (status in ('C', 'P'));
 
 --home
-alter table home add constraints c_auto_vin check (vin >= 10000000);
+alter table home add constraints c_home_id check (homeid >= 10000000);
 alter table home add constraints c_home_type check (type in ('S', 'M', 'C','T'));
 alter table home add constraints c_home_swimmingpool check(swimmingpool in ('U', 'O', 'I', 'M'));
 

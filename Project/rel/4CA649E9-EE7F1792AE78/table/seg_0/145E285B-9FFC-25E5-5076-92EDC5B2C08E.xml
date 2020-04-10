@@ -36,7 +36,7 @@
 <Column name="status" id="9982E618-12C8-79FE-91EA-FF89A84DCB5C">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<commentInRDBMS><![CDATA[show the status of the vehicle, can be one of “L”, “F”, or “O” representing "Leased", "Financed", and "Owned"
+<commentInRDBMS><![CDATA[show the status of the vehicle, can be one of "L", "F", or "O" representing "Leased", "Financed", and "Owned"
 ]]></commentInRDBMS>
 <generatorID>3F475C7A-87BC-C00F-1B21-5D6E04B2DB39</generatorID>
 <ownerDesignName>Project</ownerDesignName>

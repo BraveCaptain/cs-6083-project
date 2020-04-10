@@ -41,7 +41,6 @@
 <commentInRDBMS><![CDATA[auto insurance policy end date]]></commentInRDBMS>
 <generatorID>09E95142-9FE3-F495-5A7A-59769CFD9444</generatorID>
 <ownerDesignName>Project</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>

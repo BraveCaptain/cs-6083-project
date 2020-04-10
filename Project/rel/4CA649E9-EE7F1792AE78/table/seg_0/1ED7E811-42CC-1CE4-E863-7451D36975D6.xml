@@ -24,7 +24,7 @@
 <Column name="fname" id="FF79ABDE-AF40-54D2-D8EF-FE9622552D75">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<commentInRDBMS><![CDATA[the first name of driver, must be in upper case]]></commentInRDBMS>
+<commentInRDBMS><![CDATA[the first name of driver]]></commentInRDBMS>
 <generatorID>933084B3-DA00-7832-76C9-2AE0E2FDDE7E</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -37,7 +37,7 @@
 <Column name="lname" id="907D3C3D-FF78-A36E-AA44-617C4906B246">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<commentInRDBMS><![CDATA[the last name of driver, must be in upper case]]></commentInRDBMS>
+<commentInRDBMS><![CDATA[the last name of driver]]></commentInRDBMS>
 <generatorID>45F39FA9-3E27-D8ED-69CB-1EFCD9F86933</generatorID>
 <ownerDesignName>Project</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
