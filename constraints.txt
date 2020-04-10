@@ -1,9 +1,8 @@
---d
 --customer
 alter table customer add constraints c_customer_id check (customerid >= 10000000);
 alter table customer add constraints c_customer_gender check (gender in ('M', 'F'));
 alter table customer add constraints c_customer_maritalstatus check (maritalstatus in ('M', 'S', 'W'));
-alter table customer add constraints c_customer_type check (type in ('A', 'H'));
+--alter table customer add constraints c_customer_type check (type in ('A', 'H'));
 
 --driver
 alter table driver add constraints c_driver_num check (licenseNum >= 10000000);
@@ -17,6 +16,10 @@ alter table home_hpolicy add constraints c_home_hpolicy_status check (status in 
 alter table home add constraints c_home_id check (homeid >= 10000000);
 alter table home add constraints c_home_type check (type in ('S', 'M', 'C','T'));
 alter table home add constraints c_home_swimmingpool check(swimmingpool in ('U', 'O', 'I', 'M'));
+alter table home add constraints c_home_autofirenotification check (autofirenotification in ('0','1'));
+alter table home add constraints c_home_securitysystem check (securitysystem in ('0','1'));
+alter table home add constraints c_home_swimmingpool check (swimmingpool in ('0','1'));
+alter table home add constraints c_home_basement check (basement in ('0','1'));
 
 --payment
 alter table payment add constraints c_payment_id check (paymentid >= 10000000);
@@ -32,12 +35,13 @@ alter table auto add constraints c_auto_status check (status in ('L', 'F', 'O'))
 
 --policy
 alter table policy add constraints c_policy_policyid check (policyid >= 10000000);
-alter table policy add constraints c_policy_type check (type in ('A', 'H'));
+--alter table policy add constraints c_policy_type check (type in ('A', 'H'));
 
 --invoice
 alter table invoice add constraints c_invoice_id check (invoiceid >= 10000000);
 
---e
+
+--------------------------------------------------------------------------------------------------
 
 --customer
 insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000000, 'A', 'A', 'A', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
@@ -77,29 +81,30 @@ insert into hcustomer (customerid, type) values (10000004, 'H');
 
 
 --home
-insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000000, to_date('01/01/2020'), 100, 5, 'S', '0', '0', 'U', '1')
-insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000001, to_date('01/02/2020'), 1000, 50, 'M', '0', '1', 'O', '0')
-insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000002, to_date('02/01/2020'), 10000, 500, 'C', '0', '1', 'I', '1')
-insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000003, to_date('01/03/2020'), 100000, 5000, 'T', '1', '0', 'M', '0')
-insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000004, to_date('03/01/2020'), 100, 5, 'S', '0', '0', 'U', '1')
-insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000005, to_date('01/04/2020'), 100, 5, 'M', '1', '1', 'O', '0')
-insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000006, to_date('04/01/2020'), 100, 5, 'C', '0', '0', 'I', '1')
-insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000007, to_date('01/05/2020'), 100, 5, 'T', '0', '1', 'M', '0')
-insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000008, to_date('05/01/2018'), 100, 5, 'S', '0', '0', 'U', '1')
-insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000009, to_date('05/05/2018'), 100, 5, 'M', '1', '1', 'O', '1')
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement, customerid) values (10000000, date'2020-01-01', 100, 5, 'S', '0', '0', 'U', '1', 10000000);
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement, customerid) values (10000001, date'2020-01-02', 100, 5, 'M', '0', '1', 'O', '0', 10000001);
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement, customerid) values (10000002, date'2020-01-03', 100, 5, 'C', '1', '0', 'I', '1', 10000002);
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement, customerid) values (10000003, date'2020-02-01', 100, 5, 'T', '1', '1', 'M', '0', 10000003);
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement, customerid) values (10000004, date'2020-03-01', 100, 5, 'S', '0', '0', 'U', '0', 10000004);
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement, customerid) values (10000005, date'2020-03-02', 100, 5, 'M', '1', '1', 'O', '0', 10000005);
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement, customerid) values (10000006, date'2020-01-01', 100, 5, 'C', '0', '0', 'I', '1', 10000006);
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement, customerid) values (10000007, date'2008-01-01', 100, 5, 'T', '1', '0', 'M', '1', 10000007);
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement, customerid) values (10000008, date'2014-01-01', 100, 5, 'S', '0', '0', 'U', '1', 10000008);
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement, customerid) values (10000009, date'2012-03-01', 100, 5, 'M', '1', '0', 'O', '1', 10000009);
+
 
 
 --driver
-insert into driver (licensenum, fname, lname, birthdate) values (10000000, 'd', 'a', to_date('01/01/2020'));
-insert into driver (licensenum, fname, lname, birthdate) values (10000001, 'd', 'b', to_date('01/02/2020'));
-insert into driver (licensenum, fname, lname, birthdate) values (10000002, 'd', 'c', to_date('01/03/2020'));
-insert into driver (licensenum, fname, lname, birthdate) values (10000003, 'd', 'd', to_date('01/04/2020'));
-insert into driver (licensenum, fname, lname, birthdate) values (10000004, 'd', 'e', to_date('01/05/2020'));
-insert into driver (licensenum, fname, lname, birthdate) values (10000005, 'd', 'f', to_date('01/06/2020'));
-insert into driver (licensenum, fname, lname, birthdate) values (10000006, 'd', 'g', to_date('01/07/2020'));
-insert into driver (licensenum, fname, lname, birthdate) values (10000007, 'd', 'h', to_date('01/08/2020'));
-insert into driver (licensenum, fname, lname, birthdate) values (10000008, 'd', 'i', to_date('01/09/2020'));
-insert into driver (licensenum, fname, lname, birthdate) values (10000009, 'd', 'j', to_date('02/01/2020'));
+insert into driver (licensenum, fname, lname, birthdate) values (10000000, 'd', 'a', date'01/01/2020');
+insert into driver (licensenum, fname, lname, birthdate) values (10000001, 'd', 'b', date'01/02/2020');
+insert into driver (licensenum, fname, lname, birthdate) values (10000002, 'd', 'c', date'01/03/2020');
+insert into driver (licensenum, fname, lname, birthdate) values (10000003, 'd', 'd', date'01/04/2020');
+insert into driver (licensenum, fname, lname, birthdate) values (10000004, 'd', 'e', date'01/05/2020');
+insert into driver (licensenum, fname, lname, birthdate) values (10000005, 'd', 'f', date'01/06/2020');
+insert into driver (licensenum, fname, lname, birthdate) values (10000006, 'd', 'g', date'01/07/2020');
+insert into driver (licensenum, fname, lname, birthdate) values (10000007, 'd', 'h', date'01/08/2020');
+insert into driver (licensenum, fname, lname, birthdate) values (10000008, 'd', 'i', date'01/09/2020');
+insert into driver (licensenum, fname, lname, birthdate) values (10000009, 'd', 'j', date'02/01/2020');
 
 
 --auto
