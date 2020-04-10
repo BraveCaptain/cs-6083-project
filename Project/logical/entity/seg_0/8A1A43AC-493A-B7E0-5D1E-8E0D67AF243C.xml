@@ -28,7 +28,7 @@
 <dataTypePrecision>8</dataTypePrecision>
 <ownDataTypeParameters>,8,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="date" id="5209DABE-CF51-65A1-2569-D885CBF5026E">
+<Attribute name="paymentdate" id="5209DABE-CF51-65A1-2569-D885CBF5026E">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 19:23:47 UTC</createdTime>
 <ownerDesignName>Project</ownerDesignName>

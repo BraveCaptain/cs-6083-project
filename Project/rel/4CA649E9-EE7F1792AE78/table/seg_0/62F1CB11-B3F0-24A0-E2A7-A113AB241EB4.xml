@@ -21,7 +21,7 @@
 <ownDataTypeParameters>,8,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="date" id="912ABBE9-C7EF-C6BF-0C0D-59C4B1EDABA8">
+<Column name="paymentdate" id="912ABBE9-C7EF-C6BF-0C0D-59C4B1EDABA8">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-08 21:17:52 UTC</createdTime>
 <commentInRDBMS><![CDATA[payment date ]]></commentInRDBMS>

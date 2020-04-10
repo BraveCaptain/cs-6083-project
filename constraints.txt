@@ -200,3 +200,15 @@ insert into auto_apolicy (apid, startdate, enddate, premuimamount, status, vin, 
 insert into auto_apolicy (apid, startdate, enddate, premuimamount, status, vin, policyid) values (10000007, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000007, 10000003);
 insert into auto_apolicy (apid, startdate, enddate, premuimamount, status, vin, policyid) values (10000008, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000008, 10000004);
 insert into auto_apolicy (apid, startdate, enddate, premuimamount, status, vin, policyid) values (10000009, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000009, 10000004);
+
+--payment
+insert into payment (paymentid, paymentdate, method, hpid, invoiceID, amount) values (10000000, date'2020-01-01', 'PayPal', 10000000, 10000000, 5000);
+insert into payment (paymentid, paymentdate, method, hpid, invoiceID, amount) values (10000001, date'2020-01-01', 'Credit', 10000000, 10000000, 5000);
+insert into payment (paymentid, paymentdate, method, hpid, invoiceID, amount) values (10000002, date'2020-01-01', 'Debit', 10000001, 10000001, 5000);
+insert into payment (paymentid, paymentdate, method, hpid, invoiceID, amount) values (10000003, date'2020-01-01', 'Check', 10000001, 10000001, 5000);
+insert into payment (paymentid, paymentdate, method, hpid, invoiceID, amount) values (10000004, date'2020-01-01', 'PayPal', 10000002, 10000002, 10000);
+insert into payment (paymentid, paymentdate, method, hpid, invoiceID, amount) values (10000005, date'2020-01-01', 'PayPal', 10000003, 10000003, 10000);
+insert into payment (paymentid, paymentdate, method, apid, invoiceID, amount) values (10000006, date'2020-01-01', 'Credit', 10000000, 10000004, 10000);
+insert into payment (paymentid, paymentdate, method, apid, invoiceID, amount) values (10000007, date'2020-01-01', 'Check', 10000001, 10000005, 10000);
+insert into payment (paymentid, paymentdate, method, apid, invoiceID, amount) values (10000008, date'2020-01-01', 'PayPal', 10000002, 10000006, 10000);
+insert into payment (paymentid, paymentdate, method, apid, invoiceID, amount) values (10000009, date'2020-01-01', 'PayPal', 10000003, 10000007, 10000);
