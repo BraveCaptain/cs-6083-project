@@ -1,3 +1,4 @@
+--d
 --customer
 alter table customer add constraints c_customer_id check (customerid >= 10000000);
 alter table customer add constraints c_customer_gender check (gender in ('M', 'F'));
@@ -6,6 +7,7 @@ alter table customer add constraints c_customer_type check (type in ('A', 'H'));
 
 --driver
 alter table driver add constraints c_driver_num check (licenseNum >= 10000000);
+alter table driver add constraints c_driver_birthdate check (birthdate >= sysdate);
 
 --home_hpolicy
 alter table home_hpolicy add constraints c_home_hpolicy_hpID check (hpID >= 10000000);
@@ -34,3 +36,120 @@ alter table policy add constraints c_policy_type check (type in ('A', 'H'));
 
 --invoice
 alter table invoice add constraints c_invoice_id check (invoiceid >= 10000000);
+
+--e
+
+--customer
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000000, 'A', 'A', 'A', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000001, 'A', 'A', 'B', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000002, 'A', 'A', 'C', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000003, 'A', 'A', 'D', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000004, 'A', 'A', 'E', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000005, 'A', 'A', 'F', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000006, 'A', 'A', 'G', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000007, 'A', 'A', 'H', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000008, 'A', 'A', 'I', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000009, 'A', 'A', 'J', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+
+insert into acustomer (customerid, type) values (10000000, 'A');
+insert into acustomer (customerid, type) values (10000001, 'A');
+insert into acustomer (customerid, type) values (10000002, 'A');
+insert into acustomer (customerid, type) values (10000003, 'A');
+insert into acustomer (customerid, type) values (10000004, 'A');
+insert into acustomer (customerid, type) values (10000005, 'A');
+insert into acustomer (customerid, type) values (10000006, 'A');
+insert into acustomer (customerid, type) values (10000007, 'A');
+insert into acustomer (customerid, type) values (10000008, 'A');
+insert into acustomer (customerid, type) values (10000009, 'A');
+
+
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000000, 'H', 'A', 'A', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000001, 'H', 'A', 'B', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000002, 'H', 'A', 'C', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000003, 'H', 'A', 'D', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000004, 'H', 'A', 'E', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+
+insert into hcustomer (customerid, type) values (10000000, 'H');
+insert into hcustomer (customerid, type) values (10000001, 'H');
+insert into hcustomer (customerid, type) values (10000002, 'H');
+insert into hcustomer (customerid, type) values (10000003, 'H');
+insert into hcustomer (customerid, type) values (10000004, 'H');
+
+
+--home
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000000, to_date('01/01/2020'), 100, 5, 'S', '0', '0', 'U', '1')
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000001, to_date('01/02/2020'), 1000, 50, 'M', '0', '1', 'O', '0')
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000002, to_date('02/01/2020'), 10000, 500, 'C', '0', '1', 'I', '1')
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000003, to_date('01/03/2020'), 100000, 5000, 'T', '1', '0', 'M', '0')
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000004, to_date('03/01/2020'), 100, 5, 'S', '0', '0', 'U', '1')
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000005, to_date('01/04/2020'), 100, 5, 'M', '1', '1', 'O', '0')
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000006, to_date('04/01/2020'), 100, 5, 'C', '0', '0', 'I', '1')
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000007, to_date('01/05/2020'), 100, 5, 'T', '0', '1', 'M', '0')
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000008, to_date('05/01/2018'), 100, 5, 'S', '0', '0', 'U', '1')
+insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement) values (10000009, to_date('05/05/2018'), 100, 5, 'M', '1', '1', 'O', '1')
+
+
+--driver
+insert into driver (licensenum, fname, lname, birthdate) values (10000000, 'd', 'a', to_date('01/01/2020'));
+insert into driver (licensenum, fname, lname, birthdate) values (10000001, 'd', 'b', to_date('01/02/2020'));
+insert into driver (licensenum, fname, lname, birthdate) values (10000002, 'd', 'c', to_date('01/03/2020'));
+insert into driver (licensenum, fname, lname, birthdate) values (10000003, 'd', 'd', to_date('01/04/2020'));
+insert into driver (licensenum, fname, lname, birthdate) values (10000004, 'd', 'e', to_date('01/05/2020'));
+insert into driver (licensenum, fname, lname, birthdate) values (10000005, 'd', 'f', to_date('01/06/2020'));
+insert into driver (licensenum, fname, lname, birthdate) values (10000006, 'd', 'g', to_date('01/07/2020'));
+insert into driver (licensenum, fname, lname, birthdate) values (10000007, 'd', 'h', to_date('01/08/2020'));
+insert into driver (licensenum, fname, lname, birthdate) values (10000008, 'd', 'i', to_date('01/09/2020'));
+insert into driver (licensenum, fname, lname, birthdate) values (10000009, 'd', 'j', to_date('02/01/2020'));
+
+
+--auto
+insert into auto (vin, modelyear, status, customerid) values (10000000, to_date('01/01/1999'), 'L', 10000000);
+insert into auto (vin, modelyear, status, customerid) values (10000001, to_date('01/01/1998'), 'F', 10000001);
+insert into auto (vin, modelyear, status, customerid) values (10000002, to_date('01/01/1997'), 'O', 10000002);
+insert into auto (vin, modelyear, status, customerid) values (10000003, to_date('01/01/1996'), 'L', 10000003);
+insert into auto (vin, modelyear, status, customerid) values (10000004, to_date('01/01/1995'), 'F', 10000004);
+insert into auto (vin, modelyear, status, customerid) values (10000005, to_date('01/01/1994'), 'O', 10000005);
+insert into auto (vin, modelyear, status, customerid) values (10000006, to_date('01/01/1993'), 'L', 10000006);
+insert into auto (vin, modelyear, status, customerid) values (10000007, to_date('01/01/1992'), 'F', 10000007);
+insert into auto (vin, modelyear, status, customerid) values (10000008, to_date('01/01/1999'), 'O', 10000008);
+insert into auto (vin, modelyear, status, customerid) values (10000009, to_date('01/01/1991'), 'L', 10000009);
+
+
+
+--driver_auto
+insert into driver_auto (vin, licensenum) values (10000000, 10000000);
+insert into driver_auto (vin, licensenum) values (10000001, 10000001);
+insert into driver_auto (vin, licensenum) values (10000002, 10000002);
+insert into driver_auto (vin, licensenum) values (10000003, 10000003);
+insert into driver_auto (vin, licensenum) values (10000004, 10000004);
+insert into driver_auto (vin, licensenum) values (10000005, 10000005);
+insert into driver_auto (vin, licensenum) values (10000006, 10000006);
+insert into driver_auto (vin, licensenum) values (10000007, 10000007);
+insert into driver_auto (vin, licensenum) values (10000008, 10000008);
+insert into driver_auto (vin, licensenum) values (10000009, 10000009);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
