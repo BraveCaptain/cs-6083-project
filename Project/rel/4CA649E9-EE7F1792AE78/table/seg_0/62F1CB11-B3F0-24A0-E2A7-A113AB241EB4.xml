@@ -96,6 +96,18 @@
 <colAssociation fkAssociation="BCADE9FD-1085-3470-0904-8EA0C4D0FDF5" referredColumn="8E24F927-4E68-B503-2111-609F9F787995"/>
 </associations>
 </Column>
+<Column name="amount" id="7B5F3DBF-1718-E358-D586-CFD3EB6D7BF8">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-04-10 14:32:03 UTC</createdTime>
+<commentInRDBMS><![CDATA[the amount of money of payment]]></commentInRDBMS>
+<ownerDesignName>Project</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="A4D6E1FB-53B1-BC84-188E-2947623B6F09" name="PAYMENT_PK">
