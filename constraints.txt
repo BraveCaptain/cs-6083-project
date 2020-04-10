@@ -32,7 +32,6 @@ alter table auto add constraints c_auto_status check (status in ('L', 'F', 'O'))
 
 --policy
 alter table policy add constraints c_policy_policyid check (policyid >= 10000000);
---alter table policy add constraints c_policy_type check (type in ('A', 'H'));
 
 --invoice
 alter table invoice add constraints c_invoice_id check (invoiceid >= 10000000);
@@ -69,12 +68,23 @@ insert into customer (customerid, type, fname, lname, state, city, street, zipco
 insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000002, 'H', 'A', 'C', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
 insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000003, 'H', 'A', 'D', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
 insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000004, 'H', 'A', 'E', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000005, 'H', 'A', 'F', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000006, 'H', 'A', 'G', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000007, 'H', 'A', 'H', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000008, 'H', 'A', 'I', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000009, 'H', 'A', 'J', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
+
 
 insert into hcustomer (customerid, type) values (10000000, 'H');
 insert into hcustomer (customerid, type) values (10000001, 'H');
 insert into hcustomer (customerid, type) values (10000002, 'H');
 insert into hcustomer (customerid, type) values (10000003, 'H');
 insert into hcustomer (customerid, type) values (10000004, 'H');
+insert into hcustomer (customerid, type) values (10000005, 'H');
+insert into hcustomer (customerid, type) values (10000006, 'H');
+insert into hcustomer (customerid, type) values (10000007, 'H');
+insert into hcustomer (customerid, type) values (10000008, 'H');
+insert into hcustomer (customerid, type) values (10000009, 'H');
 
 
 --home
@@ -92,29 +102,29 @@ insert into home (homeid, purchasedate, purchasevalue, area, type, autofirenotif
 
 
 --driver
-insert into driver (licensenum, fname, lname, birthdate) values (10000000, 'd', 'a', date'01/01/2020');
-insert into driver (licensenum, fname, lname, birthdate) values (10000001, 'd', 'b', date'01/02/2020');
-insert into driver (licensenum, fname, lname, birthdate) values (10000002, 'd', 'c', date'01/03/2020');
-insert into driver (licensenum, fname, lname, birthdate) values (10000003, 'd', 'd', date'01/04/2020');
-insert into driver (licensenum, fname, lname, birthdate) values (10000004, 'd', 'e', date'01/05/2020');
-insert into driver (licensenum, fname, lname, birthdate) values (10000005, 'd', 'f', date'01/06/2020');
-insert into driver (licensenum, fname, lname, birthdate) values (10000006, 'd', 'g', date'01/07/2020');
-insert into driver (licensenum, fname, lname, birthdate) values (10000007, 'd', 'h', date'01/08/2020');
-insert into driver (licensenum, fname, lname, birthdate) values (10000008, 'd', 'i', date'01/09/2020');
-insert into driver (licensenum, fname, lname, birthdate) values (10000009, 'd', 'j', date'02/01/2020');
+insert into driver (licensenum, fname, lname, birthdate) values (10000000, 'd', 'a', date'1995-06-02');
+insert into driver (licensenum, fname, lname, birthdate) values (10000001, 'd', 'b', date'1995-08-02');
+insert into driver (licensenum, fname, lname, birthdate) values (10000002, 'd', 'c', date'1995-03-02');
+insert into driver (licensenum, fname, lname, birthdate) values (10000003, 'd', 'd', date'1995-06-21');
+insert into driver (licensenum, fname, lname, birthdate) values (10000004, 'd', 'e', date'1993-06-02');
+insert into driver (licensenum, fname, lname, birthdate) values (10000005, 'd', 'f', date'1995-06-02');
+insert into driver (licensenum, fname, lname, birthdate) values (10000006, 'd', 'g', date'1995-06-02');
+insert into driver (licensenum, fname, lname, birthdate) values (10000007, 'd', 'h', date'1995-06-02');
+insert into driver (licensenum, fname, lname, birthdate) values (10000008, 'd', 'i', date'1995-06-02');
+insert into driver (licensenum, fname, lname, birthdate) values (10000009, 'd', 'j', date'1995-06-02');
 
 
 --auto
-insert into auto (vin, modelyear, status, customerid) values (10000000, date'01/01/1999', 'L', 10000000);
-insert into auto (vin, modelyear, status, customerid) values (10000001, date'01/01/1998', 'F', 10000001);
-insert into auto (vin, modelyear, status, customerid) values (10000002, date'01/01/1997', 'O', 10000002);
-insert into auto (vin, modelyear, status, customerid) values (10000003, date'01/01/1996', 'L', 10000003);
-insert into auto (vin, modelyear, status, customerid) values (10000004, date'01/01/1995', 'F', 10000004);
-insert into auto (vin, modelyear, status, customerid) values (10000005, date'01/01/1994', 'O', 10000005);
-insert into auto (vin, modelyear, status, customerid) values (10000006, date'01/01/1993', 'L', 10000006);
-insert into auto (vin, modelyear, status, customerid) values (10000007, date'01/01/1992', 'F', 10000007);
-insert into auto (vin, modelyear, status, customerid) values (10000008, date'01/01/1999', 'O', 10000008);
-insert into auto (vin, modelyear, status, customerid) values (10000009, date'01/01/1991', 'L', 10000009);
+insert into auto (vin, modelyear, status, customerid) values (10000000, date'1995-06-02', 'L', 10000000);
+insert into auto (vin, modelyear, status, customerid) values (10000001, date'1995-06-02', 'F', 10000001);
+insert into auto (vin, modelyear, status, customerid) values (10000002, date'1995-06-02', 'O', 10000002);
+insert into auto (vin, modelyear, status, customerid) values (10000003, date'1995-06-02', 'L', 10000003);
+insert into auto (vin, modelyear, status, customerid) values (10000004, date'1995-06-02', 'F', 10000004);
+insert into auto (vin, modelyear, status, customerid) values (10000005, date'1995-06-02', 'O', 10000005);
+insert into auto (vin, modelyear, status, customerid) values (10000006, date'1995-06-02', 'L', 10000006);
+insert into auto (vin, modelyear, status, customerid) values (10000007, date'1995-06-02', 'F', 10000007);
+insert into auto (vin, modelyear, status, customerid) values (10000008, date'1995-06-02', 'O', 10000008);
+insert into auto (vin, modelyear, status, customerid) values (10000009, date'1995-06-02', 'L', 10000009);
 
 
 
@@ -180,13 +190,13 @@ insert into invoice (invoiceid, paymentduedate, amount) values (10000008, date'2
 insert into invoice (invoiceid, paymentduedate, amount) values (10000009, date'2020-5-5', 10000);
 
 --auto_apolicy
-insert into auto_apolicy (apid, startdate, enddate, premiumamount, status, vin, policyid) values (10000000, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000000, 10000000);
-insert into auto_apolicy (apid, startdate, enddate, premiumamount, status, vin, policyid) values (10000001, date'2019-01-01', date'2020-01-01', 10000, 'P', 10000001, 10000000);
-insert into auto_apolicy (apid, startdate, enddate, premiumamount, status, vin, policyid) values (10000002, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000002, 10000001);
-insert into auto_apolicy (apid, startdate, enddate, premiumamount, status, vin, policyid) values (10000003, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000003, 10000001);
-insert into auto_apolicy (apid, startdate, enddate, premiumamount, status, vin, policyid) values (10000004, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000004, 10000002);
-insert into auto_apolicy (apid, startdate, enddate, premiumamount, status, vin, policyid) values (10000005, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000005, 10000002);
-insert into auto_apolicy (apid, startdate, enddate, premiumamount, status, vin, policyid) values (10000006, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000006, 10000003);
-insert into auto_apolicy (apid, startdate, enddate, premiumamount, status, vin, policyid) values (10000007, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000007, 10000003);
-insert into auto_apolicy (apid, startdate, enddate, premiumamount, status, vin, policyid) values (10000008, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000008, 10000004);
-insert into auto_apolicy (apid, startdate, enddate, premiumamount, status, vin, policyid) values (10000009, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000009, 10000004);
+insert into auto_apolicy (apid, startdate, enddate, premuimamount, status, vin, policyid) values (10000000, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000000, 10000000);
+insert into auto_apolicy (apid, startdate, enddate, premuimamount, status, vin, policyid) values (10000001, date'2019-01-01', date'2020-01-01', 10000, 'P', 10000001, 10000000);
+insert into auto_apolicy (apid, startdate, enddate, premuimamount, status, vin, policyid) values (10000002, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000002, 10000001);
+insert into auto_apolicy (apid, startdate, enddate, premuimamount, status, vin, policyid) values (10000003, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000003, 10000001);
+insert into auto_apolicy (apid, startdate, enddate, premuimamount, status, vin, policyid) values (10000004, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000004, 10000002);
+insert into auto_apolicy (apid, startdate, enddate, premuimamount, status, vin, policyid) values (10000005, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000005, 10000002);
+insert into auto_apolicy (apid, startdate, enddate, premuimamount, status, vin, policyid) values (10000006, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000006, 10000003);
+insert into auto_apolicy (apid, startdate, enddate, premuimamount, status, vin, policyid) values (10000007, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000007, 10000003);
+insert into auto_apolicy (apid, startdate, enddate, premuimamount, status, vin, policyid) values (10000008, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000008, 10000004);
+insert into auto_apolicy (apid, startdate, enddate, premuimamount, status, vin, policyid) values (10000009, date'2020-01-01', date'2021-01-01', 10000, 'C', 10000009, 10000004);
