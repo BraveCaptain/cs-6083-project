@@ -6,7 +6,7 @@
     <meta name="description" content="Login - Register Template">
     <meta name="author" content="Lorenzo Angelino aka MrLolok">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/login-register.css">
+    <link rel="stylesheet" href="/static/login-register.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
@@ -46,12 +46,6 @@
             <input type="submit" value="Log In" />
         </form>
 
-        <div class="forgot-password">
-            <a href="#">Forgot your password?</a>
-        </div>
-        <div class="privacy">
-            <a href="#">Privacy Policy</a>
-        </div>
 
         <div class="register">
             Don't have an account yet?

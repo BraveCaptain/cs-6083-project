@@ -6,6 +6,7 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 //tell express standard attribute
 app.set('view engine', 'art');
+
 //tell standard engine for attribute
 app.engine('art', require('express-art-template'));
 
