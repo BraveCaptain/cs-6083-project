@@ -1,4 +1,7 @@
 # CS-6083-Project
+
 npm install
-npm start
+
+npm test
+
 visit localhost:3000/login

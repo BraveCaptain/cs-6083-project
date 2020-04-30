@@ -1,6 +1,14 @@
 DROP DATABASE IF EXISTS WDS;
 CREATE DATABASE WDS;
-USE WDS;
+ USE WDS;
+
+CREATE TABLE user (
+    userid varchar(3) NOT NULL,
+    password varchar(6) not null,
+    customerid INT
+);
+
+alter table user add constraint user_pk PRIMARY KEY (userid);
 
 CREATE TABLE acustomer (
     customerid  INT NOT NULL COMMENT 'the unique ID for customer',
@@ -12,7 +20,6 @@ ALTER TABLE acustomer ADD CONSTRAINT acustomer_pk PRIMARY KEY ( customerid );
 CREATE TABLE apolicy (
     policyid INT NOT NULL COMMENT 'the unique ID of policy'
 );
-
 
 ALTER TABLE apolicy ADD CONSTRAINT apolicy_pk PRIMARY KEY ( policyid );
 
@@ -156,6 +163,10 @@ ALTER TABLE policy
     ) );
 
 ALTER TABLE policy ADD CONSTRAINT policy_pk PRIMARY KEY ( policyid );
+
+alter table user
+    add constraint user_customer_fk FOREIGN KEY (customerid)
+        REFERENCES customer (customerid);
 
 ALTER TABLE acustomer
     ADD CONSTRAINT acustomer_customer_fk FOREIGN KEY ( customerid,
@@ -348,6 +359,9 @@ ALTER TABLE payment
 --     Set :new.hpid = home_hpolicy_hpid_seq.nextval;
 -- END;
 -- /
+
+-- user
+insert into user (userid, password) values ('Tom', '888888');
 
 -- customer
 insert into customer (customerid, type, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (10000000, 'A', 'A', 'A', 'NY', 'NY', '5th Av', '88888', 'M', 'W');
