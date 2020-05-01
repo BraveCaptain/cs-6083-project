@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <meta name="description" content="Login - Register Template">
-    <meta name="author" content="Lorenzo Angelino aka MrLolok">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/login-register.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="/static/common.js"></script>
+    <script>
+        function registerUser() {
+            var res = formContentToJson($("#registerForm"));
+            //if user did not enter userid or password
+            return validateUserInput(res);
+        }
+    </script>
     <style>
         body {
             background-color: #303641;
@@ -20,32 +26,30 @@
         <div id="title">
             <i class="material-icons lock">lock</i> Register
         </div>
-
-        <form>
-            <!--
+        <form action = "/register" method = "post" id = "registerForm">
+        <!--
             <div class="input">
                 <div class="input-addon">
                     <i class="material-icons">email</i>
                 </div>
                 <input id="email" placeholder="Email" type="email" required class="validate" autocomplete="off">
             </div>
-            -->
             <div class="clearfix"></div>
-
+        -->
             <div class="input">
                 <div class="input-addon">
                     <i class="material-icons">face</i>
                 </div>
-                <input id="username" placeholder="Username" type="text" required class="validate" autocomplete="off">
+                <input name="userid" id="userid" placeholder="Username" type="text" >
             </div>
-
+            
             <div class="clearfix"></div>
 
             <div class="input">
                 <div class="input-addon">
                     <i class="material-icons">vpn_key</i>
                 </div>
-                <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
+                <input name="password" id="password" placeholder="Password" type="password" >
             </div>
 
             <div class="remember-me">
@@ -53,14 +57,14 @@
                 <span style="color: #DDD">I accept Terms of Service</span>
             </div>
 
-            <input type="submit" value="Register" />
+            <input type="submit" value="Register" onclick="return registerUser()">
         </form>
 
 
-
+        <!--issue02: 跳转-->
         <div class="register">
             Do you already have an account?
-            <a href="#"><button id="register-link">Log In here</button></a>
+            <a href="##"><button id="register-link">Log In here</button></a>
         </div>
     </div>
 </body>

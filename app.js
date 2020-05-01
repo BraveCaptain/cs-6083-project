@@ -1,6 +1,10 @@
 const express = require('express');
 const path = require('path');
+// use body-parser module  to handle post
+const bodyparser = require('body-parser');
 const app = express();
+
+app.use(bodyparser.urlencoded({extended: false}));
 
 //art directory
 app.set('views', path.join(__dirname, 'views'));
