@@ -77,8 +77,6 @@ function loginUser(req, res, next) {
                 return;
             }
             const user = result[0]
-            //console.log(plainTextPassword)
-            //console.log(user.password)
             bcrypt.compare(plainTextPassword, user.password, function (err, success) {
                 if(err) {
                     console.log('BCRYPT COMPARE ERROR');
@@ -91,6 +89,8 @@ function loginUser(req, res, next) {
                     return;
                 }
                 connection.end();
+                //issue03: 缺少error前端框架渲染
+                req.session.userid = id;
                 res.redirect(301, '/dashBoard');
             }); 
             
