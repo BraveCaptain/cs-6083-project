@@ -3,8 +3,8 @@ CREATE DATABASE WDS;
  USE WDS;
 
 CREATE TABLE user (
-    userid varchar(3) NOT NULL,
-    password varchar(6) not null,
+    userid varchar(30) NOT NULL,
+    password varchar(200) not null,
     customerid INT
 );
 
