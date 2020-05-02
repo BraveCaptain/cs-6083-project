@@ -23,7 +23,7 @@
         function registerUser() {
             var res = formContentToJson($("#registerForm"));
             //if user did not enter userid or password
-            return validateUserInput(res);
+            return validateRegisterInput(res);
         }
     </script>
     <style>
@@ -46,72 +46,76 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create Your WDS Account!</h1>
                             </div>
-                            <form class="user">
+
+                            <form class="user" action = "/register" method = "post" id = "registerForm">
                             <div class="form-group">
-                                <input name="userid" class="form-control form-control-user" id="userid" placeholder="Username" type="text">
+                                <input name="userid" class="form-control" id="userid" placeholder="Username" type="text">
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input name="password" class="form-control form-control-user" id="password" placeholder="Password" type="password">
+                                    <input name="password1" class="form-control" id="password1" placeholder="Password" type="password">
                                 </div>
-								<!--
+
                                 <div class="col-sm-6">
-                                    <input name="password" class="form-control form-control-user" id="password" placeholder="Repeat Password" type="password">
+                                    <input name="password2" class="form-control" id="password2" placeholder="Repeat Password" type="password">
                                 </div>
-								-->
+
                             </div>
-							<!--
+
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input name="text" class="form-control form-control-user" id="fname" placeholder="First Name" type="text">
-                                </div>
-                                <div class="col-sm-6">
-                                    <input name="text" class="form-control form-control-user" id="lname" placeholder="Last Name" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input name="state" class="form-control form-control-user" id="state" placeholder="State" type="text">
+                                    <input name="fname" class="form-control" id="fname" placeholder="First Name" type="text">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input name="city" class="form-control form-control-user" id="city" placeholder="City" type="text">
+                                    <input name="lname" class="form-control" id="lname" placeholder="Last Name" type="text">
                                 </div>
-                            </div>
+                            </div>	
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input name="street" class="form-control form-control-user" id="street" placeholder="Street" type="text">
+                                    <input name="state" class="form-control" id="state" placeholder="State" type="text">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input name="zipcode" class="form-control form-control-user" id="zipcode" placeholder="Zipcode" type="text">
+                                    <input name="city" class="form-control" id="city" placeholder="City" type="text">
                                 </div>
                             </div>
+
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-              <div class="card mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Dropdown - No Arrow</h6>
-                </div>
-                <div class="card-body">
-                  <div class="dropdown no-arrow mb-4">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Dropdown (no arrow)
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                                    <input name="street" class="form-control" id="street" placeholder="Street" type="text">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input name="zipcode" class="form-control" id="zipcode" placeholder="Zipcode" type="text">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-5 mb-3 mb-sm-0">
+                                <label class="form-control" > Your Gender </label>
+                                </div>
+                                <div class="col-sm-7">
+                                    <select name="gender"  id="gender" class="form-control">
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                        <option value=NULL>I am unwilling to answer</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-5 mb-3 mb-sm-0">
+                                <label class="form-control" > Marital Status </label>
+                                </div>
+                                <div class="col-sm-7">
+                                    <select name="maritalstatus"  id="maritalstatus" class="form-control">
+                                        <option value="M">Married</option>
+                                        <option value="S">Single</option>
+                                        <option value="W">Widow/Widower</option>
+                                    </select>
+                                </div>
                                     
-                                </div>
-                                <div class="col-sm-6">
-                                    <input name="maritalstatus" class="form-control form-control-user" id="maritalstatus" placeholder="Marital Status" type="text">
-                                </div>
                             </div>
--->
-                                <input type="submit" class="btn btn-primary btn-user btn-block" value="Register" onclick="return registerUser()">
+
+                            <input type="submit" href="error" class="btn btn-primary btn-user btn-block" value="Register" onclick="return registerUser()">
                             <hr>
                             </form>
                             <hr>

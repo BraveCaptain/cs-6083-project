@@ -20,7 +20,7 @@ function getUserInfo(req, res, next) {
             userInfo = JSON.parse(JSON.stringify(result[0]));
             console.log(userInfo);
             
-            res.render('register', {
+            res.render('dashboard', {
                 userInfo: userInfo
             });
         });
