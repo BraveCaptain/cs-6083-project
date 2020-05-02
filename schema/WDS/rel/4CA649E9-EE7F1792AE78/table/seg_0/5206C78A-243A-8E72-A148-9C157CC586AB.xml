@@ -8,22 +8,6 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="customerID" id="3EC6744F-7C52-4893-481A-7A7DBF81E14E">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<commentInRDBMS><![CDATA[the unique ID for customer]]></commentInRDBMS>
-<generatorID>18313AA4-D5B3-89BB-25EC-5B7CC37F5CB5</generatorID>
-<ownerDesignName>WDS</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>8</dataTypePrecision>
-<ownDataTypeParameters>,8,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="73C31ACA-EC41-3B16-C867-D8A6F8049880" referredColumn="A48A5947-8EE4-C5F3-5088-A2905DAB9131"/>
-</associations>
-</Column>
 <Column name="type" id="DDFF27EC-A719-B65E-39BF-78779FA34C25">
 <createdBy>tqy</createdBy>
 <createdTime>2020-04-09 20:14:53 UTC</createdTime>
@@ -33,11 +17,26 @@
 <use>1</use>
 <logicalDatatype>LOGDT025</logicalDatatype>
 <dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="73C31ACA-EC41-3B16-C867-D8A6F8049880" referredColumn="23C8DDDA-711A-F2A8-9C91-55FFD74301A5"/>
+</associations>
+</Column>
+<Column name="customerID" id="9B4602B9-4EE9-60DB-A346-2022FBC91578">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:49:56 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="73C31ACA-EC41-3B16-C867-D8A6F8049880" referredColumn="04E6FD12-A7E1-4381-FF2A-BDEA290A667E"/>
 </associations>
 </Column>
 </columns>
@@ -51,7 +50,7 @@
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="3EC6744F-7C52-4893-481A-7A7DBF81E14E"/>
+<colUsage columnID="9B4602B9-4EE9-60DB-A346-2022FBC91578"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="B94CB77B-A243-9AD7-5B11-ECE32E6115C7" name="ACUSTOMER_CUSTOMER_FK">
@@ -62,8 +61,8 @@
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="3EC6744F-7C52-4893-481A-7A7DBF81E14E"/>
 <colUsage columnID="DDFF27EC-A719-B65E-39BF-78779FA34C25"/>
+<colUsage columnID="9B4602B9-4EE9-60DB-A346-2022FBC91578"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

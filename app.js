@@ -20,10 +20,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 //router module
 const login = require('./routes/login');
 const register = require('./routes/register');
+const error = require('./routes/error');
 
 //apply module for request
 app.use('/login', login);
 app.use('/register', register);
+app.use('/error', error);
 
 //listen port 3000
 app.listen(3000);

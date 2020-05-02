@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CEB9679B-1ADE-6646-602E-4883B5254381" containerWithKeyObject="FA1A342C-0C77-7A9F-51C2-5900F13632F0" localFKIndex="71252804-7257-9731-0715-4791F383231E" name="USER_FK">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:37:19 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<referredTableLongName>USER</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C81935F9-7943-C0FA-64D3-41669EA17265</referredTableID>
+<keyObject>EFCFB91E-E13B-3767-7B32-54E0B3A775A6</keyObject>
+<referredKeyID>EFCFB91E-E13B-3767-7B32-54E0B3A775A6</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>userID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

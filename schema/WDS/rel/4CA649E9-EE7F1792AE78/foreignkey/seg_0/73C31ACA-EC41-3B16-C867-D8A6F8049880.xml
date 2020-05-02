@@ -11,7 +11,7 @@
 <keyObject>10D20C2E-AF1C-1CF4-F4F9-70E686FFFE7C</keyObject>
 <referredKeyID>10D20C2E-AF1C-1CF4-F4F9-70E686FFFE7C</referredKeyID>
 <mandatory>true</mandatory>
-<refColNames>customerID,type</refColNames>
+<refColNames>type,customerID</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>
 <discriminatorValue>A</discriminatorValue>
