@@ -43,7 +43,7 @@ function createUser(req, res, next) {
             var addSql = 'insert into user (userid, password, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ？)';
             var addSqlParams = [id, password, fname, lname, state, city, street, zipcode, gender, maritalstatus];
             // var addSql = 'insert into user (userid, password) values (?, ?)';
-            // var addSqlParams = [id, password, fname];
+            // var addSqlParams = [id, password];
             connection.query(addSql, addSqlParams, function(err, result) {
                 if(err) {
                     console.log('[INSERT ERROR] - ', err.message)
