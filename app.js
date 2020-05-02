@@ -28,20 +28,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 //router module
 const login = require('./routes/login');
 const register = require('./routes/register');
-const dashBoard = require('./routes/dashBoard');
+const dashboard = require('./routes/dashboard');
 
-app.use('/', function (req, res, next) {
-    if(req.url != '/login' && req.url != '/register' && !req.session.userid) {
-        res.redirect('/login');
-    } else {
-        next();
-    }
-});
+app.use('/', require('./middleware/loginGuard'));
 
 //apply module for request
 app.use('/login', login);
 app.use('/register', register);
-app.use('/dashBoard', dashBoard);
+app.use('/dashboard', dashboard);
 
 //listen port 3000
 app.listen(3000);

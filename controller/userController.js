@@ -9,6 +9,14 @@ function createUser(req, res, next) {
     //res.send(req.body);
     const id = req.body.userid;
     const plainTextPassword = req.body.password;
+    const fname = req.body.fname;
+    const lname = req.body.lname;
+    const state = req.body.state;
+    const city = req.body.city;
+    const street = req.body.street;
+    const zipcode = req.body.zipcode;
+    const gender = req.body.gender;
+    const maritalstatus = req.body.maritalstatus;
     //verify
     if(id.trim().length == 0) {
         return res.status(400).send('<h4>user id error</h4>');
@@ -32,8 +40,10 @@ function createUser(req, res, next) {
             }
             var password = bcrypt.hashSync(plainTextPassword, saltRound);
             console.log(password);
-            var addSql = 'insert into user (userid, password) values (?, ?)';
-            var addSqlParams = [id, password];
+            var addSql = 'insert into user (userid, password, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ？)';
+            var addSqlParams = [id, password, fname, lname, state, city, street, zipcode, gender, maritalstatus];
+            // var addSql = 'insert into user (userid, password) values (?, ?)';
+            // var addSqlParams = [id, password, fname];
             connection.query(addSql, addSqlParams, function(err, result) {
                 if(err) {
                     console.log('[INSERT ERROR] - ', err.message)
