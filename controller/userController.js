@@ -1,6 +1,7 @@
 const database = require('../config/databaseConfig');
 const bcrypt = require('bcrypt');
 const saltRound = 10;
+const common = require('./util/common');
 
 exports.createUser = createUser;
 exports.loginUser = loginUser;
@@ -128,8 +129,8 @@ function getUserInfo(req, res, next) {
                 res.send('no such user');
                 return;
             }
-            //userInfo = JSON.parse(JSON.stringify(result[0]));
             userInfo = result[0];
+            common.correctUserInfo(userInfo);
             console.log(userInfo);
             res.render('user/dashboard', {
                 userInfo: userInfo

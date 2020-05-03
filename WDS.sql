@@ -24,10 +24,11 @@ CREATE TABLE apolicy (
 -- ALTER TABLE apolicy ADD CONSTRAINT apolicy_pk PRIMARY KEY ( policyid );
 
 CREATE TABLE auto (
-    vin                            INT NOT NULL,
-    modelyear                      DATETIME NOT NULL,
-    status                         CHAR(1) NOT NULL,
-    customerid  INT NOT NULL,
+    vin         INT NOT NULL,
+    modelyear   DATETIME NOT NULL,
+    status      CHAR(1) NOT NULL,
+    customerid  INT,
+    userid      VARCHAR(30) NOT NULL,
     PRIMARY KEY(vin)
 );
 
@@ -48,7 +49,7 @@ CREATE TABLE auto_apolicy (
 
 CREATE TABLE customer (
     type        CHAR(1) NOT NULL,
-    userid      VARCHAR(30),
+    userid      VARCHAR(30) NOT NULL,
     customerid  INT NOT NULL auto_increment,
     PRIMARY KEY(customerid)
 );
@@ -99,7 +100,8 @@ CREATE TABLE home (
     securitysystem        CHAR(1) NOT NULL,
     swimmingpool          VARCHAR(1),
     basement              CHAR(1) NOT NULL,
-    hcustomer_customerid  INT NOT NULL,
+    customerid            INT,
+    userid                VARCHAR(30) NOT NULL,
     PRIMARY KEY(homeid)
 );
 
