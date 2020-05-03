@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C81935F9-7943-C0FA-64D3-41669EA17265" name="USER">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:31:03 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<ordsAlias>table_15</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="userID" id="56F590F3-7BB8-CB51-F3BC-1ECE818AA000">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:33:34 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="password" id="23B5AD22-39C2-D636-1125-2C30907DA24D">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:45:54 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fname" id="E91BDC7C-CB91-74A2-66AB-D83A144FB08C">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:34:59 UTC</createdTime>
+<commentInRDBMS><![CDATA[the first name of customer]]></commentInRDBMS>
+<generatorID>4028D140-DB58-37CE-FA2C-E7F1928F65AA</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="lname" id="ACA54CC2-377F-7367-E9E5-8F5D41696BC0">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:34:59 UTC</createdTime>
+<commentInRDBMS><![CDATA[the last name of customer]]></commentInRDBMS>
+<generatorID>349AFD15-3D9A-0DD2-16C0-CC83627FBF46</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="state" id="767D3DCC-76F9-8EE7-28DB-33E86032C83A">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:34:59 UTC</createdTime>
+<commentInRDBMS><![CDATA[the state where customer lives]]></commentInRDBMS>
+<generatorID>9486E538-632C-3827-E64A-7558DF473851</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="city" id="B6994DE5-42A6-715D-333E-7F786824E4B3">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:34:59 UTC</createdTime>
+<commentInRDBMS><![CDATA[the city where customer lives]]></commentInRDBMS>
+<generatorID>B02790CB-E545-CC21-7EE3-DE040E2CA012</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="street" id="F285C5AD-1342-5551-45BB-8983ACB9BE8D">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:34:59 UTC</createdTime>
+<commentInRDBMS><![CDATA[the street where customer lives]]></commentInRDBMS>
+<generatorID>B4D423AF-9043-75A6-993E-513FAC5755DA</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="zipcode" id="EC7DD251-6F88-6D2E-8093-2FAC243D1FA8">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:34:59 UTC</createdTime>
+<commentInRDBMS><![CDATA[the zipcode that where customer lives uses]]></commentInRDBMS>
+<generatorID>C5E9B51C-A92E-7F3B-8115-A8CBDA40C515</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gender" id="49D2A3FF-93FF-C89B-993D-A99F94CA9F1C">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:34:59 UTC</createdTime>
+<commentInRDBMS><![CDATA[show whether customer is male or female, can only be "M" or "F", customer may choose not to provide gender data]]></commentInRDBMS>
+<generatorID>08133AF4-6828-0BD0-D8E8-0FBB84B5EF74</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="maritalStatus" id="AC17C41D-B8B3-B1D3-CAA8-FDDC2F8B8554">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:34:59 UTC</createdTime>
+<commentInRDBMS><![CDATA[show marital status of customer, must be either "M", "S", or "W", representing "Married", "Single", and "Widow/Widower" respectively]]></commentInRDBMS>
+<generatorID>E4C6EF13-A5C1-404A-8D76-7550DE802E5E</generatorID>
+<ownerDesignName>WDS</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EFCFB91E-E13B-3767-7B32-54E0B3A775A6" name="USER_PK">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:34:04 UTC</createdTime>
+<ownerDesignName>WDS</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="56F590F3-7BB8-CB51-F3BC-1ECE818AA000"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

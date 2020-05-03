@@ -125,21 +125,19 @@
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="customerID" id="4655C5A1-9829-97AD-7120-50D009F931DD">
-<createdBy>tqy</createdBy>
-<createdTime>2020-04-08 21:17:52 UTC</createdTime>
-<commentInRDBMS><![CDATA[the unique ID for customer]]></commentInRDBMS>
-<generatorID>1B9FBC4D-C07B-A3CF-1CF2-D8C2EAC602B2</generatorID>
+<Column name="HCUSTOMER_customerID" id="451E5E69-67B4-59CD-B16B-787162210ECB">
+<createdBy>Maitotoxin</createdBy>
+<createdTime>2020-05-02 01:51:32 UTC</createdTime>
 <ownerDesignName>WDS</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>8</dataTypePrecision>
-<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="FD72C3FA-3F60-73BD-E992-C1C5FCA06F3C" referredColumn="52AB9AA3-36F6-E074-1EC9-82C89EC40BAD"/>
+<colAssociation fkAssociation="FD72C3FA-3F60-73BD-E992-C1C5FCA06F3C" referredColumn="9725E06C-6272-943C-2DAA-A37E10FCC8FA"/>
 </associations>
 </Column>
 </columns>
@@ -164,7 +162,7 @@
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="4655C5A1-9829-97AD-7120-50D009F931DD"/>
+<colUsage columnID="451E5E69-67B4-59CD-B16B-787162210ECB"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

@@ -9,7 +9,8 @@ exports.getUserInfo = getUserInfo;
 function createUser(req, res, next) {
     console.log('enter function createUser');
     const id = req.body.userid;
-    const plainTextPassword = req.body.password;
+    const plainTextPassword = req.body.password1;
+    const plainTextPassword_temp = req.body.password2;
     const fname = req.body.fname;
     const lname = req.body.lname;
     const state = req.body.state;
@@ -19,12 +20,7 @@ function createUser(req, res, next) {
     const gender = req.body.gender;
     const maritalstatus = req.body.maritalstatus;
     //verify
-    if(id.trim().length == 0) {
-        return res.status(400).send('<h4>user id error</h4>');
-    }
-    if(plainTextPassword.trim().length == 0) {
-        return res.status(400).send('<h4>password error</h4>');
-    }
+
     database.setUpDatabase(function(connection) {
         connection.connect();
         var sql = 'select * from user where userid = ?';
@@ -40,11 +36,18 @@ function createUser(req, res, next) {
                 return;
             }
             var password = bcrypt.hashSync(plainTextPassword, saltRound);
-            console.log(password);
-            var addSql = 'insert into user (userid, password, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-            var addSqlParams = [id, password, fname, lname, state, city, street, zipcode, gender, maritalstatus];
-            var addSql = 'insert into user (userid, password) values (?, ?)';
-            var addSqlParams = [id, password];
+            if(gender == 'NULL') {
+                var addSqlParams = [id, password, fname, lname, state, city, street, zipcode, maritalstatus];
+                console.log(addSqlParams);
+                var addSql = 'insert into user (userid, password, fname, lname, state, city, street, zipcode,  maritalstatus) values (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+            }
+            else{
+                var addSqlParams = [id, password, fname, lname, state, city, street, zipcode, gender, maritalstatus];
+                console.log(addSqlParams);
+                var addSql = 'insert into user (userid, password, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+            }
+            //var addSql = 'insert into user (userid, password) values (?, ?)';
+            //var addSqlParams = [id, password];
             connection.query(addSql, addSqlParams, function(err, result) {
                 if(err) {
                     console.log('[INSERT ERROR] - ', err.message)
@@ -102,8 +105,9 @@ function loginUser(req, res, next) {
                 connection.end();
                 //issue03: 缺少error前端框架渲染
                 req.session.userid = id;
-                res.redirect(301, '/dashBoard');
-            });
+                res.redirect(301, '/dashboard');
+            }); 
+            
         })
     })
 }
@@ -127,7 +131,7 @@ function getUserInfo(req, res, next) {
             //userInfo = JSON.parse(JSON.stringify(result[0]));
             userInfo = result[0];
             console.log(userInfo);
-            res.render('user/register', {
+            res.render('user/dashboard', {
                 userInfo: userInfo
             });
         });
