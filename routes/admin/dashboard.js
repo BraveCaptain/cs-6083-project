@@ -4,6 +4,6 @@ const adminDashboard = require('../../controller/adminController')
 const dashboard = express.Router();
 
 
-// dashboard.get('/',adminDashboard.getAdminInfo);
+dashboard.get('/',adminDashboard.getUsers);
 
 module.exports = dashboard;

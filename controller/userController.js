@@ -124,7 +124,8 @@ function getUserInfo(req, res, next) {
                 res.send('no such user');
                 return;
             }
-            userInfo = JSON.parse(JSON.stringify(result[0]));
+            //userInfo = JSON.parse(JSON.stringify(result[0]));
+            userInfo = result[0];
             console.log(userInfo);
             res.render('user/register', {
                 userInfo: userInfo

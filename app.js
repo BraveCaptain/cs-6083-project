@@ -32,6 +32,7 @@ const userDashboard = require('./routes/user/dashboard');
 
 const adminLogin = require('./routes/admin/login');
 const adminRegister = require('./routes/admin/register');
+const adminDashboard = require('./routes/admin/dashboard')
 
 app.use('/', require('./middleware/loginGuard'));
 
@@ -40,13 +41,12 @@ app.use('/', require('./middleware/loginGuard'));
 //admin
 app.use('/admin/login', adminLogin);
 app.use('/admin/register', adminRegister);
+app.use('/admin/dashboard', adminDashboard);
 
 //user
 app.use('/login', userLogin);
 app.use('/register', userRegister);
 app.use('/dashboard', userDashboard);
-
-
 
 //listen port 3000
 app.listen(3000);

@@ -6,4 +6,5 @@ const dashboard = express.Router();
 
 dashboard.get('/',userDashboard.getUserInfo);
 
+
 module.exports = dashboard;

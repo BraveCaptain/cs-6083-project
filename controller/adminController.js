@@ -4,6 +4,7 @@ const saltRound = 10;
 
 exports.createAdmin = createAdmin;
 exports.loginAdmin = loginAdmin;
+exports.getUsers = getUsers;
 
 function createAdmin(req, res, next) {
     console.log('enter function createAdmin');
@@ -96,3 +97,27 @@ function loginAdmin(req, res, next) {
         })
     })
 }
+
+function getUsers(req, res, next) {
+    database.setUpDatabase(function(connection) {
+        connection.connect();
+        var sql = 'select userid, fname, lname from user';
+        connection.query(sql, [], function(err, result) {
+            if(err) {
+                consolse.log('[SELECT ERROR] - ', err.message);
+                res.send('SQL query error');
+                return;
+            }
+            console.log(result);
+            if(result.length == 0) {
+                console.log('no user currently');
+                res.send('no such user currently');
+                return;
+            }
+            res.render('admin/dashboard', {
+                users: result
+            });
+        });
+    });
+}
+
