@@ -35,7 +35,7 @@
                                 <h1 class="h4 text-gray-900 mb-4">Create Your WDS Account!</h1>
                             </div>
 
-                            <form class="user" action="/register" method="post" id="registerForm">
+                            <form action="/register" method="post" id="registerForm">
                                 <div class="form-group">
                                     <input name="userid" class="form-control" id="userid" placeholder="Username"
                                         type="text">
@@ -87,7 +87,7 @@
 
                                 <div class="form-group row">
                                     <div class="col-sm-5 mb-3 mb-sm-0">
-                                        <label class="form-control"> Your Gender </label>
+                                        <label class="form-control"> <b>Your Gender</b> </label>
                                     </div>
                                     <div class="col-sm-7">
                                         <select name="gender" id="gender" class="form-control">
@@ -100,7 +100,7 @@
 
                                 <div class="form-group row">
                                     <div class="col-sm-5 mb-3 mb-sm-0">
-                                        <label class="form-control"> Marital Status </label>
+                                        <label class="form-control"> <b>Marital Status</b> </label>
                                     </div>
                                     <div class="col-sm-7">
                                         <select name="maritalstatus" id="maritalstatus" class="form-control">
