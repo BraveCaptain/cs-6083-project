@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 const userLogin = require('./routes/user/login');
 const userRegister = require('./routes/user/register');
 const userDashboard = require('./routes/user/dashboard');
-const userHomeRegister = require('./routes/user/homeregister');
+const userHomeRegister = require('./routes/user/homeRegister');
 
 const adminLogin = require('./routes/admin/login');
 const adminRegister = require('./routes/admin/register');
