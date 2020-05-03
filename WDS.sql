@@ -99,7 +99,7 @@ CREATE TABLE home (
     securitysystem        CHAR(1) NOT NULL,
     swimmingpool          VARCHAR(1),
     basement              CHAR(1) NOT NULL,
-    hcustomer_customerid  INT NOT NULL,
+    customerid  INT NOT NULL,
     PRIMARY KEY(homeid)
 );
 
