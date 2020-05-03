@@ -187,7 +187,7 @@ CREATE TABLE user (
 --         REFERENCES policy ( policyid );
 
 -- ALTER TABLE auto
---     ADD CONSTRAINT auto_acustomer_fk FOREIGN KEY ( acustomer_customer_customerid )
+--     ADD CONSTRAINT auto_acustomer_fk FOREIGN KEY ( customerid )
 --         REFERENCES acustomer ( customerid );
 
 -- ALTER TABLE auto_apolicy
@@ -213,7 +213,7 @@ CREATE TABLE user (
 --                               customerid );
 
 -- ALTER TABLE home
---     ADD CONSTRAINT home_hcustomer_fk FOREIGN KEY ( hcustomer_customerid )
+--     ADD CONSTRAINT home_hcustomer_fk FOREIGN KEY ( customerid )
 --         REFERENCES hcustomer ( customerid );
 
 -- ALTER TABLE home_hpolicy

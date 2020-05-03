@@ -29,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 const userLogin = require('./routes/user/login');
 const userRegister = require('./routes/user/register');
 const userDashboard = require('./routes/user/dashboard');
+const userHomeRegister = require('./routes/user/homeregister');
 
 const adminLogin = require('./routes/admin/login');
 const adminRegister = require('./routes/admin/register');
@@ -47,6 +48,7 @@ app.use('/admin/dashboard', adminDashboard);
 app.use('/login', userLogin);
 app.use('/register', userRegister);
 app.use('/dashboard', userDashboard);
+app.use('/home', userHomeRegister);
 
 //listen port 3000
 app.listen(3000);
