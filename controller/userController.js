@@ -119,7 +119,7 @@ function getUserInfo(req, res, next) {
         var sql = 'select userid, fname, lname, state, city, street, zipcode, gender, maritalstatus from user where userid = ?';
         connection.query(sql, [userid], function(err, result) {
             if(err) {
-                consolse.log('[SELECT ERROR] - ', err.message);
+                console.log('[SELECT ERROR] - ', err.message);
                 res.send('SQL query error');
                 return;
             }
