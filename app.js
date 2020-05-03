@@ -48,7 +48,7 @@ app.use('/admin/dashboard', adminDashboard);
 app.use('/login', userLogin);
 app.use('/register', userRegister);
 app.use('/dashboard', userDashboard);
-app.use('/home', userHomeRegister);
+app.use('/homeDisplay', userHomeRegister);
 
 //listen port 3000
 app.listen(3000);
