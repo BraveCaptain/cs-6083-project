@@ -4,9 +4,10 @@ const saltRound = 10;
 
 exports.createUser = createUser;
 exports.loginUser = loginUser;
+exports.getUserInfo = getUserInfo;
 
 function createUser(req, res, next) {
-    //res.send(req.body);
+    console.log('enter function createUser');
     const id = req.body.userid;
     const plainTextPassword = req.body.password1;
     const plainTextPassword_temp = req.body.password2;
@@ -109,4 +110,29 @@ function loginUser(req, res, next) {
             
         })
     })
+}
+
+function getUserInfo(req, res, next) {
+    const userid = req.session.userid;
+    database.setUpDatabase(function(connection) {
+        connection.connect();
+        var sql = 'select userid, fname, lname, state, city, street, zipcode, gender, maritalstatus from user where userid = ?';
+        connection.query(sql, [userid], function(err, result) {
+            if(err) {
+                consolse.log('[SELECT ERROR] - ', err.message);
+                res.send('SQL query error');
+                return;
+            }
+            if(result.length == 0) {
+                console.log('no such user');
+                res.send('no such user');
+                return;
+            }
+            userInfo = JSON.parse(JSON.stringify(result[0]));
+            console.log(userInfo);
+            res.render('user/dashboard', {
+                userInfo: userInfo
+            });
+        });
+    });
 }

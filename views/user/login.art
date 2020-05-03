@@ -62,7 +62,7 @@
                                             <b> <h1 class="h2 text-gray-900 mb-4">We Do Secure</h1> </b>
                                             </div>
 
-                                            <form action = "/login" method = "post" id = "loginForm">
+                                            <form method = "post" id = "loginForm">
                                              <div class="input">
                                                  <div class="form-group">
                                                  </div>

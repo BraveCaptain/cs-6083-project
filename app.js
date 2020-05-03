@@ -26,18 +26,27 @@ app.engine('art', require('express-art-template'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //router module
-const login = require('./routes/login');
-const register = require('./routes/register');
-const error = require('./routes/error');
-const dashboard = require('./routes/dashboard');
+const userLogin = require('./routes/user/login');
+const userRegister = require('./routes/user/register');
+const userDashboard = require('./routes/user/dashboard');
+
+const adminLogin = require('./routes/admin/login');
+const adminRegister = require('./routes/admin/register');
 
 app.use('/', require('./middleware/loginGuard'));
 
 //apply module for request
-app.use('/login', login);
-app.use('/register', register);
-app.use('/error', error);
-app.use('/dashboard', dashboard);
+
+//admin
+app.use('/admin/login', adminLogin);
+app.use('/admin/register', adminRegister);
+
+//user
+app.use('/login', userLogin);
+app.use('/register', userRegister);
+app.use('/dashboard', userDashboard);
+
+
 
 //listen port 3000
 app.listen(3000);
