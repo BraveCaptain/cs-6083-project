@@ -23,7 +23,7 @@ app.set('view engine', 'art');
 app.engine('art', require('express-art-template'));
 
 //open static directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'static')));
 
 //router module
 const userLogin = require('./routes/user/login');
