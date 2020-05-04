@@ -96,7 +96,7 @@
                                         <label class=""> <b>Home Purchase Value</b> </label>
                                     </div>
                                     <div class="col-sm-7">
-                                        <input name="value" class="form-control" id="value"
+                                        <input name="purchasevalue" class="form-control" id="purchasevalue"
                                             placeholder="Home Purchase Value" type="number">
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@
                                         <label class=""> <b>Home Purchase Date</b> </label>
                                     </div>
                                     <div class="col-sm-7">
-                                        <input name="date" class="form-control" id="date" type="date">
+                                        <input name="purchasedate" class="form-control" id="purchasedate" type="date">
                                     </div>
                                 </div>
 
@@ -117,7 +117,7 @@
                                         <label class=""> <b>Does your home have auto fire notification?</b> </label>
                                     </div>
                                     <div class="col-sm-6">
-                                        <select name="autoFireNotification" id="autoFireNotification" class="form-control">
+                                        <select name="autofirenotification" id="autofirenotification" class="form-control">
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
                                         </select>
@@ -129,7 +129,7 @@
                                         <label class=""> <b>Does your home have home security system?</b> </label>
                                     </div>
                                     <div class="col-sm-6">
-                                        <select name="homeSecuritySystem" id="homeSecuritySystem" class="form-control">
+                                        <select name="securitysystem" id="securitysystem" class="form-control">
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
                                         </select>
@@ -141,7 +141,7 @@
                                         <label class=""> <b>What about swimming pool in your home?</b> </label>
                                     </div>
                                     <div class="col-sm-6">
-                                        <select name="swimmingPool" id="swimmingPool" class="form-control">
+                                        <select name="swimmingpool" id="swimmingpool" class="form-control">
                                             <option value="U">Underground swimming pool</option>
                                             <option value="O">Overground swimming pool</option>
                                             <option value="I">Indoor swimming pool</option>

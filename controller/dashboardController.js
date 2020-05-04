@@ -9,8 +9,8 @@ function getHomeInfo(req, res, next) {
     const userid = req.session.userid;
     database.setUpDatabase(function(connection) {
         connection.connect();
-        //var sql = 'select a.homeid, a.purchasedate, a.purchasevalue, a.area, a.type, a.autofirenotification, a.securitysystem, a.swimmingpool, a.basement from home a inner join hcustomer b on a.customerid = b.customerid inner join customer c on b.customerid = c.customerid inner join user d on c.userid = d.userid where d.userid = ?';
-        var sql = 'select a.homeid from home a inner join hcustomer b on a.customerid = b.customerid where a.homeid = ?';
+        var sql = 'select a.homeid, a.purchasedate, a.purchasevalue, a.area, a.type, a.autofirenotification, a.securitysystem, a.swimmingpool, a.basement from home a inner join hcustomer b on a.customerid = b.customerid inner join customer c on b.customerid = c.customerid inner join user d on c.userid = d.userid where d.userid = ?';
+        //var sql = 'select a.homeid from home a inner join hcustomer b on a.customerid = b.customerid where a.homeid = ?';
         connection.query(sql, [userid], function(err, result) {
             if(err) {
                 console.log('[SELECT ERROR] - ', err.message);
@@ -57,13 +57,13 @@ function createHome(req, res, next) {
     console.log('enter function createHome');
     console.log(req.body);
     const userid = req.session.userid;
-    const purchasedate = req.body.date;
-    const purchasevalue = req.body.value;
+    const purchasedate = req.body.purchasedate;
+    const purchasevalue = req.body.purchasevalue;
     const area = req.body.area;
     const type = req.body.type;
-    const autofirenotification = req.body.autoFireNotification;
-    const securitysystem = req.body.homeSecuritySystem;
-    const swimmingpool = req.body.swimmingPool;
+    const autofirenotification = req.body.autofirenotification;
+    const securitysystem = req.body.securitysystem;
+    const swimmingpool = req.body.swimmingpool;
     const basement = req.body.basement;
     //verify
 
