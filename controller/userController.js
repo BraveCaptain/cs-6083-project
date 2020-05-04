@@ -109,6 +109,7 @@ function loginUser(req, res, next) {
                 connection.end();
                 //issue03: 缺少error前端框架渲染
                 req.session.userid = id;
+                req.app.locals.userid = id;
                 res.redirect(301, '/dashboard');
             }); 
             

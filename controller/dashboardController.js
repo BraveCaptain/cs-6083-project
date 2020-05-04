@@ -4,13 +4,14 @@ const common = require('./util/common');
 exports.getUserInfo = getUserInfo;
 exports.getHomeInfo = getHomeInfo;
 exports.createHome = createHome;
+exports.createAuto = createAuto;
 
 function getHomeInfo(req, res, next) {
     const userid = req.session.userid;
     database.setUpDatabase(function(connection) {
         connection.connect();
-        //var sql = 'select a.homeid, a.purchasedate, a.purchasevalue, a.area, a.type, a.autofirenotification, a.securitysystem, a.swimmingpool, a.basement from home a inner join hcustomer b on a.customerid = b.customerid inner join customer c on b.customerid = c.customerid inner join user d on c.userid = d.userid where d.userid = ?';
-        var sql = 'select a.homeid from home a inner join hcustomer b on a.customerid = b.customerid where a.homeid = ?';
+        var sql = 'select a.homeid, a.purchasedate, a.purchasevalue, a.area, a.type, a.autofirenotification, a.securitysystem, a.swimmingpool, a.basement from home a inner join hcustomer b on a.customerid = b.customerid inner join customer c on b.customerid = c.customerid inner join user d on c.userid = d.userid where d.userid = ?';
+        //var sql = 'select a.homeid from home a inner join hcustomer b on a.customerid = b.customerid where a.homeid = ?';
         connection.query(sql, [userid], function(err, result) {
             if(err) {
                 console.log('[SELECT ERROR] - ', err.message);
@@ -93,6 +94,48 @@ function createHome(req, res, next) {
                 console.log(addSqlParams);
                 var addSql = 'insert into home (userid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement, swimmingpool) values (?, ?, ?, ?, ?, ?, ?, ?, ?)';
             }
+            connection.query(addSql, addSqlParams, function(err, result) {
+                if(err) {
+                    console.log('[INSERT ERROR] - ', err.message)
+                    res.send("SQL insert error");
+                    return;
+                }
+                console.log('--------------------------INSERT----------------------------')
+                console.log('INSERT ID:', result)
+                console.log('------------------------------------------------------------')
+                //issue 01: 注册成功alert
+                connection.end();
+                res.redirect(301, '/dashboard');
+            })
+        }) 
+    })
+}
+
+function createAuto(req, res, next) {
+    console.log('enter function createAuto');
+    console.log(req.body);
+    const userid = req.session.userid;
+    const modeldate = req.body.modeldate;
+    const status = req.body.status;
+    //verify
+    database.setUpDatabase(function(connection) {
+        connection.connect();
+        //issue: home name
+        var sql = 'select * from auto';
+        connection.query(sql, [], function(err, result) {
+            // if (err) {
+            //     console.log('[SELECT ERROR] - ', err.message);
+            //     res.send("SQL query error");
+            //     return;
+            // }
+            // if(result.length > 0) {
+            //     console.log('Already exists user id', id);
+            //     res.send("User already exists");
+            //     return;
+            // }
+            var addSqlParams = [userid, modeldate, status];
+            console.log(addSqlParams);
+            var addSql = 'insert into auto (userid, modeldate, status) values (?, ?, ?)';
             connection.query(addSql, addSqlParams, function(err, result) {
                 if(err) {
                     console.log('[INSERT ERROR] - ', err.message)
