@@ -25,7 +25,7 @@ CREATE TABLE apolicy (
 
 CREATE TABLE auto (
     vin         INT NOT NULL,
-    modelyear   DATETIME NOT NULL,
+    modeldate   DATETIME NOT NULL,
     status      CHAR(1) NOT NULL,
     customerid  INT,
     userid      VARCHAR(30) NOT NULL,

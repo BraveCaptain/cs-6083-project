@@ -4,9 +4,7 @@ const userHome = require('../../controller/dashboardController');
 const home = express.Router();
 
 home.get('/', (req, res) => {
-    res.render('user/homeRegister', {
-        userid: req.session.userid
-    });
+    res.render('user/homeRegister');
 })
 home.post('/',userHome.createHome);
 
