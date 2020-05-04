@@ -2,16 +2,37 @@ const database = require('../config/databaseConfig');
 const common = require('./util/common');
 
 exports.getUserInfo = getUserInfo;
-exports.getHomeInfo = getHomeInfo;
+exports.getHomesInfo = getHomesInfo;
+exports.getAutosInfo = getAutosInfo;
 exports.createHome = createHome;
 exports.createAuto = createAuto;
 
-function getHomeInfo(req, res, next) {
+function getAutosInfo(req, res, next) {
     const userid = req.session.userid;
     database.setUpDatabase(function(connection) {
         connection.connect();
-        var sql = 'select a.homeid, a.purchasedate, a.purchasevalue, a.area, a.type, a.autofirenotification, a.securitysystem, a.swimmingpool, a.basement from home a  inner join user d on a.userid = d.userid where d.userid = ?';
-        //var sql = 'select a.homeid from home a inner join hcustomer b on a.customerid = b.customerid where a.homeid = ?';
+        var sql = 'select a.autoname, a.vin, a.modeldate, a.status from auto a inner join user d on a.userid = d.userid where d.userid = ?';
+        connection.query(sql, [userid], function(err, result) {
+            if(err) {
+                console.log('[SELECT ERROR] - ', err.message);
+                res.send('SQL query error');
+                return;
+            }
+            autoInfo = result;
+            console.log(autoInfo);
+            
+            res.render('user/autoDisplay', {
+                autoInfo: autoInfo
+            });
+        });
+    });
+}
+
+function getHomesInfo(req, res, next) {
+    const userid = req.session.userid;
+    database.setUpDatabase(function(connection) {
+        connection.connect();
+        var sql = 'select a.homename, a.homeid, a.purchasedate, a.purchasevalue, a.area, a.type, a.autofirenotification, a.securitysystem, a.swimmingpool, a.basement from home a  inner join user d on a.userid = d.userid where d.userid = ?';
         connection.query(sql, [userid], function(err, result) {
             if(err) {
                 console.log('[SELECT ERROR] - ', err.message);
@@ -66,6 +87,7 @@ function createHome(req, res, next) {
     const securitysystem = req.body.securitysystem;
     const swimmingpool = req.body.swimmingpool;
     const basement = req.body.basement;
+    const homename = req.body.homename;
     //verify
 
     database.setUpDatabase(function(connection) {
@@ -85,14 +107,14 @@ function createHome(req, res, next) {
             // }
 
             if(swimmingpool == 'NULL') {
-                var addSqlParams = [userid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement];
+                var addSqlParams = [homename, userid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement];
                 console.log(addSqlParams);
-                var addSql = 'insert into home (userid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement) values (?, ?, ?, ?, ?, ?, ?, ?)';
+                var addSql = 'insert into home (homename, userid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement) values (?, ?, ?, ?, ?, ?, ?, ?, ?)';
             }
             else{
-                var addSqlParams = [userid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement, swimmingpool];
+                var addSqlParams = [homename, userid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement, swimmingpool];
                 console.log(addSqlParams);
-                var addSql = 'insert into home (userid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement, swimmingpool) values (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+                var addSql = 'insert into home (homename, userid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement, swimmingpool) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
             }
             connection.query(addSql, addSqlParams, function(err, result) {
                 if(err) {
@@ -117,6 +139,7 @@ function createAuto(req, res, next) {
     const userid = req.session.userid;
     const modeldate = req.body.modeldate;
     const status = req.body.status;
+    const autoname = req.body.autoname;
     //verify
     database.setUpDatabase(function(connection) {
         connection.connect();
@@ -133,9 +156,9 @@ function createAuto(req, res, next) {
             //     res.send("User already exists");
             //     return;
             // }
-            var addSqlParams = [userid, modeldate, status];
+            var addSqlParams = [autoname, userid, modeldate, status];
             console.log(addSqlParams);
-            var addSql = 'insert into auto (userid, modeldate, status) values (?, ?, ?)';
+            var addSql = 'insert into auto (autoname, userid, modeldate, status) values (?, ?, ?, ?)';
             connection.query(addSql, addSqlParams, function(err, result) {
                 if(err) {
                     console.log('[INSERT ERROR] - ', err.message)
