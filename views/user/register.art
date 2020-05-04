@@ -12,7 +12,7 @@
         function registerUser() {
             var res = formContentToJson($("#registerForm"));
             //if user did not enter userid or password
-            return validateRegisterInput(res);
+            return validateUserRegisterInput(res);
         }
     </script>
     <style>

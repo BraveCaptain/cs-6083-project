@@ -20,7 +20,7 @@ function validateUserInput(input) {
     return true;
 }
 
-function validateRegisterInput(input) {
+function validateUserRegisterInput(input) {
     if(input.userid.trim().length == 0 || input.password1.trim().length == 0 || input.password2.trim().length == 0
     || input.fname.trim().length == 0 || input.lname.trim().length == 0 || input.state.trim().length == 0 
     || input.city.trim().length == 0 || input.street.trim().length == 0 || input.zipcode.trim().length == 0) {
@@ -35,3 +35,20 @@ function validateRegisterInput(input) {
 
     return true;
 }
+
+function validateAdminRegisterInput(input) {
+    if(input.userid.trim().length == 0 || input.password1.trim().length == 0 
+    || input.password2.trim().length == 0) {
+        alert('Necessary information is missing')
+        return false;
+    }
+
+    if(input.password1.trim() != input.password2.trim()) {
+        alert('Two passwords are not the same, please check your password!')
+        return false;
+    }
+
+    return true;
+}
+
+

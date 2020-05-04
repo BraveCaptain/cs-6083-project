@@ -1,17 +1,18 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-    <link rel="stylesheet" href="/static/login-register.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
-    <script src="/static/common.js"></script>
+    {{include '../common/header.art'}}
+
+    <!-- Custom scripts for all pages-->
+    <script src="/js/sb-admin-2.min.js"></script>
+
+    <title>WDS-Admin-Register</title>
+    <meta name="author" content="">
     <script>
-        function registerUser() {
+        function registerAdmin() {
             var res = formContentToJson($("#registerForm"));
             //if user did not enter userid or password
-            return validateUserInput(res);
+            return validateAdminRegisterInput(res);
         }
     </script>
     <style>
@@ -21,41 +22,50 @@
     </style>
 </head>
 
-<body>
-    <div id="container-register">
-        <div id="title">
-            <i class="material-icons lock">lock</i> Register
-        </div>
-        <form method = "post" id = "registerForm">
-            <div class="input">
-                <div class="input-addon">
-                    <i class="material-icons">face</i>
+<body class="bg-gradient-primary">
+
+    <div class="container">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Create Your WDS Admin Account!</h1>
+                            </div>
+
+                            <form action="/admin/register" method="post" id="registerForm">
+                                <div class="form-group">
+                                    <input name="userid" class="form-control" id="userid" placeholder="Username"
+                                        type="text">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input name="password1" class="form-control" id="password1"
+                                            placeholder="Password" type="password">
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <input name="password2" class="form-control" id="password2"
+                                            placeholder="Repeat Password" type="password">
+                                    </div>
+
+                                </div>
+
+                                <input type="submit" href="error" class="btn btn-primary btn-user btn-block"
+                                    value="Register" onclick="return registerAdmin()">
+                                <hr>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                <input name="userid" id="userid" placeholder="Username" type="text" >
             </div>
-            
-            <div class="clearfix"></div>
-
-            <div class="input">
-                <div class="input-addon">
-                    <i class="material-icons">vpn_key</i>
-                </div>
-                <input name="password" id="password" placeholder="Password" type="password" >
-            </div>
-
-            <div class="remember-me">
-                <input type="checkbox">
-                <span style="color: #DDD">I accept Terms of Service</span>
-            </div>
-
-            <input type="submit" value="Register" onclick="return registerUser()">
-        </form>
-
-
-        <!--issue02: 跳转-->
-        <div class="register">
-            Do you already have an account?
-            <a href="##"><button id="register-link">Log In here</button></a>
         </div>
     </div>
 </body>

@@ -140,6 +140,7 @@ function createAuto(req, res, next) {
     const modeldate = req.body.modeldate;
     const status = req.body.status;
     const autoname = req.body.autoname;
+    const vin = req.body.vin;
     //verify
     database.setUpDatabase(function(connection) {
         connection.connect();
@@ -156,9 +157,9 @@ function createAuto(req, res, next) {
             //     res.send("User already exists");
             //     return;
             // }
-            var addSqlParams = [autoname, userid, modeldate, status];
+            var addSqlParams = [autoname, vin, userid, modeldate, status];
             console.log(addSqlParams);
-            var addSql = 'insert into auto (autoname, userid, modeldate, status) values (?, ?, ?, ?)';
+            var addSql = 'insert into auto (autoname, vin, userid, modeldate, status) values (?, ?, ?, ?, ?)';
             connection.query(addSql, addSqlParams, function(err, result) {
                 if(err) {
                     console.log('[INSERT ERROR] - ', err.message)

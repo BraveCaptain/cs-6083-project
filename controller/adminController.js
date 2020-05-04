@@ -9,13 +9,19 @@ exports.getUsers = getUsers;
 function createAdmin(req, res, next) {
     console.log('enter function createAdmin');
     const id = req.body.userid;
-    const plainTextPassword = req.body.password;
+    const plainTextPassword = req.body.password1;
+    const plainTextPasswordAgain = req.body.password2;
     //verify
     if(id.trim().length == 0) {
         return res.status(400).send('<h4>admin id error</h4>');
     }
     if(plainTextPassword.trim().length == 0) {
         return res.status(400).send('<h4>password error</h4>');
+    }
+    if (plainTextPassword != plainTextPasswordAgain) {
+        console.log('Passwords are not the same');
+        res.send("Passwords are not the same");
+        return;
     }
     database.setUpDatabase(function(connection) {
         connection.connect();
@@ -92,7 +98,7 @@ function loginAdmin(req, res, next) {
                 connection.end();
                 //issue03: 缺少error前端框架渲染
                 req.session.adminid = id;
-                res.redirect(301, '/admin/dashBoard');
+                res.redirect(301, '/admin/dashboard');
             });
         })
     })

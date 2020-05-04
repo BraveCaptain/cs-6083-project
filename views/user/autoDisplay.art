@@ -52,7 +52,7 @@
 
         <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Registered Home Information from {{userid}}</h1>
+            <h1 class="h3 mb-0 text-gray-800">Registered Auto Information from {{userid}}</h1>
           </div>
 
         <div class="container-fluid">
@@ -60,31 +60,19 @@
 
           <thead>
             <tr>
-              <th>Home ID In WDS</th>
-              <th>Home Name</th>
-              <th>Home Purchase Date</th>
-              <th>Home Purchase Value</th>
-              <th>Home Area (Sq. Ft.)</th>
-              <th>Home Type</th>
-              <th>Auto Fire Notification</th>
-              <th>Home Security System</th>
-              <th>Swimming Pool</th>
-              <th>Basement</th>
+              <th>Auto Name</th>
+              <th>Vehicle Identification Number</th>
+              <th>Auto Make-model Date</th>
+              <th>Auto Status</th>
             </tr>
           </thead>
           <tbody>
-            {{each homeInfo}}
+            {{each autoInfo}}
             <tr>
-              <td>{{$value.homeid}}</td>
-              <td>{{$value.homename}}</td>
-              <td>{{$value.purchasedate}}</td>
-              <td>${{$value.purchasevalue}}</td>
-              <td>{{$value.area}}</td>
-              <td>{{$value.type}}</td>
-              <td>{{$value.autofirenotification}}</td>
-              <td>{{$value.securitysystem}}</td>
-              <td>{{$value.swimmingpool}}</td>
-              <td>{{$value.basement}}</td>
+              <td>{{$value.autoname}}</td>
+              <td>{{$value.vin}}</td>
+              <td>{{$value.modeldate}}</td>
+              <td>{{$value.status}}</td>
             </tr>
             {{/each}}
           </tbody>

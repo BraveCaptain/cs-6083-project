@@ -31,7 +31,8 @@ const userRegister = require('./routes/user/register');
 const userDashboard = require('./routes/user/dashboard');
 const userHomeRegister = require('./routes/user/homeRegister');
 const userHomeDisplay = require('./routes/user/homeDisplay');
-const userAutoRegister = require('./routes/user/homeRegister');
+const userAutoRegister = require('./routes/user/autoRegister');
+const userAutoDisplay = require('./routes/user/autoDisplay');
 
 const adminLogin = require('./routes/admin/login');
 const adminRegister = require('./routes/admin/register');
@@ -53,6 +54,7 @@ app.use('/dashboard', userDashboard);
 app.use('/homeRegister', userHomeRegister);
 app.use('/homeDisplay', userHomeDisplay);
 app.use('/autoRegister', userAutoRegister);
+app.use('/autoDisplay', userAutoDisplay);
 
 //listen port 3000
 app.listen(3000);
