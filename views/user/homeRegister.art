@@ -4,7 +4,7 @@
 <head>
 
   {{include '../common/header.art'}}
-  <title>WDS {{userInfo.userid}} Profile</title>
+  <title>WDS {{userid}} Profile</title>
 
   <!-- Custom scripts for all pages-->
   <script src="/js/sb-admin-2.min.js"></script>
@@ -66,7 +66,7 @@
                                 <h1 class="h4 text-gray-900 mb-4">Register Your Home Information</h1>
                             </div>
 
-                            <form action="/homeRegister" method="post" id="registerForm">
+                            <form method="post" id="registerForm">
                                 <div class="form-group row">
                                     <div class="col-sm-5 mb-3 mb-sm-0">
                                         <label class=""> <b>Home Type</b> </label>
@@ -146,7 +146,7 @@
                                             <option value="O">Overground swimming pool</option>
                                             <option value="I">Indoor swimming pool</option>
                                             <option value="M">Multiple swimming pool</option>
-                                            <option value="MULL">No swimming pool</option>
+                                            <option value="NULL">No swimming pool</option>
                                         </select>
                                     </div>
                                 </div>

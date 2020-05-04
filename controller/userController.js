@@ -1,17 +1,16 @@
 const database = require('../config/databaseConfig');
 const bcrypt = require('bcrypt');
 const saltRound = 10;
-const common = require('./util/common');
 
 exports.createUser = createUser;
 exports.loginUser = loginUser;
-exports.getUserInfo = getUserInfo;
 
 function createUser(req, res, next) {
     console.log('enter function createUser');
+    console.log(req.body);
     const id = req.body.userid;
     const plainTextPassword = req.body.password1;
-    const plainTextPassword_temp = req.body.password2;
+    const plainTextPasswordAgain = req.body.password2;
     const fname = req.body.fname;
     const lname = req.body.lname;
     const state = req.body.state;
@@ -21,7 +20,11 @@ function createUser(req, res, next) {
     const gender = req.body.gender;
     const maritalstatus = req.body.maritalstatus;
     //verify
-
+    if (plainTextPassword != plainTextPasswordAgain) {
+        console.log('Passwords are not the same');
+        res.send("Passwords are not the same");
+        return;
+    }
     database.setUpDatabase(function(connection) {
         connection.connect();
         var sql = 'select * from user where userid = ?';
@@ -39,12 +42,12 @@ function createUser(req, res, next) {
             var password = bcrypt.hashSync(plainTextPassword, saltRound);
             if(gender == 'NULL') {
                 var addSqlParams = [id, password, fname, lname, state, city, street, zipcode, maritalstatus];
-                console.log(addSqlParams);
+                //console.log(addSqlParams);
                 var addSql = 'insert into user (userid, password, fname, lname, state, city, street, zipcode,  maritalstatus) values (?, ?, ?, ?, ?, ?, ?, ?, ?)';
             }
             else{
                 var addSqlParams = [id, password, fname, lname, state, city, street, zipcode, gender, maritalstatus];
-                console.log(addSqlParams);
+                //console.log(addSqlParams);
                 var addSql = 'insert into user (userid, password, fname, lname, state, city, street, zipcode, gender, maritalstatus) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
             }
             //var addSql = 'insert into user (userid, password) values (?, ?)';
@@ -111,30 +114,4 @@ function loginUser(req, res, next) {
             
         })
     })
-}
-
-function getUserInfo(req, res, next) {
-    const userid = req.session.userid;
-    database.setUpDatabase(function(connection) {
-        connection.connect();
-        var sql = 'select userid, fname, lname, state, city, street, zipcode, gender, maritalstatus from user where userid = ?';
-        connection.query(sql, [userid], function(err, result) {
-            if(err) {
-                console.log('[SELECT ERROR] - ', err.message);
-                res.send('SQL query error');
-                return;
-            }
-            if(result.length == 0) {
-                console.log('no such user');
-                res.send('no such user');
-                return;
-            }
-            userInfo = result[0];
-            common.correctUserInfo(userInfo);
-            console.log(userInfo);
-            res.render('user/dashboard', {
-                userInfo: userInfo
-            });
-        });
-    });
 }

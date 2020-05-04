@@ -19,10 +19,10 @@ function correctUserInfo(userInfo) {
             userInfo.maritalstatus = 'Married';
             break;
         case 'S':
-            userInfo.maritalstatus = '“Single”';
+            userInfo.maritalstatus = 'Single';
             break;
         case 'W':
-            userInfo.maritalstatus = '“Widow';
+            userInfo.maritalstatus = 'Widow';
             break;
         default:
             break;

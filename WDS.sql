@@ -91,7 +91,7 @@ CREATE TABLE hcustomer (
 -- ALTER TABLE hcustomer ADD CONSTRAINT hcustomer_pk PRIMARY KEY ( customerid );
 
 CREATE TABLE home (
-    homeid                INT NOT NULL,
+    homeid                INT NOT NULL auto_increment,
     purchasedate          DATETIME NOT NULL,
     purchasevalue         INT NOT NULL,
     area                  INT NOT NULL,
@@ -167,11 +167,11 @@ ALTER TABLE policy
 CREATE TABLE user (
     userid         VARCHAR(30) NOT NULL,
     password       VARCHAR(200) NOT NULL,
-    fname          VARCHAR(10) ,
-    lname          VARCHAR(10) ,
-    state          VARCHAR(10) ,
-    city           VARCHAR(10) ,
-    street         VARCHAR(20) ,
+    fname          VARCHAR(30) ,
+    lname          VARCHAR(30) ,
+    state          VARCHAR(30) ,
+    city           VARCHAR(30) ,
+    street         VARCHAR(30) ,
     zipcode        VARCHAR(5) ,
     gender         CHAR(1),
     maritalstatus  CHAR(1),

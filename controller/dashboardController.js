@@ -1,6 +1,9 @@
 const database = require('../config/databaseConfig');
+const common = require('./util/common');
+
 exports.getUserInfo = getUserInfo;
 exports.getHomeInfo = getHomeInfo;
+exports.createHome = createHome;
 
 function getHomeInfo(req, res, next) {
     const userid = req.session.userid;
@@ -14,15 +17,10 @@ function getHomeInfo(req, res, next) {
                 res.send('SQL query error');
                 return;
             }
-            if(result.length == 0) {
-                console.log('no such user');
-                res.send('no such user');
-                return;
-            }
             homeInfo = result[0];
             console.log(homeInfo);
             
-            res.render('homeDisplay', {
+            res.render('user/homeDisplay', {
                 homeInfo: homeInfo
             });
         });
@@ -46,11 +44,68 @@ function getUserInfo(req, res, next) {
                 return;
             }
             userInfo = result[0];
-            console.log(userInfo);
-            
-            res.render('dashboard', {
+            common.correctUserInfo(userInfo);
+            //console.log(userInfo);
+            res.render('user/dashboard', {
                 userInfo: userInfo
             });
         });
     });
+}
+
+function createHome(req, res, next) {
+    console.log('enter function createHome');
+    console.log(req.body);
+    const userid = req.session.userid;
+    const purchasedate = req.body.date;
+    const purchasevalue = req.body.value;
+    const area = req.body.area;
+    const type = req.body.type;
+    const autofirenotification = req.body.autoFireNotification;
+    const securitysystem = req.body.homeSecuritySystem;
+    const swimmingpool = req.body.swimmingPool;
+    const basement = req.body.basement;
+    //verify
+
+    database.setUpDatabase(function(connection) {
+        connection.connect();
+        //issue: home name
+        var sql = 'select * from home';
+        connection.query(sql, [], function(err, result) {
+            // if (err) {
+            //     console.log('[SELECT ERROR] - ', err.message);
+            //     res.send("SQL query error");
+            //     return;
+            // }
+            // if(result.length > 0) {
+            //     console.log('Already exists user id', id);
+            //     res.send("User already exists");
+            //     return;
+            // }
+
+            if(swimmingpool == 'NULL') {
+                var addSqlParams = [userid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement];
+                console.log(addSqlParams);
+                var addSql = 'insert into home (userid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement) values (?, ?, ?, ?, ?, ?, ?, ?)';
+            }
+            else{
+                var addSqlParams = [userid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement, swimmingpool];
+                console.log(addSqlParams);
+                var addSql = 'insert into home (userid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement, swimmingpool) values (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+            }
+            connection.query(addSql, addSqlParams, function(err, result) {
+                if(err) {
+                    console.log('[INSERT ERROR] - ', err.message)
+                    res.send("SQL insert error");
+                    return;
+                }
+                console.log('--------------------------INSERT----------------------------')
+                console.log('INSERT ID:', result)
+                console.log('------------------------------------------------------------')
+                //issue 01: 注册成功alert
+                connection.end();
+                res.redirect(301, '/dashboard');
+            })
+        }) 
+    })
 }
