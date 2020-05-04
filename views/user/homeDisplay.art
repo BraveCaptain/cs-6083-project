@@ -49,21 +49,40 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
 
-          <tbody>
+        <div class="container-fluid">
+        <table class="table table-striped table-bordered table-hover custom-table">
+
+          <thead>
             <tr>
-              <td>{{homeInfo.homeid}}</td>
-              <td>{{homeInfo.purchasedate}}</td>
-              <td>{{homeInfo.purchasevalue}}</td>
-              <td>{{homeInfo.area}}</td>
-              <td>{{homeInfo.type}}</td>
-              <td>{{homeInfo.autofirenotification}}</td>
-              <td>{{homeInfo.securitysystem}}</td>
-              <td>{{homeInfo.swimmingpool}}</td>
-              <td>{{homeInfo.basement}}</td>
+              <th>Home ID In WDS</th>
+              <th>Home Name</th>
+              <th>Home Purchase Date</th>
+              <th>Home Purchase Value</th>
+              <th>Home Area (Sq. Ft.)</th>
+              <th>Home Type</th>
+              <th>Auto Fire Notification</th>
+              <th>Home Security System</th>
+              <th>Swimming Pool</th>
+              <th>Basement</th>
             </tr>
+          </thead>
+          <tbody>
+            {{each homeInfo}}
+            <tr>
+              <td>{{$value.homeid}}</td>
+              <td>{{$value.purchasedate}}</td>
+              <td>${{$value.purchasevalue}}</td>
+              <td>{{$value.area}}</td>
+              <td>{{$value.type}}</td>
+              <td>{{$value.autofirenotification}}</td>
+              <td>{{$value.securitysystem}}</td>
+              <td>{{$value.swimmingpool}}</td>
+              <td>{{$value.basement}}</td>
+            </tr>
+            {{/each}}
           </tbody>
+        </table>
         </div>
 
 
