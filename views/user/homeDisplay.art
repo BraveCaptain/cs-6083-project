@@ -50,9 +50,20 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
->
-              {{homeInfo.purchasedate}}
 
+          <tbody>
+            <tr>
+              <td>{{homeInfo.homeid}}</td>
+              <td>{{homeInfo.purchasedate}}</td>
+              <td>{{homeInfo.purchasevalue}}</td>
+              <td>{{homeInfo.area}}</td>
+              <td>{{homeInfo.type}}</td>
+              <td>{{homeInfo.autofirenotification}}</td>
+              <td>{{homeInfo.securitysystem}}</td>
+              <td>{{homeInfo.swimmingpool}}</td>
+              <td>{{homeInfo.basement}}</td>
+            </tr>
+          </tbody>
         </div>
 
 

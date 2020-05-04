@@ -10,7 +10,7 @@ function getHomeInfo(req, res, next) {
     const userid = req.session.userid;
     database.setUpDatabase(function(connection) {
         connection.connect();
-        var sql = 'select a.homeid, a.purchasedate, a.purchasevalue, a.area, a.type, a.autofirenotification, a.securitysystem, a.swimmingpool, a.basement from home a inner join hcustomer b on a.customerid = b.customerid inner join customer c on b.customerid = c.customerid inner join user d on c.userid = d.userid where d.userid = ?';
+        var sql = 'select a.homeid, a.purchasedate, a.purchasevalue, a.area, a.type, a.autofirenotification, a.securitysystem, a.swimmingpool, a.basement from home a  inner join user d on a.userid = d.userid where d.userid = ?';
         //var sql = 'select a.homeid from home a inner join hcustomer b on a.customerid = b.customerid where a.homeid = ?';
         connection.query(sql, [userid], function(err, result) {
             if(err) {
@@ -18,7 +18,7 @@ function getHomeInfo(req, res, next) {
                 res.send('SQL query error');
                 return;
             }
-            homeInfo = result[0];
+            homeInfo = result;
             console.log(homeInfo);
             
             res.render('user/homeDisplay', {
