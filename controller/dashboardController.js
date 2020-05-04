@@ -2,23 +2,44 @@ const database = require('../config/databaseConfig');
 const common = require('./util/common');
 
 exports.getUserInfo = getUserInfo;
-exports.getHomeInfo = getHomeInfo;
+exports.getHomesInfo = getHomesInfo;
+exports.getAutosInfo = getAutosInfo;
 exports.createHome = createHome;
 exports.createAuto = createAuto;
 
-function getHomeInfo(req, res, next) {
+function getAutosInfo(req, res, next) {
     const userid = req.session.userid;
     database.setUpDatabase(function(connection) {
         connection.connect();
-        var sql = 'select a.homeid, a.purchasedate, a.purchasevalue, a.area, a.type, a.autofirenotification, a.securitysystem, a.swimmingpool, a.basement from home a inner join hcustomer b on a.customerid = b.customerid inner join customer c on b.customerid = c.customerid inner join user d on c.userid = d.userid where d.userid = ?';
-        //var sql = 'select a.homeid from home a inner join hcustomer b on a.customerid = b.customerid where a.homeid = ?';
+        var sql = '';
         connection.query(sql, [userid], function(err, result) {
             if(err) {
                 console.log('[SELECT ERROR] - ', err.message);
                 res.send('SQL query error');
                 return;
             }
-            homeInfo = result[0];
+            autoInfo = result;
+            console.log(autoInfo);
+            
+            res.render('user/autoDisplay', {
+                autoInfo: autoInfo
+            });
+        });
+    });
+}
+
+function getHomesInfo(req, res, next) {
+    const userid = req.session.userid;
+    database.setUpDatabase(function(connection) {
+        connection.connect();
+        var sql = 'select a.homeid, a.purchasedate, a.purchasevalue, a.area, a.type, a.autofirenotification, a.securitysystem, a.swimmingpool, a.basement from home a inner join hcustomer b on a.customerid = b.customerid inner join customer c on b.customerid = c.customerid inner join user d on c.userid = d.userid where d.userid = ?';
+        connection.query(sql, [userid], function(err, result) {
+            if(err) {
+                console.log('[SELECT ERROR] - ', err.message);
+                res.send('SQL query error');
+                return;
+            }
+            homeInfo = result;
             console.log(homeInfo);
             
             res.render('user/homeDisplay', {
