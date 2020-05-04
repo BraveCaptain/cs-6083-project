@@ -24,6 +24,7 @@ CREATE TABLE apolicy (
 -- ALTER TABLE apolicy ADD CONSTRAINT apolicy_pk PRIMARY KEY ( policyid );
 
 CREATE TABLE auto (
+    autoname    VARCHAR(30) NOT NULL,
     vin         INT NOT NULL,
     modeldate   DATETIME NOT NULL,
     status      CHAR(1) NOT NULL,
@@ -91,6 +92,7 @@ CREATE TABLE hcustomer (
 -- ALTER TABLE hcustomer ADD CONSTRAINT hcustomer_pk PRIMARY KEY ( customerid );
 
 CREATE TABLE home (
+    homename              VARCHAR(30) NOT NULL,
     homeid                INT NOT NULL auto_increment,
     purchasedate          DATETIME NOT NULL,
     purchasevalue         INT NOT NULL,
