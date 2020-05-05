@@ -73,6 +73,7 @@ function createHomeInsurance (req, res, next) {
 }
 
 function getHomeInsurancesInfo (req, res, next) {
+    console.log('gan');
     const userid = req.session.userid;
     var homeInsurancesInfo = {};
     database.setUpDatabase(function(connection) {
@@ -91,26 +92,26 @@ function getHomeInsurancesInfo (req, res, next) {
                 return;
             }
             homeInsurancesInfo.homeNames = result;
-        });
-        var policySql = 'select policyname from policy where policy.type = "H"';
-        connection.query(policySql, [], function(err, result) {
-            if(err) {
-                console.log('[SELECT ERROR] - ', err.message);
-                res.send('SQL query error');
-                return;
-            }
-            if(result.length == 0) {
-                console.log('no policy available');
-                res.send('no policy available');
-                return;
-            }
-            homeInsurancesInfo.policyNames = result;
+            var policySql = 'select policyname from policy where policy.type = "H"';
+            connection.query(policySql, [], function(err, result) {
+                if(err) {
+                    console.log('[SELECT ERROR] - ', err.message);
+                    res.send('SQL query error');
+                    return;
+                }
+                if(result.length == 0) {
+                    console.log('no policy available');
+                    res.send('no policy available');
+                    return;
+                }
+                homeInsurancesInfo.policyNames = result;
+            });
+            connection.end();
+            res.render('user/homeInsuranceSelect', {
+                homeInsurancesInfo: homeInsurancesInfo
+            })
         });
     });
-    connection.end();
-    res.render('user/homeInsuranceSelect', {
-        homeInsurancesInfo: homeInsurancesInfo
-    })
 }
 
 function getAutosInfo(req, res, next) {
