@@ -108,7 +108,7 @@ function getHomeInsurancesInfo (req, res, next) {
         });
     });
     connection.end();
-    res.render('user/homeInsurancePurchase', {
+    res.render('user/homeInsuranceSelect', {
         homeInsurancesInfo: homeInsurancesInfo
     })
 }

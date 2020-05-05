@@ -73,7 +73,7 @@
         </a>
         <div id="collapseInsurance" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="homePurchaseSelectHome">Home Insurance</a>
+            <a class="collapse-item" href="homeInsuranceSelect">Home Insurance</a>
             <a class="collapse-item" href="autoPurchaseSelectAuto">Auto Insurance</a>
           </div>
         </div>
