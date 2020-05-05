@@ -89,84 +89,31 @@
                                     <div class="col-sm-7">
                                       <select name="policyname" id="policyname" class="form-control">
 		                                    {{each homeInsurancesInfo.policyNames}}
-			                                    <option value={{$value}}>{{$value}}</option>
+			                                    <option value={{$value.policyname}}>{{$value.policyname}}</option>
 			                                  {{/each}}
 		                                  </select>
                                     </div>
                                 </div>
 
-                                 <div class="form-group row">
-                                    <div class="col-sm-5 mb-3 mb-sm-0">
-                                        <label class=""> <b>Home Purchase Value</b> </label>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <input name="purchasevalue" class="form-control" id="purchasevalue"
-                                            placeholder="Home Purchase Value" type="number">
-                                    </div>
-                                </div>
-
-
 
                                 <div class="form-group row">
                                     <div class="col-sm-5 mb-3 mb-sm-0">
-                                        <label class=""> <b>Home Purchase Date</b> </label>
+                                        <label class=""> <b>Insurance Start Date</b> </label>
                                     </div>
                                     <div class="col-sm-7">
-                                        <input name="purchasedate" class="form-control" id="purchasedate" type="date">
+                                        <input name="startdate" class="form-control" id="startdate" type="date">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label class=""> <b>Does your home have auto fire notification?</b> </label>
+                                    <div class="col-sm-5 mb-3 mb-sm-0">
+                                        <label class=""> <b>Insurance End Date</b> </label>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <select name="autofirenotification" id="autofirenotification" class="form-control">
-                                            <option value="1">Yes</option>
-                                            <option value="0">No</option>
-                                        </select>
+                                    <div class="col-sm-7">
+                                        <input name="enddate" class="form-control" id="enddate" type="date">
                                     </div>
                                 </div>
-                                
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label class=""> <b>Does your home have home security system?</b> </label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <select name="securitysystem" id="securitysystem" class="form-control">
-                                            <option value="1">Yes</option>
-                                            <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label class=""> <b>What about swimming pool in your home?</b> </label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <select name="swimmingpool" id="swimmingpool" class="form-control">
-                                            <option value="U">Underground swimming pool</option>
-                                            <option value="O">Overground swimming pool</option>
-                                            <option value="I">Indoor swimming pool</option>
-                                            <option value="M">Multiple swimming pool</option>
-                                            <option value="NULL">No swimming pool</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label class=""> <b>Does your home have basement?</b> </label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <select name="basement" id="basement" class="form-control">
-                                            <option value="1">Yes</option>
-                                            <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                </div>
-
+                              
  
 
                                 </div>
