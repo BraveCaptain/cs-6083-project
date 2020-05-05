@@ -8,6 +8,11 @@ exports.createHome = createHome;
 exports.createAuto = createAuto;
 exports.getHomeInsurancesInfo = getHomeInsurancesInfo;
 exports.createHomeInsurance = createHomeInsurance;
+exports.payHomeInsurance = payHomeInsurance;
+
+function payHomeInsurance (req, res, next) {
+    
+}
 
 function createHomeInsurance (req, res, next) {
     const userid = req.session.userid;
@@ -108,7 +113,7 @@ function getHomeInsurancesInfo (req, res, next) {
         });
     });
     connection.end();
-    res.render('user/homeInsurancePurchase', {
+    res.render('user/homeInsuranceSelect', {
         homeInsurancesInfo: homeInsurancesInfo
     })
 }
