@@ -70,7 +70,7 @@
                                 <div class="form-group row">
                                 <select name="type" id="type" class="form-control">
 		                              {{each homeInsurancesInfo.homeNames}}
-			                            <option value={{$value}}>{{$value}}</option>
+			                            <option value={{$value.homename}}>{{$value.homename}}</option>
 			                            {{/each}}
 		                            </select>
                                 </div>
