@@ -21,7 +21,7 @@ function createHomeInsurance (req, res, next) {
     const startdate = req.body.startdate;
     const enddate = req.body.enddate;
     const monthDifference = common.getMonthDifference(startdate, enddate);
-    
+    console.log(req.body.policyname);
     const price = 0;
     database.setUpDatabase(function(connection) {
         connection.connect();
@@ -32,7 +32,7 @@ function createHomeInsurance (req, res, next) {
                 res.send('SQL query error');
                 return;
             }
-            if(result.length == 0) {
+            else if(result.length == 0) {
                 var sql = 'insert into customer (type, userid) values ("H", ?)';
                 connection.query(sql, userid, function(err, result) {
                     if(err) {
@@ -45,40 +45,43 @@ function createHomeInsurance (req, res, next) {
                     console.log('------------------------------------------------------------')
                 });
             }
+            var sql = 'select amount from policy where policy.policyname = ?'
+            connection.query(sql, [policyname], function(err, result) {
+                if(err) {
+                    console.log('[SELECT ERROR] - ', err.message);
+                    res.send('SQL query error');
+                    return;
+                }
+                else if(result.length == 0){
+                    console.log('no such policy');
+                    res.send('no such policy');
+                    return;
+                }
+                else {
+                    price = result[0];
+                    sql = 'insert into home_policy (userid, startdate, enddate, amount, homename, policyname, paymentduedate, amountpaid) values (?, ?, ?, ?, ?, ?, DATE_ADD(NOW(), INTERVAL 1 MONTH), 0)';
+                    var sqlParam = [userid, startdate, enddate, price * monthDifference, homename, policyname];
+                    connection.query(sql, sqlParam, function (err, result) {
+                        if(err) {
+                            console.log('[SELECT ERROR] - ', err.message);
+                            res.send('SQL query error');
+                            return;
+                        }
+                        console.log('--------------------------INSERT----------------------------')
+                        console.log('INSERT ID:', result)
+                        console.log('------------------------------------------------------------')
+                        connection.end();
+                        res.redirect(301, '/dashboard');
+                    });
+                }
+            });
         });        
-        var sql = 'select amount from policy where policy.policyname = ?'
-        connection.query(sql, policyname, function(err, result) {
-            if(err) {
-                console.log('[SELECT ERROR] - ', err.message);
-                res.send('SQL query error');
-                return;
-            }
-            if(result.length == 0){
-                console.log('no such policy');
-                res.send('no such policy');
-                return;
-            }
-            price = result[0];
-        });
-        sql = 'insert into home_policy (userid, startdate, enddate, amount, homename, policyname, paymentduedate, amountpaid) values (?, ?, ?, ?, ?, ?, DATE_ADD(NOW(), INTERVAL 1 MONTH), 0)';
-        var sqlParam = [userid, startdate, enddate, price * monthDifference, homename, policyname];
-        connection.query(sql, sqlParam, function (err, result) {
-            if(err) {
-                console.log('[SELECT ERROR] - ', err.message);
-                res.send('SQL query error');
-                return;
-            }
-            console.log('--------------------------INSERT----------------------------')
-            console.log('INSERT ID:', result)
-            console.log('------------------------------------------------------------')
-            connection.end();
-            res.redirect(301, '/dashboard');
-        });
+        
+        
     }); 
 }
 
 function getHomeInsurancesInfo (req, res, next) {
-    console.log('gan');
     const userid = req.session.userid;
     var homeInsurancesInfo = {};
     database.setUpDatabase(function(connection) {
@@ -103,14 +106,11 @@ function getHomeInsurancesInfo (req, res, next) {
                     console.log('[SELECT ERROR] - ', err.message);
                     res.send('SQL query error');
                     return;
-                }
-                console.log('policyResult: ', policyResult);
-                if(policyResult.length == 0) {
+                } else if(policyResult.length == 0) {
                     console.log('no policy available');
                     res.send('no policy available');
                     return;
-                }
-                else {
+                } else {
                     homeInsurancesInfo.policyNames = policyResult;
                     connection.end();
                     res.render('user/homeInsuranceSelect', {
@@ -118,7 +118,6 @@ function getHomeInsurancesInfo (req, res, next) {
                     })
                 }
             });
-            
         });
     });
 }
