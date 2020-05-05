@@ -1,4 +1,5 @@
 exports.correctUserInfo = correctUserInfo;
+exports.getMonthDifference = getMonthDifference;
 
 function correctUserInfo(userInfo) {
     switch (userInfo.gender) {
@@ -27,4 +28,8 @@ function correctUserInfo(userInfo) {
         default:
             break;
     }
+}
+
+function getMonthDifference(date1, date2) {
+    return (Date.parse(date2) - Date.parse(date1)) / (1000 * 60 * 60 * 24 * 30);
 }

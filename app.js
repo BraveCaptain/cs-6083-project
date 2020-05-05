@@ -31,6 +31,7 @@ const userRegister = require('./routes/user/register');
 const userDashboard = require('./routes/user/dashboard');
 const userHomeRegister = require('./routes/user/homeRegister');
 const userHomeDisplay = require('./routes/user/homeDisplay');
+const userHomeInsuranceSelect = require('./routes/user/homeInsuranceSelect');
 const userAutoRegister = require('./routes/user/autoRegister');
 const userAutoDisplay = require('./routes/user/autoDisplay');
 
@@ -51,8 +52,11 @@ app.use('/admin/dashboard', adminDashboard);
 app.use('/login', userLogin);
 app.use('/register', userRegister);
 app.use('/dashboard', userDashboard);
+
 app.use('/homeRegister', userHomeRegister);
 app.use('/homeDisplay', userHomeDisplay);
+app.use('/homeInsuranceSelect', userHomeInsuranceSelect);
+
 app.use('/autoRegister', userAutoRegister);
 app.use('/autoDisplay', userAutoDisplay);
 

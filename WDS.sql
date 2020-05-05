@@ -2,26 +2,12 @@ DROP DATABASE IF EXISTS WDS;
 CREATE DATABASE WDS;
 USE WDS;
 
-CREATE TABLE acustomer (
-    type        CHAR(1) NOT NULL,
-    customerid  INT NOT NULL,
-    PRIMARY KEY(customerid)
-);
 
 CREATE TABLE admin (
     adminid     VARCHAR(30) NOT NULL,
     password    VARCHAR(200),
     PRIMARY KEY (adminid)
 );
-
--- ALTER TABLE acustomer ADD CONSTRAINT acustomer_pk PRIMARY KEY ( customerid );
-
-CREATE TABLE apolicy (
-    policyid INT NOT NULL,
-    PRIMARY KEY(policyid)
-);
-
--- ALTER TABLE apolicy ADD CONSTRAINT apolicy_pk PRIMARY KEY ( policyid );
 
 CREATE TABLE auto (
     autoname    VARCHAR(30) NOT NULL,
@@ -33,26 +19,27 @@ CREATE TABLE auto (
     PRIMARY KEY(vin)
 );
 
--- ALTER TABLE auto ADD CONSTRAINT auto_pk PRIMARY KEY ( vin );
-
-CREATE TABLE auto_apolicy (
-    apid           INT NOT NULL,
+CREATE TABLE auto_policy (
+	userid         VARCHAR(30) NOT NULL,
+    apid           INT NOT NULL auto_increment,
     startdate      DATETIME NOT NULL,
     enddate        DATETIME NOT NULL,
-    premuimamount  INT NOT NULL,
+    amount         INT NOT NULL,
+	amountpaid     INT NOT NULL,
     status         CHAR(1) NOT NULL,
-    vin            INT NOT NULL,
-    policyid       INT NOT NULL,
+    vin            INT,
+    policyid       INT,
+	autoname       VARCHAR(30),
+	policyname     VARCHAR(30),
     PRIMARY KEY(apid)
 );
 
--- ALTER TABLE auto_apolicy ADD CONSTRAINT auto_apolicy_pk PRIMARY KEY ( apid );
 
 CREATE TABLE customer (
     type        CHAR(1) NOT NULL,
     userid      VARCHAR(30) NOT NULL,
     customerid  INT NOT NULL auto_increment,
-    PRIMARY KEY(customerid)
+    PRIMARY KEY(customerid, type)
 );
 
 ALTER TABLE customer
@@ -62,8 +49,6 @@ ALTER TABLE customer
     ) 
 );
 
--- ALTER TABLE customer ADD CONSTRAINT customer_pk PRIMARY KEY ( type, customerid );
-
 CREATE TABLE driver (
     licensenum  INT NOT NULL,
     fname       VARCHAR(10) NOT NULL,
@@ -72,24 +57,11 @@ CREATE TABLE driver (
     PRIMARY KEY(licensenum)
 );
 
--- ALTER TABLE driver ADD CONSTRAINT driver_pk PRIMARY KEY ( licensenum );
-
 CREATE TABLE driver_auto (
     vin         INT NOT NULL,
     licensenum  INT NOT NULL,
     PRIMARY KEY(vin, licensenum)
 );
-
-
--- ALTER TABLE driver_auto ADD CONSTRAINT driver_auto_pk PRIMARY KEY ( vin, licensenum );
-
-CREATE TABLE hcustomer (
-    type        CHAR(1) NOT NULL,
-    customerid  INT NOT NULL,
-    PRIMARY KEY(customerid)
-);
-
--- ALTER TABLE hcustomer ADD CONSTRAINT hcustomer_pk PRIMARY KEY ( customerid );
 
 CREATE TABLE home (
     homename              VARCHAR(30) NOT NULL,
@@ -107,55 +79,48 @@ CREATE TABLE home (
     PRIMARY KEY(homeid)
 );
 
--- ALTER TABLE home ADD CONSTRAINT home_pk PRIMARY KEY ( homeid );
-
-CREATE TABLE home_hpolicy (
-    hpid           INT NOT NULL,
+CREATE TABLE home_policy (
+	userid         VARCHAR(30) NOT NULL,
+    hpid           INT NOT NULL auto_increment,
     startdate      DATETIME NOT NULL,
     enddate        DATETIME NOT NULL,
-    premuimamount  INT NOT NULL,
-    status         CHAR(1) NOT NULL,
-    homeid         INT NOT NULL,
-    policyid       INT NOT NULL,
+    amount         INT NOT NULL,
+	amountpaid     INT NOT NULL,
+    homeid         INT,
+    policyid       INT,
+	homename       VARCHAR(30),
+	policyname     VARCHAR(30),
+	paymentduedate DATETIME NOT NULL,
     PRIMARY KEY(hpid)
 );
 
--- ALTER TABLE home_hpolicy ADD CONSTRAINT home_hpolicy_pk PRIMARY KEY ( hpid );
-
-CREATE TABLE hpolicy (
-    policyid INT NOT NULL,
-    PRIMARY KEY(policyid)
-);
-
-
--- ALTER TABLE hpolicy ADD CONSTRAINT hpolicy_pk PRIMARY KEY ( policyid );
-
-CREATE TABLE invoice (
-    invoiceid       INT NOT NULL,
-    paymentduedate  DATETIME NOT NULL,
-    amount          INT NOT NULL,
-    PRIMARY KEY(invoiceid)
-);
-
--- ALTER TABLE invoice ADD CONSTRAINT invoice_pk PRIMARY KEY ( invoiceid );
-
-CREATE TABLE payment (
-    paymentid    INT NOT NULL,
+CREATE TABLE apayment (
+	userid         VARCHAR(30) NOT NULL,
+    paymentid    INT NOT NULL auto_increment,
     paymentdate  DATETIME NOT NULL,
     method       VARCHAR(6) NOT NULL,
-    hpid         INT,
     apid         INT,
-    invoiceid    INT NOT NULL,
     amount       INT NOT NULL,
     PRIMARY KEY(paymentid)
 );
 
--- ALTER TABLE payment ADD CONSTRAINT payment_pk PRIMARY KEY ( paymentid );
+CREATE TABLE hpayment (
+	userid         VARCHAR(30) NOT NULL,
+    paymentid    INT NOT NULL auto_increment,
+    paymentdate  DATETIME NOT NULL,
+    method       VARCHAR(6) NOT NULL,
+    hpid         INT,
+    amount       INT NOT NULL,
+    PRIMARY KEY(paymentid)
+);
 
 CREATE TABLE policy (
-    policyid  INT NOT NULL,
+    policyid  INT NOT NULL auto_increment,
     type      CHAR(1) NOT NULL,
-    PRIMARY KEY(policyid)
+    policyname VARCHAR(30) not null,
+	amount 	   INT NOT NULL,
+    PRIMARY KEY(policyid, type),
+	UNIQUE (policyname)
 );
 
 ALTER TABLE policy
@@ -164,86 +129,16 @@ ALTER TABLE policy
         'H'
     ) );
 
--- ALTER TABLE policy ADD CONSTRAINT policy_pk PRIMARY KEY ( policyid );
-
 CREATE TABLE user (
     userid         VARCHAR(30) NOT NULL,
     password       VARCHAR(200) NOT NULL,
-    fname          VARCHAR(30) ,
-    lname          VARCHAR(30) ,
-    state          VARCHAR(30) ,
-    city           VARCHAR(30) ,
-    street         VARCHAR(30) ,
-    zipcode        VARCHAR(5) ,
+    fname          VARCHAR(30),
+    lname          VARCHAR(30),
+    state          VARCHAR(30),
+    city           VARCHAR(30),
+    street         VARCHAR(30),
+    zipcode        VARCHAR(5),
     gender         CHAR(1),
     maritalstatus  CHAR(1),
     PRIMARY KEY(userid)
 );
-
--- ALTER TABLE user ADD CONSTRAINT user_pk PRIMARY KEY ( userid );
-
--- ALTER TABLE acustomer
---     ADD CONSTRAINT acustomer_customer_fk FOREIGN KEY ( type, customerid )
---         REFERENCES customer ( type, customerid );
-
--- ALTER TABLE apolicy
---     ADD CONSTRAINT apolicy_policy_fk FOREIGN KEY ( policyid )
---         REFERENCES policy ( policyid );
-
--- ALTER TABLE auto
---     ADD CONSTRAINT auto_acustomer_fk FOREIGN KEY ( customerid )
---         REFERENCES acustomer ( customerid );
-
--- ALTER TABLE auto_apolicy
---     ADD CONSTRAINT auto_apolicy_apolicy_fk FOREIGN KEY ( policyid )
---         REFERENCES apolicy ( policyid );
-
--- ALTER TABLE auto_apolicy
---     ADD CONSTRAINT auto_apolicy_auto_fk FOREIGN KEY ( vin )
---         REFERENCES auto ( vin );
-
--- ALTER TABLE driver_auto
---     ADD CONSTRAINT driver_auto_auto_fk FOREIGN KEY ( vin )
---         REFERENCES auto ( vin );
-
--- ALTER TABLE driver_auto
---     ADD CONSTRAINT driver_auto_driver_fk FOREIGN KEY ( licensenum )
---         REFERENCES driver ( licensenum );
-
--- ALTER TABLE hcustomer
---     ADD CONSTRAINT hcustomer_customer_fk FOREIGN KEY ( type,
---                                                        customerid )
---         REFERENCES customer ( type,
---                               customerid );
-
--- ALTER TABLE home
---     ADD CONSTRAINT home_hcustomer_fk FOREIGN KEY ( customerid )
---         REFERENCES hcustomer ( customerid );
-
--- ALTER TABLE home_hpolicy
---     ADD CONSTRAINT home_hpolicy_home_fk FOREIGN KEY ( homeid )
---         REFERENCES home ( homeid );
-
--- ALTER TABLE home_hpolicy
---     ADD CONSTRAINT home_hpolicy_hpolicy_fk FOREIGN KEY ( policyid )
---         REFERENCES hpolicy ( policyid );
-
--- ALTER TABLE hpolicy
---     ADD CONSTRAINT hpolicy_policy_fk FOREIGN KEY ( policyid )
---         REFERENCES policy ( policyid );
-
--- ALTER TABLE payment
---     ADD CONSTRAINT payment_auto_apolicy_fk FOREIGN KEY ( apid )
---         REFERENCES auto_apolicy ( apid );
-
--- ALTER TABLE payment
---     ADD CONSTRAINT payment_home_hpolicy_fk FOREIGN KEY ( hpid )
---         REFERENCES home_hpolicy ( hpid );
-
--- ALTER TABLE payment
---     ADD CONSTRAINT payment_invoice_fk FOREIGN KEY ( invoiceid )
---         REFERENCES invoice ( invoiceid );
-
--- ALTER TABLE customer
---     ADD CONSTRAINT user_fk FOREIGN KEY ( userid )
---         REFERENCES user ( userid );
