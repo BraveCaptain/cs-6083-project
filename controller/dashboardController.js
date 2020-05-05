@@ -104,17 +104,21 @@ function getHomeInsurancesInfo (req, res, next) {
                     res.send('SQL query error');
                     return;
                 }
+                console.log('policyResult: ', policyResult);
                 if(policyResult.length == 0) {
                     console.log('no policy available');
                     res.send('no policy available');
                     return;
                 }
-                homeInsurancesInfo.policyNames = policyResult;
+                else {
+                    homeInsurancesInfo.policyNames = policyResult;
+                    connection.end();
+                    res.render('user/homeInsuranceSelect', {
+                        homeInsurancesInfo: homeInsurancesInfo
+                    })
+                }
             });
-            connection.end();
-            res.render('user/homeInsuranceSelect', {
-                homeInsurancesInfo: homeInsurancesInfo
-            })
+            
         });
     });
 }
