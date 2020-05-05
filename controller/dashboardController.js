@@ -25,7 +25,7 @@ function createHomeInsurance (req, res, next) {
     const price = 0;
     database.setUpDatabase(function(connection) {
         connection.connect();
-        var customerSql = 'selct * from customer where customer.userid = ? and customer.type = "H"';
+        var customerSql = 'select * from customer where customer.userid = ? and customer.type = "H"';
         connection.query(customerSql, userid, function(err, result) {
             if(err) {
                 console.log('[SELECT ERROR] - ', err.message);

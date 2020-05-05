@@ -69,12 +69,26 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInsurance" aria-expanded="true"
           aria-controls="collapseInsurance">
           <i class="fas fa-fw fa-wallet"></i>
-          <span>Purchase Insurance</span>
+          <span>Insurance Selection</span>
         </a>
         <div id="collapseInsurance" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="homeInsuranceSelect">Home Insurance</a>
             <a class="collapse-item" href="autoPurchaseSelectAuto">Auto Insurance</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePayment" aria-expanded="true"
+          aria-controls="collapsePayment">
+          <i class="fas fa-fw fa-wallet"></i>
+          <span>Insurance Payment</span>
+        </a>
+        <div id="collapsePayment" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="homeInsuranceSelect">Home Insurance Payment</a>
+            <a class="collapse-item" href="autoPurchaseSelectAuto">Auto Insurance Payment</a>
           </div>
         </div>
       </li>
