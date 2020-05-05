@@ -34,6 +34,15 @@ CREATE TABLE auto_policy (
     PRIMARY KEY(apid)
 );
 
+CREATE TABLE apayment (
+	userid         VARCHAR(30) NOT NULL,
+    paymentid    INT NOT NULL auto_increment,
+    paymentdate  DATETIME NOT NULL,
+    method       VARCHAR(6) NOT NULL,
+    apid         INT,
+    amount       INT NOT NULL,
+    PRIMARY KEY(paymentid)
+);
 
 CREATE TABLE customer (
     type        CHAR(1) NOT NULL,
@@ -92,16 +101,6 @@ CREATE TABLE home_policy (
 	policyname     VARCHAR(30),
 	paymentduedate DATETIME NOT NULL,
     PRIMARY KEY(hpid)
-);
-
-CREATE TABLE apayment (
-	userid         VARCHAR(30) NOT NULL,
-    paymentid    INT NOT NULL auto_increment,
-    paymentdate  DATETIME NOT NULL,
-    method       VARCHAR(6) NOT NULL,
-    apid         INT,
-    amount       INT NOT NULL,
-    PRIMARY KEY(paymentid)
 );
 
 CREATE TABLE hpayment (
