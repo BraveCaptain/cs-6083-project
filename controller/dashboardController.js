@@ -21,6 +21,7 @@ function createHomeInsurance (req, res, next) {
     const startdate = req.body.startdate;
     const enddate = req.body.enddate;
     const monthDifference = common.getMonthDifference(startdate, enddate);
+    console.log(req.body.homename);
     console.log(req.body.policyname);
     const price = 0;
     database.setUpDatabase(function(connection) {

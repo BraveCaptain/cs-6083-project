@@ -76,7 +76,7 @@
                                     <div class="col-sm-7">
                                       <select name="homename" id="homename" class="form-control">
 		                                    {{each homeInsurancesInfo.homeNames}}
-			                                    <option value={{$value.homename}}>{{$value.homename}}</option>
+			                                    <option>{{$value.homename}}</option>
 			                                  {{/each}}
 		                                  </select>
                                     </div>
@@ -89,7 +89,7 @@
                                     <div class="col-sm-7">
                                       <select name="policyname" id="policyname" class="form-control">
 		                                    {{each homeInsurancesInfo.policyNames}}
-			                                    <option value={{$value.policyname}}>{{$value.policyname}}</option>
+			                                    <option>{{$value.policyname}}</option>
 			                                  {{/each}}
 		                                  </select>
                                     </div>
