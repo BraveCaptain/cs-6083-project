@@ -16,6 +16,8 @@ const guard = (req, res, next) => {
     } else if(didUserLogin && !didAdminLogin) {
         if(url == '/admin/dashboard') {
             res.redirect('/admin/login');
+        } else if (url == '/login'){
+            res.redirect('/dashboard');
         } else {
             next();
         }

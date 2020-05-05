@@ -26,7 +26,6 @@ CREATE TABLE auto_policy (
     enddate        DATETIME NOT NULL,
     amount         INT NOT NULL,
 	amountpaid     INT NOT NULL,
-    status         CHAR(1) NOT NULL,
     vin            INT,
     policyid       INT,
 	autoname       VARCHAR(30),
@@ -59,6 +58,7 @@ ALTER TABLE customer
 );
 
 CREATE TABLE driver (
+    userid      VARCHAR(30) NOT NULL,
     licensenum  INT NOT NULL,
     fname       VARCHAR(10) NOT NULL,
     lname       VARCHAR(10) NOT NULL,
@@ -67,8 +67,10 @@ CREATE TABLE driver (
 );
 
 CREATE TABLE driver_auto (
-    vin         INT NOT NULL,
+    userid      VARCHAR(30) NOT NULL,
+    vin         INT,
     licensenum  INT NOT NULL,
+    autoname    VARCHAR(30) NOT NULL,
     PRIMARY KEY(vin, licensenum)
 );
 
