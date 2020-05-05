@@ -8,6 +8,11 @@ exports.createHome = createHome;
 exports.createAuto = createAuto;
 exports.getHomeInsurancesInfo = getHomeInsurancesInfo;
 exports.createHomeInsurance = createHomeInsurance;
+exports.payHomeInsurance = payHomeInsurance;
+
+function payHomeInsurance (req, res, next) {
+    
+}
 
 function createHomeInsurance (req, res, next) {
     const userid = req.session.userid;
@@ -93,18 +98,18 @@ function getHomeInsurancesInfo (req, res, next) {
             }
             homeInsurancesInfo.homeNames = result;
             var policySql = 'select policyname from policy where policy.type = "H"';
-            connection.query(policySql, [], function(err, result) {
+            connection.query(policySql, [], function(err, policyResult) {
                 if(err) {
                     console.log('[SELECT ERROR] - ', err.message);
                     res.send('SQL query error');
                     return;
                 }
-                if(result.length == 0) {
+                if(policyResult.length == 0) {
                     console.log('no policy available');
                     res.send('no policy available');
                     return;
                 }
-                homeInsurancesInfo.policyNames = result;
+                homeInsurancesInfo.policyNames = policyResult;
             });
             connection.end();
             res.render('user/homeInsuranceSelect', {
