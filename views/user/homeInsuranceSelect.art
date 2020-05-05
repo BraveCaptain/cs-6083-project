@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  {{include '../common/header.art'}}
+  <title>WDS {{userid}} Home Register</title>
+
+  <!-- Custom scripts for all pages-->
+  <script src="/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="/vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="/js/demo/chart-area-demo.js"></script>
+  <script src="/js/demo/chart-pie-demo.js"></script>
+  <meta name="author" content="">
+
+  <!--
+  <script>
+    function registerHome() {
+      var res = formContentToJson($("#registerForm"));
+      //if user did not enter userid or password
+      return validateHomeInput(res);
+    }
+  </script>
+  -->
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    {{include '../common/sidebar.art'}}
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        {{include '../common/topbar.art'}}
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Home Registration</h1>
+          </div>
+
+          <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-home-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Register Your Home Information</h1>
+                            </div>
+
+                            <form method="post" id="registerForm">
+                                <div class="form-group row">
+                                <select name="type" id="type" class="form-control">
+		                              {{each homeInsurancesInfo.homeNames}}
+			                            <option value={{$value}}>{{$value}}</option>
+			                            {{/each}}
+		                            </select>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-5 mb-3 mb-sm-0">
+                                        <label class=""> <b>Home Type</b> </label>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <select name="type" id="type" class="form-control">
+                                            <option value="S">Single family</option>
+                                            <option value="M">Multi Family</option>
+                                            <option value="C">Condominium</option>
+                                            <option value="T">Town house</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-5 mb-3 mb-sm-0">
+                                        <label class=""> <b>Home Area in Sq. Ft.</b> </label>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <input name="area" class="form-control" id="area" placeholder="Home Area in Sq. Ft."
+                                        type="number">
+                                    </div>
+                                </div>
+
+                                 <div class="form-group row">
+                                    <div class="col-sm-5 mb-3 mb-sm-0">
+                                        <label class=""> <b>Home Purchase Value</b> </label>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <input name="purchasevalue" class="form-control" id="purchasevalue"
+                                            placeholder="Home Purchase Value" type="number">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group row">
+                                    <div class="col-sm-5 mb-3 mb-sm-0">
+                                        <label class=""> <b>Home Purchase Date</b> </label>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <input name="purchasedate" class="form-control" id="purchasedate" type="date">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label class=""> <b>Does your home have auto fire notification?</b> </label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select name="autofirenotification" id="autofirenotification" class="form-control">
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label class=""> <b>Does your home have home security system?</b> </label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select name="securitysystem" id="securitysystem" class="form-control">
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label class=""> <b>What about swimming pool in your home?</b> </label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select name="swimmingpool" id="swimmingpool" class="form-control">
+                                            <option value="U">Underground swimming pool</option>
+                                            <option value="O">Overground swimming pool</option>
+                                            <option value="I">Indoor swimming pool</option>
+                                            <option value="M">Multiple swimming pool</option>
+                                            <option value="NULL">No swimming pool</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label class=""> <b>Does your home have basement?</b> </label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select name="basement" id="basement" class="form-control">
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+ 
+
+                                </div>
+
+                                <input type="submit" href="dashboard" class="btn btn-primary btn-user btn-block"
+                                    value="Register" onclick="return registerHome()">
+                                <hr>
+                            </form>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+          
+
+
+
+        
+
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      {{include '../common/footer.art'}}
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+</body>
