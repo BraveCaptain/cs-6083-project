@@ -23,6 +23,7 @@ function createHomeInsurance (req, res, next) {
     const monthDifference = common.getMonthDifference(startdate, enddate);
     console.log(req.body.homename);
     console.log(req.body.policyname);
+    console.log(monthDifference);
     const price = 0;
     database.setUpDatabase(function(connection) {
         connection.connect();
@@ -59,9 +60,10 @@ function createHomeInsurance (req, res, next) {
                     return;
                 }
                 else {
-                    price = result[0];
-                    sql = 'insert into home_policy (userid, startdate, enddate, amount, homename, policyname, paymentduedate, amountpaid) values (?, ?, ?, ?, ?, ?, DATE_ADD(NOW(), INTERVAL 1 MONTH), 0)';
-                    var sqlParam = [userid, startdate, enddate, price * monthDifference, homename, policyname];
+                    var price = result[0].amount;
+                    sql = 'insert into home_policy (userid, startdate, enddate, amount, homename, policyname, paymentduedate, amountpaid) values (?, ?, ?, ?, ?, ?, ?, 0)';
+                    var sqlParam = [userid, startdate, enddate, price * monthDifference, homename, policyname,enddate];
+                    console.log(sqlParam);
                     connection.query(sql, sqlParam, function (err, result) {
                         if(err) {
                             console.log('[SELECT ERROR] - ', err.message);
