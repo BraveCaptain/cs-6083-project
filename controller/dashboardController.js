@@ -91,6 +91,7 @@ function getHomeInsurancesInfo (req, res, next) {
                 return;
             }
             homeInsurancesInfo.homeNames = result;
+            connection.end();
         });
         var policySql = 'select policyname from policy where policy.type = "H"';
         connection.query(policySql, [], function(err, result) {
@@ -105,12 +106,14 @@ function getHomeInsurancesInfo (req, res, next) {
                 return;
             }
             homeInsurancesInfo.policyNames = result;
+            connection.end();
+            res.render('user/homeInsuranceSelect', {
+                homeInsurancesInfo: homeInsurancesInfo
+            })
         });
     });
-    connection.end();
-    res.render('user/homeInsuranceSelect', {
-        homeInsurancesInfo: homeInsurancesInfo
-    })
+
+
 }
 
 function getAutosInfo(req, res, next) {

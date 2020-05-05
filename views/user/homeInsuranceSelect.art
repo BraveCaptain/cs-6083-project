@@ -69,8 +69,8 @@
                             <form method="post" id="registerForm">
 
                                 <select name="type" id="type" class="form-control">
-		                              {{each homeInfo}}
-			                            <option value={{$value.homename}}>{{$value.homename}}</option>
+		                              {{each homeInsurancesInfo}}
+			                            <option value={{$homeInsurancesInfo.homeNames}}>{{$homeInsurancesInfo.homeNames}}</option>
 			                            {{/each}}
 		                            </select>
 
