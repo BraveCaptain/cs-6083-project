@@ -4,7 +4,7 @@
 <head>
 
   {{include '../common/header.art'}}
-  <title>WDS {{userid}} Home Register</title>
+  <title>WDS {{userid}} Home Insurance Select</title>
 
   <!-- Custom scripts for all pages-->
   <script src="/js/sb-admin-2.min.js"></script>
@@ -53,124 +53,67 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Home Registration</h1>
+            <h1 class="h3 mb-0 text-gray-800">Home Insurance Select</h1>
           </div>
 
           <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-home-image"></div>
+                    <div class="col-lg-5 d-none d-lg-block bg-home_insurance-image"></div>
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Register Your Home Information</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Fill in the Blanks to Purchase Our Insurance</h1>
                             </div>
 
                             <form method="post" id="registerForm">
-                                <div class="form-group row">
-                                <select name="type" id="type" class="form-control">
-		                              {{each homeInsurancesInfo.homeNames}}
-			                            <option value={{$value}}>{{$value}}</option>
-			                            {{/each}}
-		                            </select>
-                                </div>
+
 
                                 <div class="form-group row">
                                     <div class="col-sm-5 mb-3 mb-sm-0">
-                                        <label class=""> <b>Home Type</b> </label>
+                                        <label class=""> <b>Choose the home you want to insure</b> </label>
                                     </div>
                                     <div class="col-sm-7">
-                                        <select name="type" id="type" class="form-control">
-                                            <option value="S">Single family</option>
-                                            <option value="M">Multi Family</option>
-                                            <option value="C">Condominium</option>
-                                            <option value="T">Town house</option>
-                                        </select>
+                                      <select name="homename" id="homename" class="form-control">
+		                                    {{each homeInsurancesInfo.homeNames}}
+			                                    <option value={{$value.homename}}>{{$value.homename}}</option>
+			                                  {{/each}}
+		                                  </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <div class="col-sm-5 mb-3 mb-sm-0">
-                                        <label class=""> <b>Home Area in Sq. Ft.</b> </label>
+                                        <label class=""> <b>Choose the policy you want to buy</b> </label>
                                     </div>
                                     <div class="col-sm-7">
-                                        <input name="area" class="form-control" id="area" placeholder="Home Area in Sq. Ft."
-                                        type="number">
+                                      <select name="policyname" id="policyname" class="form-control">
+		                                    {{each homeInsurancesInfo.policyNames}}
+			                                    <option value={{$value.policyname}}>{{$value.policyname}}</option>
+			                                  {{/each}}
+		                                  </select>
                                     </div>
                                 </div>
-
-                                 <div class="form-group row">
-                                    <div class="col-sm-5 mb-3 mb-sm-0">
-                                        <label class=""> <b>Home Purchase Value</b> </label>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <input name="purchasevalue" class="form-control" id="purchasevalue"
-                                            placeholder="Home Purchase Value" type="number">
-                                    </div>
-                                </div>
-
 
 
                                 <div class="form-group row">
                                     <div class="col-sm-5 mb-3 mb-sm-0">
-                                        <label class=""> <b>Home Purchase Date</b> </label>
+                                        <label class=""> <b>Insurance Start Date</b> </label>
                                     </div>
                                     <div class="col-sm-7">
-                                        <input name="purchasedate" class="form-control" id="purchasedate" type="date">
+                                        <input name="startdate" class="form-control" id="startdate" type="date">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label class=""> <b>Does your home have auto fire notification?</b> </label>
+                                    <div class="col-sm-5 mb-3 mb-sm-0">
+                                        <label class=""> <b>Insurance End Date</b> </label>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <select name="autofirenotification" id="autofirenotification" class="form-control">
-                                            <option value="1">Yes</option>
-                                            <option value="0">No</option>
-                                        </select>
+                                    <div class="col-sm-7">
+                                        <input name="enddate" class="form-control" id="enddate" type="date">
                                     </div>
                                 </div>
-                                
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label class=""> <b>Does your home have home security system?</b> </label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <select name="securitysystem" id="securitysystem" class="form-control">
-                                            <option value="1">Yes</option>
-                                            <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label class=""> <b>What about swimming pool in your home?</b> </label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <select name="swimmingpool" id="swimmingpool" class="form-control">
-                                            <option value="U">Underground swimming pool</option>
-                                            <option value="O">Overground swimming pool</option>
-                                            <option value="I">Indoor swimming pool</option>
-                                            <option value="M">Multiple swimming pool</option>
-                                            <option value="NULL">No swimming pool</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label class=""> <b>Does your home have basement?</b> </label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <select name="basement" id="basement" class="form-control">
-                                            <option value="1">Yes</option>
-                                            <option value="0">No</option>
-                                        </select>
-                                    </div>
-                                </div>
-
+                              
  
 
                                 </div>
