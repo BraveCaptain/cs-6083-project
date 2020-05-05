@@ -112,6 +112,7 @@ function getHomeInsurancesInfo (req, res, next) {
                 homeInsurancesInfo.policyNames = policyResult;
             });
             connection.end();
+            console.log(homeInsurancesInfo);
             res.render('user/homeInsuranceSelect', {
                 homeInsurancesInfo: homeInsurancesInfo
             })
