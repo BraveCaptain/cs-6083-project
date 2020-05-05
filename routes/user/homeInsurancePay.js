@@ -3,8 +3,8 @@ const userInsurance = require('../../controller/dashboardController');
 
 const insurance = express.Router();
 
-insurance.get('/', userInsurance.getHomeInsurancesInfo);
+insurance.get('/', userInsurance.getUnpaidHomeInsurance);
 
-insurance.post('/', userInsurance.createHomeInsurance)
+insurance.post('/', userInsurance.payHomeInsurance);
 
 module.exports = insurance;

@@ -104,6 +104,7 @@
                                     </div>
                                     <div class="col-sm-7">
                                         <select name="status" id="status" class="form-control">
+                                            <option value="" selected disabled> -Please Select- </option>
                                             <option value="L">Leased</option>
                                             <option value="F">Financed</option>
                                             <option value="O">Owned</option>

@@ -15,7 +15,7 @@ function getUnpaidHomeInsurance(req, res, next) {
     const userid = req.session.userid;
     database.setUpDatabase(function (connection) {
         connection.connect();
-        var sql = 'select hpid, amount, amountpaid, paymentduedate, homename, policyname from home_policy where home_policy.userid = ? and home_policy.amountpaid < home_policy.amount';
+        var sql = 'select hpid, (amount-amountpaid)leftamount, amountpaid, paymentduedate, homename, policyname from home_policy where home_policy.userid = ? and home_policy.amountpaid < home_policy.amount';
         connection.query(sql, userid, function (err, result) {
             if (err) {
                 console.log('[SELECT ERROR] - ', err.message);
@@ -26,6 +26,7 @@ function getUnpaidHomeInsurance(req, res, next) {
                 res.send('no unpaid invoice');
                 return;
             } else {
+                console.log(result);
                 var unpaidHomeInsurancesInfo = result;
                 connection.end();
                 res.render('user/homeInsurancePay', {

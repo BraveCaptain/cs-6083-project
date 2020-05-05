@@ -91,6 +91,7 @@
                                     </div>
                                     <div class="col-sm-7">
                                         <select name="gender" id="gender" class="form-control">
+                                            <option value="" selected disabled> -Please Select- </option>
                                             <option value="M">Male</option>
                                             <option value="F">Female</option>
                                             <option value=NULL>I am unwilling to answer</option>
@@ -104,6 +105,7 @@
                                     </div>
                                     <div class="col-sm-7">
                                         <select name="maritalstatus" id="maritalstatus" class="form-control">
+                                            <option value="" selected disabled> -Please Select- </option>
                                             <option value="M">Married</option>
                                             <option value="S">Single</option>
                                             <option value="W">Widow/Widower</option>

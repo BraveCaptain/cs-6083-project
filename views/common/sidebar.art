@@ -61,7 +61,7 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        My Insurance
+        Insurance Purchase
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
@@ -73,8 +73,8 @@
         </a>
         <div id="collapseInsurance" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="homeInsuranceSelect">Home Insurance</a>
-            <a class="collapse-item" href="autoPurchaseSelectAuto">Auto Insurance</a>
+            <a class="collapse-item" href="homeInsuranceSelect">Home Insurance Selection</a>
+            <a class="collapse-item" href="autoPurchaseSelectAuto">Auto Insurance Selection</a>
           </div>
         </div>
       </li>
@@ -87,12 +87,49 @@
         </a>
         <div id="collapsePayment" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="homeInsuranceSelect">Home Insurance Payment</a>
+            <a class="collapse-item" href="homeInsurancePay">Home Insurance Payment</a>
             <a class="collapse-item" href="autoPurchaseSelectAuto">Auto Insurance Payment</a>
+          </div>
+        </div>
+      </li>
+
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        My WDS Service
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMyInvoice" aria-expanded="true"
+          aria-controls="collapseMyInvoice">
+          <i class="fas fa-fw fa-wallet"></i>
+          <span>My Invoice</span>
+        </a>
+        <div id="collapseMyInvoice" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="homeInsuranceSelect">Home Insurance Invoice</a>
+            <a class="collapse-item" href="autoPurchaseSelectAuto">Auto Insurance Invoice</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMyPayment" aria-expanded="true"
+          aria-controls="collapseMyPayment">
+          <i class="fas fa-fw fa-wallet"></i>
+          <span>Payment History</span>
+        </a>
+        <div id="collapseMyPayment" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="homeInsurancePay">Home Payment History</a>
+            <a class="collapse-item" href="autoPurchaseSelectAuto">Auto Payment History</a>
           </div>
         </div>
       </li>
 
      
     </ul>
+
     <!-- End of Sidebar -->

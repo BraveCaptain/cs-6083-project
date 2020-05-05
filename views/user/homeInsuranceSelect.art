@@ -53,7 +53,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Home Insurance Select</h1>
+            <h1 class="h3 mb-0 text-gray-800">Home Insurance Selection</h1>
           </div>
 
           <div class="card o-hidden border-0 shadow-lg my-5">
@@ -63,7 +63,7 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Fill in the Blanks to Purchase Our Insurance</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Fill in the Blanks to Select Insurance</h1>
                             </div>
 
                             <form method="post" id="registerForm">
@@ -75,6 +75,7 @@
                                     </div>
                                     <div class="col-sm-7">
                                       <select name="homename" id="homename" class="form-control">
+                                        <option value="" selected disabled> -Please Select- </option>
 		                                    {{each homeInsurancesInfo.homeNames}}
 			                                    <option>{{$value.homename}}</option>
 			                                  {{/each}}
@@ -88,6 +89,7 @@
                                     </div>
                                     <div class="col-sm-7">
                                       <select name="policyname" id="policyname" class="form-control">
+                                        <option value="" selected disabled> -Please Select- </option>
 		                                    {{each homeInsurancesInfo.policyNames}}
 			                                    <option>{{$value.policyname}}</option>
 			                                  {{/each}}

@@ -84,6 +84,7 @@
                                     </div>
                                     <div class="col-sm-7">
                                         <select name="type" id="type" class="form-control">
+                                            <option value="" selected disabled> -Please Select- </option>
                                             <option value="S">Single family</option>
                                             <option value="M">Multi Family</option>
                                             <option value="C">Condominium</option>
@@ -129,6 +130,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select name="autofirenotification" id="autofirenotification" class="form-control">
+                                            <option value="" selected disabled> -Please Select- </option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
                                         </select>
@@ -141,6 +143,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select name="securitysystem" id="securitysystem" class="form-control">
+                                            <option value="" selected disabled> -Please Select- </option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
                                         </select>
@@ -153,6 +156,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select name="swimmingpool" id="swimmingpool" class="form-control">
+                                            <option value="" selected disabled> -Please Select- </option>
                                             <option value="U">Underground swimming pool</option>
                                             <option value="O">Overground swimming pool</option>
                                             <option value="I">Indoor swimming pool</option>
@@ -168,6 +172,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select name="basement" id="basement" class="form-control">
+                                            <option value="" selected disabled> -Please Select- </option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
                                         </select>
