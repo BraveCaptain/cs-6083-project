@@ -4,7 +4,7 @@
 <head>
 
   {{include '../common/header.art'}}
-  <title>WDS {{userid}} Home Display</title>
+  <title>WDS {{userid}} Home Payment Display</title>
 
   <!-- Custom scripts for all pages-->
   <script src="/js/sb-admin-2.min.js"></script>
@@ -50,11 +50,12 @@
 
         <!-- Begin Page Content -->
 
-        <!-- Page Heading -->
-          <div class="container-fluid">
+        <!-- Page Heading -->          
+
+        <div class="container-fluid">
         <table class="table table-striped table-bordered table-hover custom-table">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-2 text-gray-800">Registered Home Information from {{userid}}</h1>
+            <h1 class="h3 mb-2 text-gray-800">Home Payment Information of {{userid}}</h1>
           </div>
           <!-- DataTales Example -->
 
@@ -63,29 +64,34 @@
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
 
+
           <thead>
             <tr>
-              <th>Auto Name</th>
-              <th>Vehicle Identification Number</th>
-              <th>Auto Make-model Date</th>
-              <th>Auto Status</th>
+              <th>Home Payment ID</th>
+              <th>Payment Date</th>
+              <th>Payment Method</th>
+              <th>Home Invoice ID Paid for</th>
+              <th>Payment Amount</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>Auto Name</th>
-              <th>Vehicle Identification Number</th>
-              <th>Auto Make-model Date</th>
-              <th>Auto Status</th>
+              <th>Home Payment ID</th>
+              <th>Payment Date</th>
+              <th>Payment Method</th>
+              <th>Home Invoice ID Paid for</th>
+              <th>Payment Amount</th>
             </tr>
           </tfoot>
           <tbody>
-            {{each autoInfo}}
+            {{each homePayInfo}}
+
             <tr>
-              <td>{{$value.autoname}}</td>
-              <td>{{$value.vin}}</td>
-              <td>{{$value.modeldate}}</td>
-              <td>{{$value.status}}</td>
+              <td>{{$value.paymentid}}</td>
+              <td>{{$value.paymentdate}}</td>
+              <td>{{$value.method}}</td>
+              <td>{{$value.hpid}}</td>
+              <td>{{$value.amount}}</td>
             </tr>
             {{/each}}
           </tbody>

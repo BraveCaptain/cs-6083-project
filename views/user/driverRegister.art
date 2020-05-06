@@ -4,7 +4,7 @@
 <head>
 
   {{include '../common/header.art'}}
-  <title>WDS {{userid}} Auto Register</title>
+  <title>WDS {{userid}} Driver Register</title>
 
   <!-- Custom scripts for all pages-->
   <script src="/js/sb-admin-2.min.js"></script>
@@ -53,7 +53,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Auto Registration</h1>
+            <h1 class="h3 mb-0 text-gray-800">Driver Registration</h1>
           </div>
 
           <div class="card o-hidden border-0 shadow-lg my-5">
@@ -63,52 +63,62 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Register Your Auto Information</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Register Driver Information to Your Auto</h1>
                             </div>
 
                             <form method="post" id="registerForm">
 
                                 <div class="form-group row">
                                     <div class="col-sm-5 mb-3 mb-sm-0">
-                                        <label class=""> <b>Auto Unique Name</b> </label>
+                                        <label class=""> <b>Choose the auto you want driver to be assigned to</b> </label>
                                     </div>
-                                    <div class="col-sm-7">
-                                        <input name="autoname" class="form-control" id="autoname" placeholder="Auto Name"
-                                        type="text">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-5 mb-3 mb-sm-0">
-                                        <label class=""> <b>Vehicle Identification Number</b> </label>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <input name="vin" class="form-control" id="vin" placeholder="Vehicle Identification Number"
-                                        type="number">
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group row">
-                                    <div class="col-sm-5 mb-3 mb-sm-0">
-                                        <label class=""> <b>Auto Make-model Date</b> </label>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <input name="modeldate" class="form-control" id="modeldate" type="date">
+                                    <div class="col-sm-7 mb-3 mb-sm-0">
+                                      <select name="vin" id="vin" class="form-control" >
+                                        <option value="" selected disabled> -Please Select- </option>
+		                                    {{each autoInfoForDriver}}
+			                                    <option value = {{$value.vin}}>Auto Vin: {{$value.vin}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Auto Name: {{$value.autoname}}</option>
+			                                  {{/each}}
+		                            </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <div class="col-sm-5 mb-3 mb-sm-0">
-                                        <label class=""> <b>Auto Status</b> </label>
+                                        <label class=""> <b> Driver's first name</b> </label>
                                     </div>
                                     <div class="col-sm-7">
-                                        <select name="status" id="status" class="form-control">
-                                            <option value="" selected disabled> -Please Select- </option>
-                                            <option value="L">Leased</option>
-                                            <option value="F">Financed</option>
-                                            <option value="O">Owned</option>
-                                        </select>
+                                        <input name="fname" class="form-control" id="fname" placeholder="Driver First Name"
+                                            type="text">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-5 mb-3 mb-sm-0">
+                                        <label class=""> <b> Driver's last name</b> </label>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <input name="lname" class="form-control" id="lname" placeholder="Driver Last Name"
+                                            type="text">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <div class="col-sm-5 mb-3 mb-sm-0">
+                                        <label class=""> <b>Driver's Birthdate</b> </label>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <input name="birthdate" class="form-control" id="birthdate" placeholder="Driver Birthdate" type="date">
+                                    </div>
+                                </div>
+
+
+                                 <div class="form-group row">
+                                    <div class="col-sm-5 mb-3 mb-sm-0">
+                                        <label class=""> <b>Driver's License Number</b> </label>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <input name="licensenum" class="form-control" id="licensenum"  placeholder="Driver License Number" type=number>
                                     </div>
                                 </div>
 
@@ -155,3 +165,12 @@
 
 
 </body>
+
+
+
+
+
+
+
+
+

@@ -30,8 +30,10 @@ CREATE TABLE auto_policy (
     policyid       INT,
 	autoname       VARCHAR(30),
 	policyname     VARCHAR(30),
+    paymentduedate DATETIME NOT NULL,
     PRIMARY KEY(apid)
 );
+
 
 CREATE TABLE apayment (
 	userid         VARCHAR(30) NOT NULL,
@@ -62,6 +64,8 @@ CREATE TABLE driver (
     licensenum  INT NOT NULL,
     fname       VARCHAR(10) NOT NULL,
     lname       VARCHAR(10) NOT NULL,
+    vin         INT NOT NULL,
+    autoname    VARCHAR(30) NOT NULL,
     birthdate   DATETIME NOT NULL,
     PRIMARY KEY(licensenum)
 );

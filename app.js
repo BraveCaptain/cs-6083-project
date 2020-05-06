@@ -35,6 +35,14 @@ const userHomeInsuranceSelect = require('./routes/user/homeInsuranceSelect');
 const userHomeInsurancePay = require('./routes/user/homeInsurancePay');
 const userAutoRegister = require('./routes/user/autoRegister');
 const userAutoDisplay = require('./routes/user/autoDisplay');
+const userAutoInsuranceSelect = require('./routes/user/autoInsuranceSelect');
+const userAutoInsurancePay = require('./routes/user/autoInsurancePay');
+const userDriverRegister = require('./routes/user/driverRegister');
+const userDriverDisplay = require('./routes/user/driverDisplay');
+const userHomeInvoiceDisplay = require('./routes/user/homeInvoiceDisplay');
+const userAutoInvoiceDisplay = require('./routes/user/autoInvoiceDisplay');
+const userHomePayDisplay = require('./routes/user/homePayDisplay');
+const userAutoPayDisplay = require('./routes/user/autoPayDisplay');
 
 const adminLogin = require('./routes/admin/login');
 const adminRegister = require('./routes/admin/register');
@@ -61,6 +69,16 @@ app.use('/homeInsurancePay', userHomeInsurancePay);
 
 app.use('/autoRegister', userAutoRegister);
 app.use('/autoDisplay', userAutoDisplay);
+app.use('/autoInsuranceSelect', userAutoInsuranceSelect);
+app.use('/autoInsurancePay', userAutoInsurancePay);
+
+app.use('/driverRegister', userDriverRegister);
+app.use('/driverDisplay', userDriverDisplay);
+
+app.use('/homeInvoiceDisplay', userHomeInvoiceDisplay);
+app.use('/autoInvoiceDisplay', userAutoInvoiceDisplay);
+app.use('/homePayDisplay', userHomePayDisplay);
+app.use('/autoPayDisplay', userAutoPayDisplay);
 
 //listen port 3000
 app.listen(3000);

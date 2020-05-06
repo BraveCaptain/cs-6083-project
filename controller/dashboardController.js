@@ -4,18 +4,23 @@ const common = require('./util/common');
 exports.getUserInfo = getUserInfo;
 exports.getHomesInfo = getHomesInfo;
 exports.getAutosInfo = getAutosInfo;
-exports.getAutoDrivers = getAutoDrivers;
 exports.createHome = createHome;
 exports.createAuto = createAuto;
 exports.getHomeInsurancesInfo = getHomeInsurancesInfo;
 exports.createHomeInsurance = createHomeInsurance;
 exports.payHomeInsurance = payHomeInsurance;
 exports.getUnpaidHomeInsurances = getUnpaidHomeInsurances;
-exports.getAutoDrivers = getAutoDrivers;
 exports.getAutoInsurancesInfo = getAutoInsurancesInfo;
 exports.createAutoInsurance = createAutoInsurance;
 exports.getUnpaidAutoInsurances = getUnpaidAutoInsurances;
 exports.payAutoInsurance = payAutoInsurance;
+exports.getAutosInfoForDriver = getAutosInfoForDriver;
+exports.createDriver = createDriver;
+exports.getDriverInfo = getDriverInfo;
+exports.getHomeInvoiceInfo = getHomeInvoiceInfo;
+exports.getAutoInvoiceInfo = getAutoInvoiceInfo;
+exports.getHomePayInfo = getHomePayInfo;
+exports.getAutoPayInfo = getAutoPayInfo;
 
 function payAutoInsurance(req, res, next) {
 	const userid = req.session.userid;
@@ -188,29 +193,6 @@ function getAutoInsurancesInfo(req, res, next) {
 	});
 }
 
-function getAutoDrivers(req, res, next) {
-	const userid = req.session.userid;
-	const autoname = req.session.autoname;
-	database.setUpDatabase(function (connection) {
-		connection.conect();
-		var sql = 'select licensenum from driver_auto where driver_auto.userid = ? and driver_auto.autoname = ?';
-		connection.query(sql, [userid, autoname], function (err, result) {
-			if (err) {
-				console.log('[SELECT ERROR] - ', err.message);
-				res.send('SQL query error');
-				return;
-			} else if (result.length == 0) {
-				console.log('no driver registered');
-				res.send('no driver registered');
-				return;
-			} else {
-				connection.end();
-				//
-			}
-		});
-	});
-}
-
 function getUnpaidHomeInsurances(req, res, next) {
 	const userid = req.session.userid;
 	database.setUpDatabase(function (connection) {
@@ -250,7 +232,7 @@ function payHomeInsurance(req, res, next) {
 	}
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-		var sql = 'insert into a (userid, paymentdate, method, hpid, amount) values (?, NOW(), ?, ?, ?)';
+		var sql = 'insert into hpayment (userid, paymentdate, method, hpid, amount) values (?, NOW(), ?, ?, ?)';
 		connection.query(sql, [userid, method, hpid, paymentAmount], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
@@ -550,4 +532,197 @@ function createAuto(req, res, next) {
 			})
 		})
 	})
+}
+
+function getDriverInfo(req, res, next) { 
+    const userid = req.session.userid;
+	database.setUpDatabase(function (connection) {
+		connection.connect();
+		var sql = 'select licensenum, fname, lname, vin, autoname, birthdate from driver where userid = ?';
+		connection.query(sql, [userid], function (err, result) {
+			if (err) {
+				console.log('[SELECT ERROR] - ', err.message);
+				res.send('SQL query error');
+				return;
+            }
+			driverInfo = result;
+			console.log(driverInfo);
+
+			res.render('user/driverDisplay', {
+				driverInfo: driverInfo
+			});
+		});
+	});
+}
+
+function createDriver(req, res, next) {
+	console.log('enter function createDriver');
+	console.log(req.body);
+	const userid = req.session.userid;
+	const licensenum = req.body.licensenum;
+	const fname = req.body.fname;
+	const lname = req.body.lname;
+    const vin = req.body.vin;
+    const birthdate = req.body.birthdate;
+	console.log(Date.parse(birthdate));
+	//verify
+	database.setUpDatabase(function (connection) {
+		connection.connect();
+        //issue: home name
+        var findsql = 'select autoname from auto where auto.vin = ?';
+        connection.query(findsql, [vin], function (err, result) {
+            if (err) {
+                console.log("yyyyyy");
+                console.log('[SELECT ERROR] - ', err.message);
+                res.send("SQL query error");
+                return;
+            } else if (result.length == 0) {
+                console.log('no auto');
+                res.send('no auto');
+                return;
+            }
+            else {
+                console.log("aaaaaa");
+                const autoname = result[0].autoname;
+                console.log(autoname);
+                var sql = 'select * from driver where driver.licensenum = ?';
+                connection.query(sql, [licensenum], function (err, result) {
+                    if (err) {
+                        console.log('[SELECT ERROR] - ', err.message);
+                        res.send("SQL query error");
+                        return;
+                    }
+                    else if (result.length > 0) {
+                        console.log('Already exists same auto licensenum: ', licensenum);
+                        res.send('Already exists same auto licensenum');
+                        return;
+                    } else {
+
+                        var addSqlParams = [licensenum, vin, userid, birthdate, fname, lname, autoname];
+                        console.log(addSqlParams);
+			            var addSql = 'insert into driver (licensenum, vin, userid, birthdate, fname, lname, autoname) values (?, ?, ?, ?, ?, ?, ?)';
+                        connection.query(addSql, addSqlParams, function (err, result) {
+                            if (err) {
+                                console.log('[INSERT ERROR] - ', err.message)
+                                res.send("SQL insert error");
+                                return;
+                            }
+                            console.log('--------------------------INSERT----------------------------')
+                            console.log('INSERT ID:', result)
+                            console.log('------------------------------------------------------------')
+                            //issue 01: 注册成功alert
+                            connection.end();
+                            res.redirect(301, '/dashboard');
+                        })
+                    }
+                })
+            }
+			
+		})
+	})
+}
+
+function getAutosInfoForDriver(req, res, next) {
+	const userid = req.session.userid;
+	database.setUpDatabase(function (connection) {
+		connection.connect();
+		var sql = 'select a.autoname, a.vin from auto a inner join user d on a.userid = d.userid where d.userid = ?';
+		connection.query(sql, [userid], function (err, result) {
+			if (err) {
+				console.log('[SELECT ERROR] - ', err.message);
+				res.send('SQL query error');
+				return;
+			}
+			var autoInfoForDriver = result;
+			console.log(autoInfoForDriver);
+			connection.end();
+			res.render('user/driverRegister', {
+				autoInfoForDriver: autoInfoForDriver
+			});
+		});
+	});
+}
+
+function getHomeInvoiceInfo(req, res, next) { 
+    const userid = req.session.userid;
+	database.setUpDatabase(function (connection) {
+		connection.connect();
+		var sql = 'select hpid, paymentduedate, amount, (amount-amountpaid)leftamount from home_policy where userid = ?';
+		connection.query(sql, [userid], function (err, result) {
+			if (err) {
+				console.log('[SELECT ERROR] - ', err.message);
+				res.send('SQL query error');
+				return;
+            }
+			homeInvoiceInfo = result;
+			console.log(homeInvoiceInfo);
+
+			res.render('user/homeInvoiceDisplay', {
+				homeInvoiceInfo: homeInvoiceInfo
+			});
+		});
+	});
+}
+
+function getAutoInvoiceInfo(req, res, next) { 
+    const userid = req.session.userid;
+	database.setUpDatabase(function (connection) {
+		connection.connect();
+		var sql = 'select apid, paymentduedate, amount, (amount-amountpaid)leftamount from auto_policy where userid = ?';
+		connection.query(sql, [userid], function (err, result) {
+			if (err) {
+				console.log('[SELECT ERROR] - ', err.message);
+				res.send('SQL query error');
+				return;
+            }
+			autoInvoiceInfo = result;
+			console.log(autoInvoiceInfo);
+
+			res.render('user/autoInvoiceDisplay', {
+				autoInvoiceInfo: autoInvoiceInfo
+			});
+		});
+	});
+}
+
+function getHomePayInfo(req, res, next) { 
+    const userid = req.session.userid;
+	database.setUpDatabase(function (connection) {
+		connection.connect();
+		var sql = 'select paymentid, paymentdate, method, hpid, amount from hpayment where userid = ?';
+		connection.query(sql, [userid], function (err, result) {
+			if (err) {
+				console.log('[SELECT ERROR] - ', err.message);
+				res.send('SQL query error');
+				return;
+            }
+			homePayInfo = result;
+			console.log(homePayInfo);
+
+			res.render('user/homePayDisplay', {
+				homePayInfo: homePayInfo
+			});
+		});
+	});
+}
+
+function getAutoPayInfo(req, res, next) { 
+    const userid = req.session.userid;
+	database.setUpDatabase(function (connection) {
+		connection.connect();
+		var sql = 'select paymentid, paymentdate, method, apid, amount from apayment where userid = ?';
+		connection.query(sql, [userid], function (err, result) {
+			if (err) {
+				console.log('[SELECT ERROR] - ', err.message);
+				res.send('SQL query error');
+				return;
+            }
+			autoPayInfo = result;
+			console.log(autoPayInfo);
+
+			res.render('user/autoPayDisplay', {
+				autoPayInfo: autoPayInfo
+			});
+		});
+	});
 }

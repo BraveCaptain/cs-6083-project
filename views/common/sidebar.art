@@ -51,6 +51,8 @@
             <h6 class="collapse-header">Option:</h6>
             <a class="collapse-item" href="autoRegister">Register new auto </a>
             <a class="collapse-item" href="autoDisplay">List current autos</a>
+            <a class="collapse-item" href="driverRegister">Register new driver </a>
+            <a class="collapse-item" href="driverDisplay">List current drivers</a>
           </div>
         </div>
       </li>
@@ -74,7 +76,7 @@
         <div id="collapseInsurance" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="homeInsuranceSelect">Home Insurance Selection</a>
-            <a class="collapse-item" href="autoPurchaseSelectAuto">Auto Insurance Selection</a>
+            <a class="collapse-item" href="autoInsuranceSelect">Auto Insurance Selection</a>
           </div>
         </div>
       </li>
@@ -88,7 +90,7 @@
         <div id="collapsePayment" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="homeInsurancePay">Home Insurance Payment</a>
-            <a class="collapse-item" href="autoPurchaseSelectAuto">Auto Insurance Payment</a>
+            <a class="collapse-item" href="autoInsurancePay">Auto Insurance Payment</a>
           </div>
         </div>
       </li>
@@ -109,8 +111,8 @@
         </a>
         <div id="collapseMyInvoice" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="homeInsuranceSelect">Home Insurance Invoice</a>
-            <a class="collapse-item" href="autoPurchaseSelectAuto">Auto Insurance Invoice</a>
+            <a class="collapse-item" href="homeInvoiceDisplay">Home Insurance Invoice</a>
+            <a class="collapse-item" href="autoInvoiceDisplay">Auto Insurance Invoice</a>
           </div>
         </div>
       </li>
@@ -119,12 +121,12 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMyPayment" aria-expanded="true"
           aria-controls="collapseMyPayment">
           <i class="fas fa-fw fa-wallet"></i>
-          <span>Payment History</span>
+          <span>My Payment History</span>
         </a>
         <div id="collapseMyPayment" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="homeInsurancePay">Home Payment History</a>
-            <a class="collapse-item" href="autoPurchaseSelectAuto">Auto Payment History</a>
+            <a class="collapse-item" href="homePayDisplay">Home Payment History</a>
+            <a class="collapse-item" href="autoPayDisplay">Auto Payment History</a>
           </div>
         </div>
       </li>
