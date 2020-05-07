@@ -3,7 +3,7 @@
 
 <head>
 
-  {{include '../common/header.art'}}
+  {{include '../../common/header.art'}}
   <title>WDS {{userid}} Driver Update</title>
 
   <!-- Custom scripts for all pages-->
@@ -32,7 +32,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    {{include '../common/sidebar.art'}}
+    {{include '../../common/sidebar.art'}}
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -42,7 +42,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        {{include '../common/topbar.art'}}
+        {{include '../../common/topbar.art'}}
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -145,7 +145,7 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      {{include '../common/footer.art'}}
+      {{include '../../common/footer.art'}}
       <!-- End of Footer -->
 
     </div>

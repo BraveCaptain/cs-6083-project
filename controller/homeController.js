@@ -25,7 +25,7 @@ function getHomesUpdateInfo(req, res, next) {
 			}
 			homeInfo = result;
 			console.log(homeInfo);
-			res.render('user/homeUpdate', {
+			res.render('user/home/homeUpdate', {
 				homeInfo: homeInfo
 			});
 		});

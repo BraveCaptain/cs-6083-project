@@ -129,7 +129,7 @@ function getDriversUpdateInfo(req, res, next) {
                 return;
             } else {
                 driverInfo = result;
-                res.render('user/driverUpdate', {
+                res.render('user/driver/driverUpdate', {
                     driverInfo: driverInfo
                 });
             }
