@@ -72,8 +72,8 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Option:</h6>
             <a class="collapse-item" href="driverRegister">Register new driver </a>
-            <a class="collapse-item" href="driverDisplay">List current drivers</a>
             <a class="collapse-item" href="driverUpdate">Update driver information</a>
+            <a class="collapse-item" href="driverDisplay">List current drivers</a>
           </div>
         </div>
       </li>
