@@ -51,7 +51,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Option:</h6>
             <a class="collapse-item" href="adminPolicyDisplay">List policy </a>
-            <a class="collapse-item" href="adminPolicyRegister">Add policy </a>
+            <a class="collapse-item" href="adminPolicyRegister">Add new policy </a>
             <a class="collapse-item" href="autoRegister">Delete policy </a>
           </div>
         </div>
@@ -82,7 +82,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Option:</h6>
             <a class="collapse-item" href="adminAutoDisplay">List autos </a>
-            <a class="collapse-item" href="autoRegister">List drivers </a>
+            <a class="collapse-item" href="adminDriverDisplay">List drivers </a>
           </div>
         </div>
       </li>

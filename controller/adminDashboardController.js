@@ -10,6 +10,7 @@ exports.adminGetHomeInvoiceInfo = adminGetHomeInvoiceInfo;
 exports.adminGetAutoInvoiceInfo = adminGetAutoInvoiceInfo;
 exports.adminGetHomePayInfo = adminGetHomePayInfo;
 exports.adminGetAutoPayInfo = adminGetAutoPayInfo;
+exports.adminGetDriverInfo = adminGetDriverInfo;
 
 function adminGetUserInfo(req, res, next) {
 	const adminid = req.session.adminid;
@@ -220,4 +221,25 @@ function adminGetAutoPayInfo(req, res, next) {
             });
 		});
     });
+}
+
+function adminGetDriverInfo(req, res, next) { 
+    const adminid = req.session.adminid;
+	database.setUpDatabase(function (connection) {
+		connection.connect();
+		var sql = 'select userid, licensenum, fname, lname, vin, autoname, birthdate from driver';
+		connection.query(sql, [adminid], function (err, result) {
+			if (err) {
+				console.log('[SELECT ERROR] - ', err.message);
+				res.send('SQL query error');
+				return;
+            }
+			adminDriverInfo = result;
+			console.log(adminDriverInfo);
+
+			res.render('admin/adminDriverDisplay', {
+				adminDriverInfo: adminDriverInfo
+			});
+		});
+	});
 }

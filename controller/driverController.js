@@ -65,11 +65,7 @@ function createDriver(req, res, next) {
                         res.send("SQL query error");
                         return;
                     }
-                    else if (result.length > 0) {
-                        console.log('Already exists same auto licensenum: ', licensenum);
-                        res.send('Already exists same auto licensenum');
-                        return;
-                    } else {
+                    else {
 
                         var addSqlParams = [licensenum, vin, userid, birthdate, fname, lname, autoname];
                         console.log(addSqlParams);
@@ -121,7 +117,7 @@ function getDriversUpdateInfo(req, res, next) {
     var driverInfo = {};
     database.setUpDatabase(function (connection) {
         connection.connect();
-        var sql = 'select licensenum from driver where userid = ?'
+        var sql = 'select distinct licensenum from driver where userid = ?'
         connection.query(sql, [userid], function (err, result) {
             if (err) {
                 console.log('[SELECT ERROR] - ', err.message);

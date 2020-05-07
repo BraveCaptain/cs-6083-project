@@ -71,6 +71,8 @@ const adminHomeInvoiceDisplay = require('./routes/admin/homeInvoiceDisplay');
 const adminAutoInvoiceDisplay = require('./routes/admin/autoInvoiceDisplay');
 const adminHomePayDisplay = require('./routes/admin/homePayDisplay');
 const adminAutoPayDisplay = require('./routes/admin/autoPayDisplay');
+const adminDriverDisplay = require('./routes/admin/driverDisplay');
+
 app.use('/', require('./middleware/loginGuard'));
 
 //apply module for request
@@ -91,7 +93,7 @@ app.use('/admin/adminHomeInvoiceDisplay', adminHomeInvoiceDisplay);
 app.use('/admin/adminAutoInvoiceDisplay', adminAutoInvoiceDisplay);
 app.use('/admin/adminHomePayDisplay', adminHomePayDisplay);
 app.use('/admin/adminAutoPayDisplay', adminAutoPayDisplay);
-
+app.use('/admin/adminDriverDisplay', adminDriverDisplay);
 
 
 //user
