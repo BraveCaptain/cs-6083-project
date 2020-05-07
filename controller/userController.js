@@ -5,6 +5,7 @@ const saltRound = 10;
 exports.createUser = createUser;
 exports.loginUser = loginUser;
 exports.updateUserProfile = updateUserProfile;
+exports.logoutUser = logoutUser;
 
 function createUser(req, res, next) {
     console.log('enter function createUser');
@@ -115,6 +116,13 @@ function loginUser(req, res, next) {
 
         })
     })
+}
+
+function logoutUser(req, res, next) {
+    req.session.destroy(function () {
+        res.clearCookie('connect.sid');
+        res.redirect('/login');
+    });
 }
 
 function updateUserProfile(req, res, next) {

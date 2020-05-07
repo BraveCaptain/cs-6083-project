@@ -10,8 +10,10 @@ app.use(bodyparser.urlencoded({extended: false}));
 
 app.use(session({
     secret: 'Dymatize Accelerate Wallet',
-    resave: true,
-    saveUninitialized: true
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 0.25 * 60 * 60 * 1000
+    }
 }));
 
 //art directory
@@ -27,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 //router module
 const userLogin = require('./routes/user/login');
+const userLogout = require('./routes/user/logout');
 const userRegister = require('./routes/user/register');
 const userDashboard = require('./routes/user/dashboard');
 const userProfileUpdate = require('./routes/user/userProfileUpdate');
@@ -52,13 +55,6 @@ const userDriverDisplay = require('./routes/user/driver/driverDisplay');
 const userDriverUpdate = require('./routes/user/driver/driverUpdate');
 
 
-
-
-
-
-
-
-
 const adminLogin = require('./routes/admin/login');
 const adminRegister = require('./routes/admin/register');
 const adminDashboard = require('./routes/admin/dashboard')
@@ -74,6 +70,7 @@ app.use('/admin/dashboard', adminDashboard);
 
 //user
 app.use('/login', userLogin);
+app.use('/logout', userLogout);
 app.use('/register', userRegister);
 app.use('/dashboard', userDashboard);
 app.use('/profileUpdate', userProfileUpdate);

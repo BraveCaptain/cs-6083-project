@@ -261,7 +261,7 @@ function getHomesInfo(req, res, next) {
 	const userid = req.session.userid;
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-		var sql = 'select a.homename, a.homeid, a.purchasedate, a.purchasevalue, a.area, a.type, a.autofirenotification, a.securitysystem, a.swimmingpool, a.basement from home a  inner join user d on a.userid = d.userid where d.userid = ?';
+		var sql = 'select homename, homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement from home where userid = ?'
 		connection.query(sql, [userid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
@@ -270,7 +270,7 @@ function getHomesInfo(req, res, next) {
 			}
 			homeInfo = result;
 			console.log(homeInfo);
-
+			common.correctHomeInfo(homeInfo);
 			res.render('user/home/homeDisplay', {
 				homeInfo: homeInfo
 			});
