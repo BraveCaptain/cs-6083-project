@@ -56,6 +56,8 @@ const userDriverRegister = require('./routes/user/driver/driverRegister');
 const userDriverDisplay = require('./routes/user/driver/driverDisplay');
 const userDriverUpdate = require('./routes/user/driver/driverUpdate');
 
+const userPolicyDisplay = require('./routes/user/policyDisplay');
+
 
 const adminLogin = require('./routes/admin/login');
 const adminRegister = require('./routes/admin/register');
@@ -126,6 +128,9 @@ app.use('/homeInvoiceDisplay', userHomeInvoiceDisplay);
 app.use('/autoInvoiceDisplay', userAutoInvoiceDisplay);
 app.use('/homePayDisplay', userHomePayDisplay);
 app.use('/autoPayDisplay', userAutoPayDisplay);
+
+app.use('/policyDisplay', userPolicyDisplay);
+
 
 //listen port 3000
 app.listen(3000);
