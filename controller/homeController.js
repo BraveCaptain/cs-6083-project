@@ -45,46 +45,65 @@ function updateHome(req, res, next) {
 	const swimmingpool =xss(req.body.swimmingpool);
 	const basement = xss(req.body.basement);
     const homename = xss(req.body.homename);
-    const homeid = xss(req.body.homeid);
-	//verify
+	const homeid = xss(req.body.homeid);
 	database.setUpDatabase(function (connection) {
         console.log('here')
 		connection.connect();
-		//issue: home name
-		var sql = 'select * from home where homename = ? and userid = ?';
-		connection.query(sql, [homename, userid], function (err, result) {
+		var sql = 'select homename from home where homeid = ?';
+		connection.query(sql, [homeid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send("SQL query error");
 				return;
+			} else{
+				var oldhomename = result[0].homename;
+				console.log('oldhomename is: ', oldhomename);
+				sql = 'select * from home where homename = ? and userid = ?';
+				connection.query(sql, [homename, userid], function (err, result) {
+					if (err) {
+						console.log('[SELECT ERROR] - ', err.message);
+						res.send("SQL query error");
+						return;
+					}
+					if (result.length > 0) {
+						console.log('already exist homename: ', homename);
+						res.send("already exist homename");
+						return;
+					}
+					if (swimmingpool == 'NULL') {
+						var addSqlParams = [homename, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement, homeid];
+						sql = 'update home set homename = ?, purchasedate = ?, purchasevalue = ?, area = ?, type = ?, autofirenotification = ?, securitysystem = ?, basement = ?, swimmingpool = NULL where homeid = ?';
+					} else {
+						var addSqlParams = [swimmingpool, homename, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement, homeid];
+						sql = 'update home set swimmingpool = ?, homename = ?, purchasedate = ?, purchasevalue = ?, area = ?, type = ?, autofirenotification = ?, securitysystem = ?, basement = ? where homeid = ?';
+					}
+					connection.query(sql, addSqlParams, function (err, result) {
+						if (err) {
+							console.log('[INSERT ERROR] - ', err.message)
+							res.send("SQL update error");
+							return;
+						} else {
+							sql = 'update home_policy set homename = ? where homename = ? and userid = ?';
+							connection.query(sql, [homename, oldhomename, userid], function (err, result) {
+								if (err) {
+									console.log('[INSERT ERROR] - ', err.message)
+									res.send("SQL update error");
+									return;
+								} else {
+									console.log('--------------------------INSERT----------------------------')
+									console.log('INSERT ID:', result)
+									console.log('------------------------------------------------------------')
+									//issue 01: 注册成功alert
+									connection.end();
+									res.redirect(301, '/dashboard');
+								}
+							});
+						}
+					});
+				});
 			}
-			if (result.length > 0) {
-				console.log('already exist homename: ', homename);
-				res.send("already exist homename");
-				return;
-			}
-			if (swimmingpool == 'NULL') {
-				var addSqlParams = [homename, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement, homeid];
-                sql = 'update home set homename = ?, purchasedate = ?, purchasevalue = ?, area = ?, type = ?, autofirenotification = ?, securitysystem = ?, basement = ?, swimmingpool = NULL where homeid = ?';
-            } else {
-				var addSqlParams = [swimmingpool, homename, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, basement, homeid];
-                sql = 'update home set swimmingpool = ?, homename = ?, purchasedate = ?, purchasevalue = ?, area = ?, type = ?, autofirenotification = ?, securitysystem = ?, basement = ? where homeid = ?';
-			}
-			connection.query(sql, addSqlParams, function (err, result) {
-				if (err) {
-					console.log('[INSERT ERROR] - ', err.message)
-					res.send("SQL update error");
-					return;
-				}
-				console.log('--------------------------INSERT----------------------------')
-				console.log('INSERT ID:', result)
-				console.log('------------------------------------------------------------')
-				//issue 01: 注册成功alert
-				connection.end();
-				res.redirect(301, '/dashboard');
-			})
-		})
-	})
+		});
+	});
 }
 
 function getUnpaidHomeInsurances(req, res, next) {
