@@ -472,7 +472,7 @@ function adminGetHomeInvoiceInfo(req, res, next) {
 	const adminid = xss(req.session.adminid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-		var sql = 'select userid, hpid, paymentduedate, amount, (amount-amountpaid)leftamount from home_policy';
+		var sql = 'select userid, hpid, paymentduedate, amount, (amount-amountpaid)leftamount, enddate, homename, policyname from home_policy';
 		connection.query(sql, [adminid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
@@ -493,7 +493,7 @@ function adminGetAutoInvoiceInfo(req, res, next) {
 	const adminid = xss(req.session.adminid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-		var sql = 'select userid, apid, paymentduedate, amount, (amount-amountpaid)leftamount from auto_policy';
+		var sql = 'select userid, apid, paymentduedate, amount, (amount-amountpaid)leftamount, enddate, autoname, policyname from auto_policy';
 		connection.query(sql, [adminid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
