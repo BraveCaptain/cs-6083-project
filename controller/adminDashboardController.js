@@ -11,6 +11,122 @@ exports.adminGetAutoInvoiceInfo = adminGetAutoInvoiceInfo;
 exports.adminGetHomePayInfo = adminGetHomePayInfo;
 exports.adminGetAutoPayInfo = adminGetAutoPayInfo;
 exports.adminGetDriverInfo = adminGetDriverInfo;
+exports.adminDeleteUser = adminDeleteUser
+
+function adminDeleteUser(req, res, next) {
+	const userid = req.body.userid;
+	console.log('userid is: ', userid);
+	database.setUpDatabase(function (connection) {
+		connection.connect();
+		//var sql = 'delete a,b,c,d,e,f,g,h from auto a, auto_policy b, apayment c, driver d, home e, home_policy f, hpayment g, user h where h.userid = a.userid and h.userid = b.userid and h.userid = c.userid and h.userid = d.userid and h.userid = e.userid and h.userid = f.userid and h.userid = g.userid and h.userid = ?';
+		var sql = 'delete from auto where userid = ?'
+		connection.query(sql, userid, function (err, result) {
+			if (err) {
+				console.log('[DELETE ERROR] - ', err.message);
+				res.send('SQL query error');
+				return;
+			} else {
+				sql = 'delete from auto_policy where userid = ?';
+				connection.query(sql, userid, function (err, result) {
+					if (err) {
+						console.log('[SELECT ERROR] - ', err.message);
+						res.send('SQL query error');
+						return;
+					} else {
+						sql = 'delete from apayment where userid = ?';
+						connection.query(sql, userid, function(err, result) {
+							if (err) {
+								console.log('[SELECT ERROR] - ', err.message);
+								res.send('SQL query error');
+								return;
+							}
+							else {
+								sql = 'delete from driver where userid = ?';
+								connection.query(sql, userid, function(err, result) {
+									if (err) {
+										console.log('[SELECT ERROR] - ', err.message);
+										res.send('SQL query error');
+										return;
+									}
+									else {
+										sql = 'delete from driver_auto where userid = ?';
+										connection.query(sql, userid, function(err, result) {
+											if (err) {
+												console.log('[SELECT ERROR] - ', err.message);
+												res.send('SQL query error');
+												return;
+											}
+											else {
+												sql = 'delete from home where userid = ?';
+												connection.query(sql, userid, function(err, result) {
+													if (err) {
+														console.log('[SELECT ERROR] - ', err.message);
+														res.send('SQL query error');
+														return;
+													}
+													else {
+														sql = 'delete from home_policy where userid = ?';
+														connection.query(sql, userid, function(err, result) {
+															if (err) {
+																console.log('[SELECT ERROR] - ', err.message);
+																res.send('SQL query error');
+																return;
+															}
+															else {
+																sql = 'delete from hpayment where userid = ?';
+																connection.query(sql, userid, function(err, result) {
+																	if (err) {
+																		console.log('[SELECT ERROR] - ', err.message);
+																		res.send('SQL query error');
+																		return;
+																	}
+																	else {
+																		sql = 'delete from user where userid = ?';
+																		connection.query(sql, userid, function(err, result) {
+																			if (err) {
+																				console.log('[SELECT ERROR] - ', err.message);
+																				res.send('SQL query error');
+																				return;
+																			}
+																			else {
+																				sql = 'select userid, fname, lname, state, city, street, zipcode, gender, maritalstatus from user';
+																				connection.query(sql, function(err, result) {
+																					if (err) {
+																						console.log('[SELECT ERROR] - ', err.message);
+																						res.send('SQL query error');
+																						return;
+																					}
+																					else {
+																						adminUserInfo = result;
+																						//connection.end();
+																						common.correctUserInfo(adminUserInfo);
+																						//console.log(userInfo);
+																						res.render('admin/adminUserDisplay', {
+																						adminUserInfo: adminUserInfo
+																						});
+																					}
+																				})
+																			}
+																		})
+																	}
+																})
+															}
+														})
+													}
+												});
+											}
+										});
+									}
+								});
+							}
+						});
+					}
+				});
+			}
+		});
+	});
+
+};
 
 function adminGetUserInfo(req, res, next) {
 	const adminid = req.session.adminid;
@@ -27,10 +143,10 @@ function adminGetUserInfo(req, res, next) {
 			common.correctUserInfo(adminUserInfo);
 			//console.log(userInfo);
 			res.render('admin/adminUserDisplay', {
-            adminUserInfo: adminUserInfo
-            });
+				adminUserInfo: adminUserInfo
+			});
 		});
-    });
+	});
 }
 
 function adminGetPolicyInfo(req, res, next) {
@@ -48,10 +164,10 @@ function adminGetPolicyInfo(req, res, next) {
 			common.correctUserInfo(adminPolicyInfo);
 			//console.log(userInfo);
 			res.render('admin/adminPolicyDisplay', {
-                adminPolicyInfo: adminPolicyInfo
-            });
+				adminPolicyInfo: adminPolicyInfo
+			});
 		});
-    });
+	});
 }
 
 function adminCreatePolicy(req, res, next) {
@@ -100,7 +216,7 @@ function adminGetHomeInfo(req, res, next) {
 	const adminid = req.session.adminid;
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-        var sql = 'select homeid, homename, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement, userid from home';
+		var sql = 'select homeid, homename, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement, userid from home';
 		connection.query(sql, [adminid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
@@ -111,17 +227,17 @@ function adminGetHomeInfo(req, res, next) {
 			common.correctUserInfo(adminHomeInfo);
 			//console.log(userInfo);
 			res.render('admin/adminHomeDisplay', {
-                adminHomeInfo: adminHomeInfo
-            });
+				adminHomeInfo: adminHomeInfo
+			});
 		});
-    });
+	});
 }
 
 function adminGetAutoInfo(req, res, next) {
 	const adminid = req.session.adminid;
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-        var sql = 'select vin, autoname, modeldate, status, userid from auto';
+		var sql = 'select vin, autoname, modeldate, status, userid from auto';
 		connection.query(sql, [adminid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
@@ -132,17 +248,17 @@ function adminGetAutoInfo(req, res, next) {
 			common.correctUserInfo(adminAutoInfo);
 			//console.log(userInfo);
 			res.render('admin/adminAutoDisplay', {
-                adminAutoInfo: adminAutoInfo
-            });
+				adminAutoInfo: adminAutoInfo
+			});
 		});
-    });
+	});
 }
 
 function adminGetHomeInvoiceInfo(req, res, next) {
 	const adminid = req.session.adminid;
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-        var sql = 'select userid, hpid, paymentduedate, amount, (amount-amountpaid)leftamount from home_policy';
+		var sql = 'select userid, hpid, paymentduedate, amount, (amount-amountpaid)leftamount from home_policy';
 		connection.query(sql, [adminid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
@@ -153,17 +269,17 @@ function adminGetHomeInvoiceInfo(req, res, next) {
 			common.correctUserInfo(adminHomeInvoiceInfo);
 			//console.log(userInfo);
 			res.render('admin/adminHomeInvoiceDisplay', {
-                adminHomeInvoiceInfo: adminHomeInvoiceInfo
-            });
+				adminHomeInvoiceInfo: adminHomeInvoiceInfo
+			});
 		});
-    });
+	});
 }
 
 function adminGetAutoInvoiceInfo(req, res, next) {
 	const adminid = req.session.adminid;
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-        var sql = 'select userid, apid, paymentduedate, amount, (amount-amountpaid)leftamount from auto_policy';
+		var sql = 'select userid, apid, paymentduedate, amount, (amount-amountpaid)leftamount from auto_policy';
 		connection.query(sql, [adminid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
@@ -174,17 +290,17 @@ function adminGetAutoInvoiceInfo(req, res, next) {
 			common.correctUserInfo(adminAutoInvoiceInfo);
 			//console.log(userInfo);
 			res.render('admin/adminAutoInvoiceDisplay', {
-                adminAutoInvoiceInfo: adminAutoInvoiceInfo
-            });
+				adminAutoInvoiceInfo: adminAutoInvoiceInfo
+			});
 		});
-    });
+	});
 }
 
 function adminGetHomePayInfo(req, res, next) {
 	const adminid = req.session.adminid;
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-        var sql = 'select paymentid, paymentdate, method, hpid, amount, userid from hpayment';
+		var sql = 'select paymentid, paymentdate, method, hpid, amount, userid from hpayment';
 		connection.query(sql, [adminid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
@@ -195,10 +311,10 @@ function adminGetHomePayInfo(req, res, next) {
 			common.correctUserInfo(adminHomePayInfo);
 			//console.log(userInfo);
 			res.render('admin/adminHomePayDisplay', {
-                adminHomePayInfo: adminHomePayInfo
-            });
+				adminHomePayInfo: adminHomePayInfo
+			});
 		});
-    });
+	});
 }
 
 
@@ -206,7 +322,7 @@ function adminGetAutoPayInfo(req, res, next) {
 	const adminid = req.session.adminid;
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-        var sql = 'select paymentid, paymentdate, method, apid, amount, userid from apayment';
+		var sql = 'select paymentid, paymentdate, method, apid, amount, userid from apayment';
 		connection.query(sql, [adminid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
@@ -217,14 +333,14 @@ function adminGetAutoPayInfo(req, res, next) {
 			common.correctUserInfo(adminAutoPayInfo);
 			//console.log(userInfo);
 			res.render('admin/adminAutoPayDisplay', {
-                adminAutoPayInfo: adminAutoPayInfo
-            });
+				adminAutoPayInfo: adminAutoPayInfo
+			});
 		});
-    });
+	});
 }
 
-function adminGetDriverInfo(req, res, next) { 
-    const adminid = req.session.adminid;
+function adminGetDriverInfo(req, res, next) {
+	const adminid = req.session.adminid;
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select userid, licensenum, fname, lname, vin, autoname, birthdate from driver';
@@ -233,7 +349,7 @@ function adminGetDriverInfo(req, res, next) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send('SQL query error');
 				return;
-            }
+			}
 			adminDriverInfo = result;
 			console.log(adminDriverInfo);
 
