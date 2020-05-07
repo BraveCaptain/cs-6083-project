@@ -163,7 +163,6 @@ function payHomeInsurance(req, res, next) {
 	});
 }
 
-
 function createHomeInsurance(req, res, next) {
 	const userid = xss(req.session.userid);
 	const homename = xss(req.body.homename);
