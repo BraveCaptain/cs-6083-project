@@ -91,7 +91,7 @@
               <td>{{$value.paymentdate}}</td>
               <td>{{$value.method}}</td>
               <td>{{$value.hpid}}</td>
-              <td>{{$value.amount}}</td>
+              <td>${{$value.amount}}</td>
             </tr>
             {{/each}}
           </tbody>

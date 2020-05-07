@@ -87,8 +87,8 @@
             <tr>
               <td>{{$value.apid}}</td>
               <td>{{$value.paymentduedate}}</td>
-              <td>{{$value.amount}}</td>
-              <td>{{$value.leftamount}}</td>
+              <td>${{$value.amount}}</td>
+              <td>${{$value.leftamount}}</td>
             </tr>
             {{/each}}
           </tbody>

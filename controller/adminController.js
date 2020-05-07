@@ -98,6 +98,7 @@ function loginAdmin(req, res, next) {
                 connection.end();
                 //issue03: 缺少error前端框架渲染
                 req.session.adminid = id;
+                req.app.locals.adminid = id;
                 res.redirect(301, '/admin/dashboard');
             });
         })

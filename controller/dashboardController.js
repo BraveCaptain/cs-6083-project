@@ -572,7 +572,6 @@ function createDriver(req, res, next) {
         var findsql = 'select autoname from auto where auto.vin = ?';
         connection.query(findsql, [vin], function (err, result) {
             if (err) {
-                console.log("yyyyyy");
                 console.log('[SELECT ERROR] - ', err.message);
                 res.send("SQL query error");
                 return;
@@ -582,7 +581,6 @@ function createDriver(req, res, next) {
                 return;
             }
             else {
-                console.log("aaaaaa");
                 const autoname = result[0].autoname;
                 console.log(autoname);
                 var sql = 'select * from driver where driver.licensenum = ?';

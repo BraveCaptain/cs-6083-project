@@ -4,7 +4,7 @@
 <head>
 
   {{include '../common/header.art'}}
-  <title>WDS {{userid}} Profile</title>
+  <title>WDS {{adminid}} Profile</title>
 
   <!-- Custom scripts for all pages-->
   <script src="/js/sb-admin-2.min.js"></script>
@@ -25,7 +25,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    {{include '../common/sidebar.art'}}
+    {{include '../common/supersidebar.art'}}
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -35,32 +35,35 @@
       <div id="content">
 
         <!-- Topbar -->
-        {{include '../common/topbar.art'}}
+        {{include '../common/supertopbar.art'}}
         <!-- End of Topbar -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">User Information Table</h1>
-        </div>
-        <!-- Begin Page Content -->
         <div class="container-fluid">
-         <table class="table table-striped table-bordered table-hover custom-table">
 
-          <thead>
-            <tr>
-              <th>User ID</th>
-              <th>User First Name</th>
-              <th>User Last Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{each users}}
-            <tr>
-              <td>{{$value.userid}}</td>
-              <td>{{$value.fname}}</td>
-              <td>{{$value.lname}}</td>
-            </tr>
-            {{/each}}
-          </tbody>
-         </table>
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">My Profile</h1>
+          </div>
+
+         <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-2 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-l font-weight-bold text-primary text-uppercase mb-1">Admin Name</div>
+
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{adminid}}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
         </div>

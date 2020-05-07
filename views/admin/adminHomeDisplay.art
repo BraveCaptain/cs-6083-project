@@ -4,7 +4,7 @@
 <head>
 
   {{include '../common/header.art'}}
-  <title>WDS {{userid}} Home Invoice Display</title>
+  <title>WDS Admin {{adminid}} Home Display</title>
 
   <!-- Custom scripts for all pages-->
   <script src="/js/sb-admin-2.min.js"></script>
@@ -35,7 +35,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    {{include '../common/sidebar.art'}}
+    {{include '../common/supersidebar.art'}}
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -45,17 +45,16 @@
       <div id="content">
 
         <!-- Topbar -->
-        {{include '../common/topbar.art'}}
+        {{include '../common/supertopbar.art'}}
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
 
-        <!-- Page Heading -->          
-
-        <div class="container-fluid">
+        <!-- Page Heading -->
+          <div class="container-fluid">
         <table class="table table-striped table-bordered table-hover custom-table">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-2 text-gray-800">Home Invoice Information of {{userid}}</h1>
+            <h1 class="h3 mb-2 text-gray-800">All Home Information</h1>
           </div>
           <!-- DataTales Example -->
 
@@ -64,31 +63,50 @@
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
 
-
           <thead>
             <tr>
-              <th>Home Invoice ID</th>
-              <th>Payment Duedate</th>
-              <th>Invoice Amount</th>
-              <th>Unpaid Amount</th>
+              <th>User Account Name </th>
+              <th>Home ID In WDS</th>
+              <th>Home Name</th>
+              <th>Home Purchase Date</th>
+              <th>Home Purchase Value</th>
+              <th>Home Area (Sq. Ft.)</th>
+              <th>Home Type</th>
+              <th>Auto Fire Notification</th>
+              <th>Home Security System</th>
+              <th>Swimming Pool</th>
+              <th>Basement</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>Home Invoice ID</th>
-              <th>Payment Duedate</th>
-              <th>Invoice Amount</th>
-              <th>Unpaid Amount</th>
+              <th>User Account Name </th>
+              <th>Home ID In WDS</th>
+              <th>Home Name</th>
+              <th>Home Purchase Date</th>
+              <th>Home Purchase Value</th>
+              <th>Home Area (Sq. Ft.)</th>
+              <th>Home Type</th>
+              <th>Auto Fire Notification</th>
+              <th>Home Security System</th>
+              <th>Swimming Pool</th>
+              <th>Basement</th>
             </tr>
           </tfoot>
           <tbody>
-            {{each homeInvoiceInfo}}
-
+            {{each adminHomeInfo}}
             <tr>
-              <td>{{$value.hpid}}</td>
-              <td>{{$value.paymentduedate}}</td>
-              <td>${{$value.amount}}</td>
-              <td>${{$value.leftamount}}</td>
+              <td>{{$value.userid}}</td>
+              <td>{{$value.homeid}}</td>
+              <td>{{$value.homename}}</td>
+              <td>{{$value.purchasedate}}</td>
+              <td>${{$value.purchasevalue}}</td>
+              <td>{{$value.area}}</td>
+              <td>{{$value.type}}</td>
+              <td>{{$value.autofirenotification}}</td>
+              <td>{{$value.securitysystem}}</td>
+              <td>{{$value.swimmingpool}}</td>
+              <td>{{$value.basement}}</td>
             </tr>
             {{/each}}
           </tbody>
