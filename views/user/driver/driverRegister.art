@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  {{include '../common/header.art'}}
+  <title>WDS {{userid}} Driver Register</title>
+
+  <!-- Custom scripts for all pages-->
+  <script src="/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="/vendor/chart.js/Chart.min.js"></script>
+
+
+  <meta name="author" content="">
+
+  <!--
+  <script>
+    function registerHome() {
+      var res = formContentToJson($("#registerForm"));
+      //if user did not enter userid or password
+      return validateHomeInput(res);
+    }
+  </script>
+  -->
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    {{include '../common/sidebar.art'}}
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        {{include '../common/topbar.art'}}
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Driver Registration</h1>
+          </div>
+
+          <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-auto-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Register Driver Information to Your Auto</h1>
+                            </div>
+
+                            <form method="post" id="registerForm">
+
+                                <div class="form-group row">
+                                    <div class="col-sm-5 mb-3 mb-sm-0">
+                                        <label class=""> <b>Choose the auto you want driver to be assigned to</b> </label>
+                                    </div>
+                                    <div class="col-sm-7 mb-3 mb-sm-0">
+                                      <select name="vin" id="vin" class="form-control" >
+                                        <option value="" selected disabled> -Please Select- </option>
+		                                    {{each autoInfoForDriver}}
+			                                    <option value = {{$value.vin}}>Auto Vin: {{$value.vin}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Auto Name: {{$value.autoname}}</option>
+			                                  {{/each}}
+		                            </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-5 mb-3 mb-sm-0">
+                                        <label class=""> <b> Driver's first name</b> </label>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <input name="fname" class="form-control" id="fname" placeholder="Driver First Name"
+                                            type="text">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-5 mb-3 mb-sm-0">
+                                        <label class=""> <b> Driver's last name</b> </label>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <input name="lname" class="form-control" id="lname" placeholder="Driver Last Name"
+                                            type="text">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <div class="col-sm-5 mb-3 mb-sm-0">
+                                        <label class=""> <b>Driver's Birthdate</b> </label>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <input name="birthdate" class="form-control" id="birthdate" placeholder="Driver Birthdate" type="date">
+                                    </div>
+                                </div>
+
+
+                                 <div class="form-group row">
+                                    <div class="col-sm-5 mb-3 mb-sm-0">
+                                        <label class=""> <b>Driver's License Number</b> </label>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <input name="licensenum" class="form-control" id="licensenum"  placeholder="Driver License Number" type=number>
+                                    </div>
+                                </div>
+
+                                </div>
+
+                                <input type="submit" href="dashboard" class="btn btn-primary btn-user btn-block"
+                                    value="Register" onclick="return registerHome()">
+                                <hr>
+                            </form>
+                            <hr>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+          
+
+
+
+        
+
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      {{include '../common/footer.art'}}
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+
+</body>
+
+
+
+
+
+
+
+
+
