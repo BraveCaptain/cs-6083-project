@@ -86,6 +86,23 @@
         Insurance Purchase
       </div>
 
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePolicy" aria-expanded="true"
+          aria-controls="collapsePolicy">
+          <i class="fas fa-fw fa-file-invoice-dollar"></i>
+          <span>WDS Insurance Policy</span>
+        </a>
+        <div id="collapsePolicy" class="collapse" aria-labelledby="headingPolicy" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Option:</h6>
+            <a class="collapse-item" href="policyDisplay">List policy</a>
+          </div>
+        </div>
+      </li>
+
+
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInsurance" aria-expanded="true"
