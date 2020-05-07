@@ -63,7 +63,7 @@ function getAutoInvoiceInfo(req, res, next) {
     const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-		var sql = 'select apid, paymentduedate, amount, (amount-amountpaid)leftamount from auto_policy where userid = ?';
+		var sql = 'select apid, paymentduedate, amount, (amount-amountpaid)leftamount, enddate, autoname, policyname from auto_policy where userid = ?';
 		connection.query(sql, [userid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);

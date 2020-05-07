@@ -28,6 +28,3 @@
 <script src="/js/demo/datatables-demo.js"></script>
 
 <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-<style>
-    .delete {cursor: pointer}
-</style>
