@@ -1,0 +1,129 @@
+<!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard">
+        <div class="sidebar-brand-text mx-3">Administrator interface</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="dashboard">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>My Profile</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Manage WDS Database
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdminUsers" aria-expanded="true"
+          aria-controls="collapseAdminUsers">
+          <i class="fas fa-fw fa-user"></i>
+          <span>User Management</span>
+        </a>
+        <div id="collapseAdminUsers" class="collapse" aria-labelledby="headingAdminUsers" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Option:</h6>
+            <a class="collapse-item" href="adminUserDisplay">List users </a>
+            <a class="collapse-item" href="homeDisplay">Delete users</a>
+          </div>
+        </div>
+      </li>
+
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdiminPolicy" aria-expanded="true"
+          aria-controls="collapseAdiminPolicy">
+          <i class="fas fa-fw fa-list-alt"></i>
+          <span>Insurance Policy Management</span>
+        </a>
+        <div id="collapseAdiminPolicy" class="collapse" aria-labelledby="headingAdiminPolicy" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Option:</h6>
+            <a class="collapse-item" href="adminPolicyDisplay">List policy </a>
+            <a class="collapse-item" href="adminPolicyRegister">Add new policy </a>
+            <a class="collapse-item" href="autoRegister">Delete policy </a>
+          </div>
+        </div>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdiminHomes" aria-expanded="true"
+          aria-controls="collapseAdiminHomes">
+          <i class="fas fa-fw fa-home"></i>
+          <span>Home Management</span>
+        </a>
+        <div id="collapseAdiminHomes" class="collapse" aria-labelledby="headingAdiminHomes" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Option:</h6>
+            <a class="collapse-item" href="adminHomeDisplay">List homes </a>
+          </div>
+        </div>
+      </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdiminAutos" aria-expanded="true"
+          aria-controls="collapseAdiminAutos">
+          <i class="fas fa-fw fa-car"></i>
+          <span>Auto Management</span>
+        </a>
+        <div id="collapseAdiminAutos" class="collapse" aria-labelledby="headingAdiminAutos" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Option:</h6>
+            <a class="collapse-item" href="adminAutoDisplay">List autos </a>
+            <a class="collapse-item" href="adminDriverDisplay">List drivers </a>
+          </div>
+        </div>
+      </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdiminInvoice" aria-expanded="true"
+          aria-controls="collapseAdiminInvoice">
+          <i class="fas fa-fw fa-file-invoice-dollar"></i>
+          <span>Invoice Management</span>
+        </a>
+        <div id="collapseAdiminInvoice" class="collapse" aria-labelledby="headingAdiminInvoice" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Option:</h6>
+            <a class="collapse-item" href="adminHomeInvoiceDisplay">List home invoices </a>
+            <a class="collapse-item" href="adminAutoInvoiceDisplay">List auto invoices </a>
+          </div>
+        </div>
+      </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdiminPay" aria-expanded="true"
+          aria-controls="collapseAdiminPay">
+          <i class="fas fa-fw fa-wallet"></i>
+          <span>Payment Management</span>
+        </a>
+        <div id="collapseAdiminPay" class="collapse" aria-labelledby="headingAdiminPay" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Option:</h6>
+            <a class="collapse-item" href="adminHomePayDisplay">List home payments </a>
+            <a class="collapse-item" href="adminAutoPayDisplay">List auto payments </a>
+          </div>
+        </div>
+      </li>
+
+
+
+
+
+
+
+     
+    </ul>
+
+    <!-- End of Sidebar -->

@@ -3,8 +3,8 @@
 
 <head>
 
-  {{include '../../common/header.art'}}
-  <title>WDS {{userid}} Home Payment Display</title>
+  {{include '../common/header.art'}}
+  <title>WDS Admin {{adminid}} Home Invoice Display</title>
 
   <!-- Custom scripts for all pages-->
   <script src="/js/sb-admin-2.min.js"></script>
@@ -12,7 +12,9 @@
   <!-- Page level plugins -->
   <script src="/vendor/chart.js/Chart.min.js"></script>
 
-
+  <!-- Page level custom scripts -->
+  <script src="/js/demo/chart-area-demo.js"></script>
+  <script src="/js/demo/chart-pie-demo.js"></script>
   <meta name="author" content="">
 
   <!--
@@ -33,7 +35,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    {{include '../../common/sidebar.art'}}
+    {{include '../common/supersidebar.art'}}
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -43,17 +45,16 @@
       <div id="content">
 
         <!-- Topbar -->
-        {{include '../../common/topbar.art'}}
+        {{include '../common/supertopbar.art'}}
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
 
-        <!-- Page Heading -->          
-
-        <div class="container-fluid">
+        <!-- Page Heading -->
+          <div class="container-fluid">
         <table class="table table-striped table-bordered table-hover custom-table">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-2 text-gray-800">Home Payment Information of {{userid}}</h1>
+            <h1 class="h3 mb-2 text-gray-800">All Home Invoice Information</h1>
           </div>
           <!-- DataTales Example -->
 
@@ -62,34 +63,32 @@
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
 
-
           <thead>
             <tr>
-              <th>Home Payment ID</th>
-              <th>Payment Date</th>
-              <th>Payment Method</th>
-              <th>Home Invoice ID Paid for</th>
-              <th>Payment Amount</th>
+              <th>User Account Name </th>
+              <th>Home Invoice ID</th>
+              <th>Payment Duedate</th>
+              <th>Invoice Amount</th>
+              <th>Unpaid Amount</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>Home Payment ID</th>
-              <th>Payment Date</th>
-              <th>Payment Method</th>
-              <th>Home Invoice ID Paid for</th>
-              <th>Payment Amount</th>
+              <th>User Account Name </th>
+              <th>Home Invoice ID</th>
+              <th>Payment Duedate</th>
+              <th>Invoice Amount</th>
+              <th>Unpaid Amount</th>
             </tr>
           </tfoot>
           <tbody>
-            {{each homePayInfo}}
-
+            {{each adminHomeInvoiceInfo}}
             <tr>
-              <td>{{$value.paymentid}}</td>
-              <td>{{$value.paymentdate}}</td>
-              <td>{{$value.method}}</td>
+              <td>{{$value.userid}}</td>
               <td>{{$value.hpid}}</td>
+              <td>{{$value.paymentduedate}}</td>
               <td>${{$value.amount}}</td>
+              <td>${{$value.leftamount}}</td>
             </tr>
             {{/each}}
           </tbody>
@@ -110,7 +109,7 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      {{include '../../common/footer.art'}}
+      {{include '../common/footer.art'}}
       <!-- End of Footer -->
 
     </div>

@@ -67,7 +67,7 @@ CREATE TABLE driver (
     vin         INT NOT NULL,
     autoname    VARCHAR(30) NOT NULL,
     birthdate   DATETIME NOT NULL,
-    PRIMARY KEY(licensenum)
+    PRIMARY KEY(licensenum, vin)
 );
 
 CREATE TABLE driver_auto (

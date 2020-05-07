@@ -57,7 +57,17 @@ const userDriverUpdate = require('./routes/user/driver/driverUpdate');
 
 const adminLogin = require('./routes/admin/login');
 const adminRegister = require('./routes/admin/register');
-const adminDashboard = require('./routes/admin/dashboard')
+const adminDashboard = require('./routes/admin/dashboard');
+const adminUserDisplay = require('./routes/admin/userDisplay');
+const adminPolicyDisplay = require('./routes/admin/policyDisplay');
+const adminPolicyRegister = require('./routes/admin/policyRegister');
+const adminHomeDisplay = require('./routes/admin/homeDisplay');
+const adminAutoDisplay = require('./routes/admin/autoDisplay');
+const adminHomeInvoiceDisplay = require('./routes/admin/homeInvoiceDisplay');
+const adminAutoInvoiceDisplay = require('./routes/admin/autoInvoiceDisplay');
+const adminHomePayDisplay = require('./routes/admin/homePayDisplay');
+const adminAutoPayDisplay = require('./routes/admin/autoPayDisplay');
+const adminDriverDisplay = require('./routes/admin/driverDisplay');
 
 app.use('/', require('./middleware/loginGuard'));
 
@@ -67,6 +77,20 @@ app.use('/', require('./middleware/loginGuard'));
 app.use('/admin/login', adminLogin);
 app.use('/admin/register', adminRegister);
 app.use('/admin/dashboard', adminDashboard);
+
+app.use('/admin/adminUserDisplay', adminUserDisplay);
+
+app.use('/admin/adminPolicyDisplay', adminPolicyDisplay);
+app.use('/admin/adminPolicyRegister', adminPolicyRegister);
+
+app.use('/admin/adminHomeDisplay', adminHomeDisplay);
+app.use('/admin/adminAutoDisplay', adminAutoDisplay);
+app.use('/admin/adminHomeInvoiceDisplay', adminHomeInvoiceDisplay);
+app.use('/admin/adminAutoInvoiceDisplay', adminAutoInvoiceDisplay);
+app.use('/admin/adminHomePayDisplay', adminHomePayDisplay);
+app.use('/admin/adminAutoPayDisplay', adminAutoPayDisplay);
+app.use('/admin/adminDriverDisplay', adminDriverDisplay);
+
 
 //user
 app.use('/login', userLogin);
