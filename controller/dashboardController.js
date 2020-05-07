@@ -1,10 +1,11 @@
 const database = require('../config/databaseConfig');
 const common = require('./util/common');
+const xss = require('xss');
 
 exports.getUserInfo = getUserInfo;
 
 function getUserInfo(req, res, next) {
-	const userid = req.session.userid;
+	const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select userid, fname, lname, state, city, street, zipcode, gender, maritalstatus from user where userid = ?';
@@ -16,7 +17,9 @@ function getUserInfo(req, res, next) {
 			}
 			if (result.length == 0) {
 				console.log('no such user');
-				res.send('no such user');
+				res.render('error', 
+					'no such user'
+				);
 				return;
 			}
 			userInfo = result[0];

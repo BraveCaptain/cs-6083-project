@@ -1,5 +1,6 @@
 const database = require('../config/databaseConfig');
 const common = require('./util/common');
+const xss = require('xss');
 
 exports.updateHome = updateHome;
 exports.getHomesUpdateInfo = getHomesUpdateInfo;
@@ -13,7 +14,7 @@ exports.getHomeInvoiceInfo = getHomeInvoiceInfo;
 exports.getHomePayInfo = getHomePayInfo;
 
 function getHomesUpdateInfo(req, res, next) {
-	const userid = req.session.userid;
+	const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
         var sql = 'select homename, homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement from home where userid = ?'
@@ -34,17 +35,17 @@ function getHomesUpdateInfo(req, res, next) {
 
 function updateHome(req, res, next) {
     console.log(req.body);
-    const userid = req.session.userid;
-	const purchasedate = req.body.purchasedate;
-	const purchasevalue = req.body.purchasevalue;
-	const area = req.body.area;
-	const type = req.body.type;
-	const autofirenotification = req.body.autofirenotification;
-	const securitysystem = req.body.securitysystem;
-	const swimmingpool = req.body.swimmingpool;
-	const basement = req.body.basement;
-    const homename = req.body.homename;
-    const homeid = req.body.homeid;
+    const userid = xss(req.session.userid);
+	const purchasedate = xss(req.body.purchasedate);
+	const purchasevalue = xss(req.body.purchasevalue);
+	const area = xss(req.body.area);
+	const type = xss(req.body.type);
+	const autofirenotification = xss(req.body.autofirenotification);
+	const securitysystem = xss(req.body.securitysystem);
+	const swimmingpool =xss(req.body.swimmingpool);
+	const basement = xss(req.body.basement);
+    const homename = xss(req.body.homename);
+    const homeid = xss(req.body.homeid);
 	//verify
 	database.setUpDatabase(function (connection) {
         console.log('here')
@@ -87,7 +88,7 @@ function updateHome(req, res, next) {
 }
 
 function getUnpaidHomeInsurances(req, res, next) {
-	const userid = req.session.userid;
+	const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select hpid, (amount-amountpaid)leftamount, amountpaid, paymentduedate, homename, policyname from home_policy where home_policy.userid = ? and home_policy.amountpaid < home_policy.amount';
@@ -113,38 +114,48 @@ function getUnpaidHomeInsurances(req, res, next) {
 }
 
 function payHomeInsurance(req, res, next) {
-	const userid = req.session.userid;
-	const method = req.body.method;
-	const hpid = req.body.hpid;
-	const paymentAmount = req.body.amount;
-	const leftamount = req.body.leftamount;
-	if(paymentAmount > leftamount) {
-		console.log('pay too much');
-		res.send('payment amount is greater than remaining amount');
-		return;
-	}
+	const userid = xss(req.session.userid);
+	const method = xss(req.body.method);
+	const hpid = xss(req.body.hpid);
+	const paymentAmount = xss(req.body.amount);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-		var sql = 'insert into hpayment (userid, paymentdate, method, hpid, amount) values (?, NOW(), ?, ?, ?)';
-		connection.query(sql, [userid, method, hpid, paymentAmount], function (err, result) {
+		var amountsql = 'select (amount-amountpaid)leftamount from home_policy where home_policy.hpid = ?';
+		connection.query(amountsql, [hpid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send('SQL query error');
 				return;
-			} else {
-				console.log('--------------------------INSERT----------------------------')
-				console.log('INSERT ID:', result)
-				console.log('------------------------------------------------------------')
-				sql = 'update home_policy set amountpaid = amountpaid + ? where hpid = ?';
-				connection.query(sql, [paymentAmount, hpid], function (err, result) {
+			}
+			var leftamount = result[0].leftamount;
+			if (paymentAmount > leftamount) {
+				console.log('pay too much');
+				res.send('payment amount is greater than remaining amount');
+				return;
+			}
+			else {
+				var sql = 'insert into hpayment (userid, paymentdate, method, hpid, amount) values (?, NOW(), ?, ?, ?)';
+				connection.query(sql, [userid, method, hpid, paymentAmount], function (err, result) {
 					if (err) {
 						console.log('[SELECT ERROR] - ', err.message);
 						res.send('SQL query error');
 						return;
 					} else {
-						console.log('payment success');
-						connection.end();
-						res.redirect(301, '/dashboard');
+						console.log('--------------------------INSERT----------------------------')
+						console.log('INSERT ID:', result)
+						console.log('------------------------------------------------------------')
+						sql = 'update home_policy set amountpaid = amountpaid + ? where hpid = ?';
+						connection.query(sql, [paymentAmount, hpid], function (err, result) {
+							if (err) {
+								console.log('[SELECT ERROR] - ', err.message);
+								res.send('SQL query error');
+								return;
+							} else {
+								console.log('payment success');
+								connection.end();
+								res.redirect(301, '/dashboard');
+							}
+						});
 					}
 				});
 			}
@@ -152,12 +163,13 @@ function payHomeInsurance(req, res, next) {
 	});
 }
 
+
 function createHomeInsurance(req, res, next) {
-	const userid = req.session.userid;
-	const homename = req.body.homename;
-	const policyname = req.body.policyname;
-	const startdate = req.body.startdate;
-	const enddate = req.body.enddate;
+	const userid = xss(req.session.userid);
+	const homename = xss(req.body.homename);
+	const policyname = xss(req.body.policyname);
+	const startdate = xss(req.body.startdate);
+	const enddate = xss(req.body.enddate);
 	const monthDifference = common.getMonthDifference(startdate, enddate);
 	console.log(req.body.homename);
 	console.log(req.body.policyname);
@@ -218,7 +230,7 @@ function createHomeInsurance(req, res, next) {
 }
 
 function getHomeInsurancesInfo(req, res, next) {
-	const userid = req.session.userid;
+	const userid = xss(req.session.userid);
 	var homeInsurancesInfo = {};
 	database.setUpDatabase(function (connection) {
 		connection.connect();
@@ -258,7 +270,7 @@ function getHomeInsurancesInfo(req, res, next) {
 }
 
 function getHomesInfo(req, res, next) {
-	const userid = req.session.userid;
+	const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select homename, homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement from home where userid = ?'
@@ -281,16 +293,16 @@ function getHomesInfo(req, res, next) {
 function createHome(req, res, next) {
 	console.log('enter function createHome');
 	console.log(req.body);
-	const userid = req.session.userid;
-	const purchasedate = req.body.purchasedate;
-	const purchasevalue = req.body.purchasevalue;
-	const area = req.body.area;
-	const type = req.body.type;
-	const autofirenotification = req.body.autofirenotification;
-	const securitysystem = req.body.securitysystem;
-	const swimmingpool = req.body.swimmingpool;
-	const basement = req.body.basement;
-	const homename = req.body.homename;
+	const userid = xss(req.session.userid);
+	const purchasedate = xss(req.body.purchasedate);
+	const purchasevalue = xss(req.body.purchasevalue);
+	const area = xss(req.body.area);
+	const type = xss(req.body.type);
+	const autofirenotification = xss(req.body.autofirenotification);
+	const securitysystem = xss(req.body.securitysystem);
+	const swimmingpool = xss(req.body.swimmingpool);
+	const basement = xss(req.body.basement);
+	const homename = xss(req.body.homename);
 	//verify
 
 	database.setUpDatabase(function (connection) {
@@ -336,7 +348,7 @@ function createHome(req, res, next) {
 }
 
 function getHomeInvoiceInfo(req, res, next) { 
-    const userid = req.session.userid;
+    const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select hpid, paymentduedate, amount, (amount-amountpaid)leftamount from home_policy where userid = ?';
@@ -357,7 +369,7 @@ function getHomeInvoiceInfo(req, res, next) {
 }
 
 function getHomePayInfo(req, res, next) { 
-    const userid = req.session.userid;
+    const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select paymentid, paymentdate, method, hpid, amount from hpayment where userid = ?';
@@ -376,3 +388,4 @@ function getHomePayInfo(req, res, next) {
 		});
 	});
 }
+

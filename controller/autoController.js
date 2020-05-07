@@ -1,5 +1,6 @@
 const database = require('../config/databaseConfig');
 const common = require('./util/common');
+const xss = require('xss');
 
 exports.updateAuto = updateAuto;
 exports.getAutosUpdateInfo = getAutosUpdateInfo;
@@ -16,11 +17,11 @@ exports.getAutoPayInfo = getAutoPayInfo;
 function createAuto(req, res, next) {
 	console.log('enter function createAuto');
 	console.log(req.body);
-	const userid = req.session.userid;
-	const modeldate = req.body.modeldate;
-	const status = req.body.status;
-	const autoname = req.body.autoname;
-	const vin = req.body.vin;
+	const userid = xss(req.session.userid);
+	const modeldate = xss(req.body.modeldate);
+	const status = xss(req.body.status);
+	const autoname = xss(req.body.autoname);
+	const vin = xss(req.body.vin);
 	console.log(Date.parse(modeldate));
 	//verify
 	database.setUpDatabase(function (connection) {
@@ -59,7 +60,7 @@ function createAuto(req, res, next) {
 }
 
 function getAutoInvoiceInfo(req, res, next) { 
-    const userid = req.session.userid;
+    const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select apid, paymentduedate, amount, (amount-amountpaid)leftamount from auto_policy where userid = ?';
@@ -80,7 +81,7 @@ function getAutoInvoiceInfo(req, res, next) {
 }
 
 function getAutoPayInfo(req, res, next) { 
-    const userid = req.session.userid;
+    const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select paymentid, paymentdate, method, apid, amount from apayment where userid = ?';
@@ -101,7 +102,7 @@ function getAutoPayInfo(req, res, next) {
 }
 
 function getAutosUpdateInfo(req, res, next) {
-	const userid = req.session.userid;
+	const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
         var sql = 'select autoname, vin from auto where userid = ?'
@@ -122,11 +123,11 @@ function getAutosUpdateInfo(req, res, next) {
 
 function updateAuto(req, res, next) {
     console.log(req.body);
-    const userid = req.session.userid;
-	const modeldate = req.body.modeldate;
-    const autoname = req.body.autoname;
-    const vin = req.body.vin;
-    const status = req.body.status;
+    const userid = xss(req.session.userid);
+	const modeldate = xss(req.body.modeldate);
+    const autoname = xss(req.body.autoname);
+    const vin = xss(req.body.vin);
+    const status = xss(req.body.status);
 	//verify
 	database.setUpDatabase(function (connection) {
         console.log('here')
@@ -164,39 +165,52 @@ function updateAuto(req, res, next) {
 	})
 }
 
+
+
+
 function payAutoInsurance(req, res, next) {
-	const userid = req.session.userid;
-	const method = req.body.method;
-	const apid = req.body.apid;
-	const paymentAmount = req.body.amount;
-	const leftamount = req.body.leftamount;
-	if(paymentAmount > leftamount) {
-		console.log('pay too much');
-		res.send('payment amount is greater than remaining amount');
-		return;
-	}
+	const userid = xss(req.session.userid);
+	const method = xss(req.body.method);
+	const apid = xss(req.body.apid);
+	const paymentAmount = xss(req.body.amount);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-		var sql = 'insert into apayment (userid, paymentdate, method, apid, amount) values (?, NOW(), ?, ?, ?)';
-		connection.query(sql, [userid, method, apid, paymentAmount], function (err, result) {
+		var amountsql = 'select (amount-amountpaid)leftamount from auto_policy where auto_policy.apid = ?';
+		connection.query(amountsql, [apid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send('SQL query error');
 				return;
-			} else {
-				console.log('--------------------------INSERT----------------------------')
-				console.log('INSERT ID:', result)
-				console.log('------------------------------------------------------------')
-				sql = 'update auto_policy set amountpaid = amountpaid + ? where apid = ?';
-				connection.query(sql, [paymentAmount, apid], function (err, result) {
+			}
+			var leftamount = result[0].leftamount;
+			if (paymentAmount > leftamount) {
+				console.log('pay too much');
+				res.send('payment amount is greater than remaining amount');
+				return;
+			}
+			else {
+				var sql = 'insert into apayment (userid, paymentdate, method, apid, amount) values (?, NOW(), ?, ?, ?)';
+				connection.query(sql, [userid, method, apid, paymentAmount], function (err, result) {
 					if (err) {
 						console.log('[SELECT ERROR] - ', err.message);
 						res.send('SQL query error');
 						return;
 					} else {
-						console.log('payment success');
-						connection.end();
-						res.redirect(301, '/dashboard');
+						console.log('--------------------------INSERT----------------------------')
+						console.log('INSERT ID:', result)
+						console.log('------------------------------------------------------------')
+						sql = 'update auto_policy set amountpaid = amountpaid + ? where apid = ?';
+						connection.query(sql, [paymentAmount, apid], function (err, result) {
+							if (err) {
+								console.log('[SELECT ERROR] - ', err.message);
+								res.send('SQL query error');
+								return;
+							} else {
+								console.log('payment success');
+								connection.end();
+								res.redirect(301, '/dashboard');
+							}
+						});
 					}
 				});
 			}
@@ -205,7 +219,7 @@ function payAutoInsurance(req, res, next) {
 }
 
 function getUnpaidAutoInsurances(req, res, next) {
-	const userid = req.session.userid;
+	const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select apid, (amount-amountpaid)leftamount, amountpaid, paymentduedate, autoname, policyname from auto_policy where auto_policy.userid = ? and auto_policy.amountpaid < auto_policy.amount';
@@ -231,11 +245,11 @@ function getUnpaidAutoInsurances(req, res, next) {
 }
 
 function createAutoInsurance(req, res, next) {
-	const userid = req.session.userid;
-	const autoname = req.body.autoname;
-	const policyname = req.body.policyname;
-	const startdate = req.body.startdate;
-	const enddate = req.body.enddate;
+	const userid = xss(req.session.userid);
+	const autoname = xss(req.body.autoname);
+	const policyname = xss(req.body.policyname);
+	const startdate = xss(req.body.startdate);
+	const enddate = xss(req.body.enddate);
 	const monthDifference = common.getMonthDifference(startdate, enddate);
 	console.log(req.body.autoname);
 	console.log(req.body.policyname);
@@ -296,7 +310,7 @@ function createAutoInsurance(req, res, next) {
 }
 
 function getAutoInsurancesInfo(req, res, next) {
-	const userid = req.session.userid;
+	const userid = xss(req.session.userid);
 	var AutoInsurancesInfo = {};
 	database.setUpDatabase(function (connection) {
 		connection.connect();
@@ -336,7 +350,7 @@ function getAutoInsurancesInfo(req, res, next) {
 }
 
 function getAutosInfo(req, res, next) {
-	const userid = req.session.userid;
+	const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select a.autoname, a.vin, a.modeldate, a.status from auto a inner join user d on a.userid = d.userid where d.userid = ?';

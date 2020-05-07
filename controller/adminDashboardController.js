@@ -1,5 +1,6 @@
 const database = require('../config/databaseConfig');
 const common = require('./util/common');
+const xss = require('xss');
 
 exports.adminGetUserInfo = adminGetUserInfo;
 exports.adminGetPolicyInfo = adminGetPolicyInfo;
@@ -13,7 +14,7 @@ exports.adminGetAutoPayInfo = adminGetAutoPayInfo;
 exports.adminGetDriverInfo = adminGetDriverInfo;
 
 function adminGetUserInfo(req, res, next) {
-	const adminid = req.session.adminid;
+	const adminid = xss(req.session.adminid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select userid, fname, lname, state, city, street, zipcode, gender, maritalstatus from user';
@@ -34,7 +35,7 @@ function adminGetUserInfo(req, res, next) {
 }
 
 function adminGetPolicyInfo(req, res, next) {
-	const adminid = req.session.adminid;
+	const adminid = xss(req.session.adminid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select policyid, type, policyname, amount from policy';
@@ -57,9 +58,9 @@ function adminGetPolicyInfo(req, res, next) {
 function adminCreatePolicy(req, res, next) {
 	console.log('enter function adminCreatePolicy');
 	console.log(req.body);
-	const type = req.body.type;
-	const policyname = req.body.policyname;
-	const amount = req.body.amount;
+	const type = xss(req.body.type);
+	const policyname = xss(req.body.policyname);
+	const amount = xss(req.body.amount);
 	//verify
 	database.setUpDatabase(function (connection) {
 		connection.connect();
@@ -97,7 +98,7 @@ function adminCreatePolicy(req, res, next) {
 }
 
 function adminGetHomeInfo(req, res, next) {
-	const adminid = req.session.adminid;
+	const adminid = xss(req.session.adminid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
         var sql = 'select homeid, homename, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement, userid from home';
@@ -118,7 +119,7 @@ function adminGetHomeInfo(req, res, next) {
 }
 
 function adminGetAutoInfo(req, res, next) {
-	const adminid = req.session.adminid;
+	const adminid = xss(req.session.adminid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
         var sql = 'select vin, autoname, modeldate, status, userid from auto';
@@ -139,7 +140,7 @@ function adminGetAutoInfo(req, res, next) {
 }
 
 function adminGetHomeInvoiceInfo(req, res, next) {
-	const adminid = req.session.adminid;
+	const adminid = xss(req.session.adminid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
         var sql = 'select userid, hpid, paymentduedate, amount, (amount-amountpaid)leftamount from home_policy';
@@ -160,7 +161,7 @@ function adminGetHomeInvoiceInfo(req, res, next) {
 }
 
 function adminGetAutoInvoiceInfo(req, res, next) {
-	const adminid = req.session.adminid;
+	const adminid = xss(req.session.adminid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
         var sql = 'select userid, apid, paymentduedate, amount, (amount-amountpaid)leftamount from auto_policy';
@@ -181,7 +182,7 @@ function adminGetAutoInvoiceInfo(req, res, next) {
 }
 
 function adminGetHomePayInfo(req, res, next) {
-	const adminid = req.session.adminid;
+	const adminid = xss(req.session.adminid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
         var sql = 'select paymentid, paymentdate, method, hpid, amount, userid from hpayment';
@@ -203,7 +204,7 @@ function adminGetHomePayInfo(req, res, next) {
 
 
 function adminGetAutoPayInfo(req, res, next) {
-	const adminid = req.session.adminid;
+	const adminid = xss(req.session.adminid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
         var sql = 'select paymentid, paymentdate, method, apid, amount, userid from apayment';
@@ -224,7 +225,7 @@ function adminGetAutoPayInfo(req, res, next) {
 }
 
 function adminGetDriverInfo(req, res, next) { 
-    const adminid = req.session.adminid;
+    const adminid = xss(req.session.adminid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select userid, licensenum, fname, lname, vin, autoname, birthdate from driver';

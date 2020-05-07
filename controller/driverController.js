@@ -1,5 +1,6 @@
 const database = require('../config/databaseConfig');
 const common = require('./util/common');
+const xss = require('xss');
 
 exports.updateDriver = updateDriver;
 exports.getDriversUpdateInfo = getDriversUpdateInfo;
@@ -8,7 +9,7 @@ exports.createDriver = createDriver;
 exports.getAutosInfoForDriver = getAutosInfoForDriver;
 
 function getAutosInfoForDriver(req, res, next) {
-	const userid = req.session.userid;
+	const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select a.autoname, a.vin from auto a inner join user d on a.userid = d.userid where d.userid = ?';
@@ -31,12 +32,12 @@ function getAutosInfoForDriver(req, res, next) {
 function createDriver(req, res, next) {
 	console.log('enter function createDriver');
 	console.log(req.body);
-	const userid = req.session.userid;
-	const licensenum = req.body.licensenum;
-	const fname = req.body.fname;
-	const lname = req.body.lname;
-    const vin = req.body.vin;
-    const birthdate = req.body.birthdate;
+	const userid = xss(req.session.userid);
+	const licensenum = xss(req.body.licensenum);
+	const fname = xss(req.body.fname);
+	const lname = xss(req.body.lname);
+    const vin = xss(req.body.vin);
+    const birthdate = xss(req.body.birthdate);
 	console.log(Date.parse(birthdate));
 	//verify
 	database.setUpDatabase(function (connection) {
@@ -92,7 +93,7 @@ function createDriver(req, res, next) {
 }
 
 function getDriverInfo(req, res, next) { 
-    const userid = req.session.userid;
+    const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select licensenum, fname, lname, vin, autoname, birthdate from driver where userid = ?';
@@ -113,7 +114,7 @@ function getDriverInfo(req, res, next) {
 }
 
 function getDriversUpdateInfo(req, res, next) {
-    const userid = req.session.userid;
+    const userid = xss(req.session.userid);
     var driverInfo = {};
     database.setUpDatabase(function (connection) {
         connection.connect();
@@ -135,11 +136,11 @@ function getDriversUpdateInfo(req, res, next) {
 }
 
 function updateDriver(req, res, next) {
-    const userid = req.session.userid;
-    const fname = req.body.fname;
-    const lname = req.body.lname;
-    const birthdate = req.body.birthdate;
-    const licensenum = req.body.licensenum;
+    const userid = xss(req.session.userid);
+    const fname = xss(req.body.fname);
+    const lname = xss(req.body.lname);
+    const birthdate = xss(req.body.birthdate);
+    const licensenum = xss(req.body.licensenum);
     //verify
     database.setUpDatabase(function (connection) {
         console.log('here')

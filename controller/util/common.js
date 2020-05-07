@@ -57,11 +57,11 @@ function correctHomeInfo(homeInfos) {
         }
         switch(homeInfos[i].autofirenotification) {
             case ('1'): {
-                homeInfos[i].autofirenotification = "true";
+                homeInfos[i].autofirenotification = "Yes";
                 break;
             }
             case ('0'): {
-                homeInfos[i].autofirenotification = "false";
+                homeInfos[i].autofirenotification = "No";
                 break;
             }
             default: {
@@ -70,11 +70,11 @@ function correctHomeInfo(homeInfos) {
         }
         switch(homeInfos[i].securitysystem) {
             case ('1'): {
-                homeInfos[i].securitysystem = "true";
+                homeInfos[i].securitysystem = "Yes";
                 break;
             }
             case ('0'): {
-                homeInfos[i].securitysystem = "false";
+                homeInfos[i].securitysystem = "No";
                 break;
             }
             default: {
@@ -104,11 +104,11 @@ function correctHomeInfo(homeInfos) {
         }
         switch(homeInfos[i].basement) {
             case ('1'): {
-                homeInfos[i].basement = "true";
+                homeInfos[i].basement = "Yes";
                 break;
             }
             case ('0'): {
-                homeInfos[i].basement = "false";
+                homeInfos[i].basement = "No";
                 break;
             }
             default: {

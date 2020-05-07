@@ -1,6 +1,7 @@
 const database = require('../config/databaseConfig');
 const bcrypt = require('bcrypt');
 const saltRound = 10;
+const xss = require('xss');
 
 exports.createAdmin = createAdmin;
 exports.loginAdmin = loginAdmin;
@@ -8,9 +9,9 @@ exports.getUsers = getUsers;
 
 function createAdmin(req, res, next) {
     console.log('enter function createAdmin');
-    const id = req.body.userid;
-    const plainTextPassword = req.body.password1;
-    const plainTextPasswordAgain = req.body.password2;
+    const id = xss(req.body.userid);
+    const plainTextPassword = xss(req.body.password1);
+    const plainTextPasswordAgain = xss(req.body.password2);
     //verify
     if(id.trim().length == 0) {
         return res.status(400).send('<h4>admin id error</h4>');
@@ -59,8 +60,8 @@ function createAdmin(req, res, next) {
 }
 
 function loginAdmin(req, res, next) {
-    const id = req.body.userid;
-    const plainTextPassword = req.body.password;
+    const id = xss(req.body.userid);
+    const plainTextPassword = xss(req.body.password);
     //verify
     if(id.trim().length == 0) {
         return res.status(400).send('<h4>admin id error</h4>');

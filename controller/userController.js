@@ -1,6 +1,7 @@
 const database = require('../config/databaseConfig');
 const bcrypt = require('bcrypt');
 const saltRound = 10;
+const xss = require('xss');
 
 exports.createUser = createUser;
 exports.loginUser = loginUser;
@@ -10,17 +11,17 @@ exports.logoutUser = logoutUser;
 function createUser(req, res, next) {
     console.log('enter function createUser');
     console.log(req.body);
-    const id = req.body.userid;
-    const plainTextPassword = req.body.password1;
-    const plainTextPasswordAgain = req.body.password2;
-    const fname = req.body.fname;
-    const lname = req.body.lname;
-    const state = req.body.state;
-    const city = req.body.city;
-    const street = req.body.street;
-    const zipcode = req.body.zipcode;
-    const gender = req.body.gender;
-    const maritalstatus = req.body.maritalstatus;
+    const id = xss(req.body.userid);
+    const plainTextPassword = xss(req.body.password1);
+    const plainTextPasswordAgain = xss(req.body.password2);
+    const fname = xss(req.body.fname);
+    const lname = xss(req.body.lname);
+    const state = xss(req.body.state);
+    const city = xss(req.body.city);
+    const street = xss(req.body.street);
+    const zipcode = xss(req.body.zipcode);
+    const gender = xss(req.body.gender);
+    const maritalstatus = xss(req.body.maritalstatus);
     //verify
     if (plainTextPassword != plainTextPasswordAgain) {
         console.log('Passwords are not the same');
@@ -71,8 +72,8 @@ function createUser(req, res, next) {
 }
 
 function loginUser(req, res, next) {
-    const id = req.body.userid;
-    const plainTextPassword = req.body.password;
+    const id = xss(req.body.userid);
+    const plainTextPassword = xss(req.body.password);
     //verify
     if (id.trim().length == 0) {
         return res.status(400).send('<h4>user id error</h4>');
@@ -127,17 +128,17 @@ function logoutUser(req, res, next) {
 
 function updateUserProfile(req, res, next) {
     console.log('req.body');
-    const userid = req.session.userid;
-    const plainTextPassword = req.body.password1;
-    const plainTextPasswordAgain = req.body.password2;
-    const fname = req.body.fname;
-    const lname = req.body.lname;
-    const state = req.body.state;
-    const city = req.body.city;
-    const street = req.body.street;
-    const zipcode = req.body.zipcode;
-    const gender = req.body.gender;
-    const maritalstatus = req.body.maritalstatus;
+    const userid = xss(req.session.userid);
+    const plainTextPassword = xss(req.body.password1);
+    const plainTextPasswordAgain = xss(req.body.password2);
+    const fname = xss(req.body.fname);
+    const lname = xss(req.body.lname);
+    const state = xss(req.body.state);
+    const city = xss(req.body.city);
+    const street = xss(req.body.street);
+    const zipcode = xss(req.body.zipcode);
+    const gender = xss(req.body.gender);
+    const maritalstatus = xss(req.body.maritalstatus);
     if (plainTextPassword != plainTextPasswordAgain) {
         console.log('Passwords are not the same');
         res.send("Passwords are not the same");
