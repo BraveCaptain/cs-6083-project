@@ -12,7 +12,220 @@ exports.adminGetAutoInvoiceInfo = adminGetAutoInvoiceInfo;
 exports.adminGetHomePayInfo = adminGetHomePayInfo;
 exports.adminGetAutoPayInfo = adminGetAutoPayInfo;
 exports.adminGetDriverInfo = adminGetDriverInfo;
-exports.adminDeleteUser = adminDeleteUser
+exports.adminDeleteUser = adminDeleteUser;
+exports.adminDeletePolicy = adminDeletePolicy;
+exports.adminDeleteHome = adminDeleteHome;
+exports.adminDeleteAuto =adminDeleteAuto;
+function adminDeleteAuto(req,res,next){
+	const vin = xss(req.body.vin);
+	console.log('auto is: ', vin);
+	database.setUpDatabase(function (connection) {
+		connection.connect();
+		var sql = "select autoname from auto where vin = ?";
+		connection.query(sql, [vin], function (err, result) {
+			if (err) {
+				console.log('[DELETE ERROR] - ', err.message);
+				res.send('SQL query error');
+				return;
+			} else{
+				var autoname = result[0].autoname;
+				console.log('auto is: ', autoname);
+				sql = 'delete from auto where autoname = ?';
+				connection.query(sql, autoname, function (err, result) {
+					if (err) {
+						console.log('[DELETE ERROR] - ', err.message);
+						res.send('SQL query error');
+						return;
+					} else{
+						sql = 'delete from apayment where apid = (select apid from auto_policy where autoname = ?)';
+						connection.query(sql, autoname, function (err, result) {
+							if (err) {
+								console.log('[DELETE ERROR] - ', err.message);
+								res.send('SQL query error');
+								return;
+							} else{
+								sql = 'delete from auto_policy where autoname = ?';
+								connection.query(sql, autoname, function (err, result) {
+									if (err) {
+										console.log('[DELETE ERROR] - ', err.message);
+										res.send('SQL query error');
+										return;
+									} else{
+										sql = 'delete from driver where autoname = ?';
+										connection.query(sql, autoname, function (err, result) {
+											if (err) {
+												console.log('[DELETE ERROR] - ', err.message);
+												res.send('SQL query error');
+												return;
+											} else{
+												sql = 'select vin, autoname, modeldate, status, userid from auto';
+												connection.query(sql, function (err, result) {
+													if (err) {
+														console.log('[SELECT ERROR] - ', err.message);
+														res.send('SQL query error');
+														return;
+													}
+													adminAutoInfo = result;
+													common.correctAutoInfo(adminAutoInfo);
+													//console.log(userInfo);
+													res.render('admin/adminAutoDisplay', {
+														adminAutoInfo: adminAutoInfo
+													});
+												});
+											}
+										});
+									}
+								});
+							}
+						});
+					}
+				});
+			}
+		});
+	});
+}
+
+
+function adminDeleteHome(req,res,next){
+	const homeid = xss(req.body.homeid);
+	console.log('home is: ', homeid);
+	database.setUpDatabase(function (connection) {
+		connection.connect();
+		var sql = "select homename from home where homeid = ?";
+		connection.query(sql, [homeid], function (err, result) {
+			if (err) {
+				console.log('[DELETE ERROR] - ', err.message);
+				res.send('SQL query error');
+				return;
+			} else{
+				var homename = result[0].homename;
+				console.log('home is: ', homename);
+				sql = 'delete from home where homename = ?';
+				connection.query(sql, homename, function (err, result) {
+					if (err) {
+						console.log('[DELETE ERROR] - ', err.message);
+						res.send('SQL query error');
+						return;
+					} else {
+						sql = 'delete from hpayment where hpid = (select hpid from home_policy where homename = ?)';
+						connection.query(sql, homename, function (err, result) {
+							if (err) {
+								console.log('[DELETE ERROR] - ', err.message);
+								res.send('SQL query error');
+								return;
+							} else{
+								sql = 'delete from home_policy where homename = ?';
+								connection.query(sql, homename, function (err, result) {
+									if (err) {
+										console.log('[DELETE ERROR] - ', err.message);
+										res.send('SQL query error');
+										return;
+									} else{
+										sql = 'select homeid, homename, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement, userid from home';
+										connection.query(sql, function (err, result) {
+											if (err) {
+												console.log('[SELECT ERROR] - ', err.message);
+												res.send('SQL query error');
+												return;
+											}
+											adminUserInfo = result;
+											common.correctUserInfo(adminUserInfo);
+											//console.log(userInfo);
+											res.render('admin/adminUserDisplay', {
+												adminUserInfo: adminUserInfo
+											});
+										});
+									}
+								});
+							}
+						});
+					}
+				});
+			}
+		});
+	});
+}
+
+function adminDeletePolicy(req,res,next){
+	const policyid = xss(req.body.policyid);
+	console.log('policy is: ', policyid);
+	database.setUpDatabase(function (connection) {
+		connection.connect();
+		var sql = "select policyname from policy where policyid = ?";
+		connection.query(sql, [policyid], function (err, result) {
+			if (err) {
+				console.log('[DELETE ERROR] - ', err.message);
+				res.send('SQL query error');
+				return;
+			} else{
+				var policyname = result[0].policyname;
+				console.log('policy is: ', policyname);
+				sql = 'delete from policy where policyname = ?';
+				connection.query(sql, policyname, function (err, result) {
+					if (err) {
+						console.log('[DELETE ERROR] - ', err.message);
+						res.send('SQL query error');
+						return;
+					} else {
+						sql = 'delete from hpayment where hpid = (select hpid from home_policy where policyname = ?)';
+						connection.query(sql, policyname, function (err, result) {
+							if (err) {
+								console.log('[DELETE ERROR] - ', err.message);
+								res.send('SQL query error');
+								return;
+							} else{
+								sql = 'delete from home_policy where policyname = ?';
+								connection.query(sql, policyname, function (err, result) {
+									if (err) {
+										console.log('[DELETE ERROR] - ', err.message);
+										res.send('SQL query error');
+										return;
+									} else{
+										sql = 'delete from apayment where apid = (select apid from auto_policy where policyname = ?)';
+										connection.query(sql, policyname, function (err, result) {
+											if (err) {
+												console.log('[DELETE ERROR] - ', err.message);
+												res.send('SQL query error');
+												return;
+											} else{
+												sql = 'delete from auto_policy where policyname = ?';
+												connection.query(sql, policyname, function (err, result) {
+													if (err) {
+														console.log('[DELETE ERROR] - ', err.message);
+														res.send('SQL query error');
+														return;
+													} else{
+														sql = 'select policyid, type, policyname, amount from policy';
+														connection.query(sql, function(err, result) {
+															if (err) {
+																console.log('[SELECT ERROR] - ', err.message);
+																res.send('SQL query error');
+																return;
+															}
+															else{
+																adminPolicyInfo = result;
+																common.correctUserInfo(adminPolicyInfo);
+																//console.log(userInfo);
+																res.render('admin/adminPolicyDisplay', {
+																	adminPolicyInfo: adminPolicyInfo
+																});
+															}
+														});
+													}
+												});
+											}
+										});
+									}
+								});
+							}
+						});
+					}
+				});
+			}
+		});
+
+	});
+}
 
 function adminDeleteUser(req, res, next) {
 	const userid = xss(req.body.userid);
@@ -20,7 +233,7 @@ function adminDeleteUser(req, res, next) {
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		//var sql = 'delete a,b,c,d,e,f,g,h from auto a, auto_policy b, apayment c, driver d, home e, home_policy f, hpayment g, user h where h.userid = a.userid and h.userid = b.userid and h.userid = c.userid and h.userid = d.userid and h.userid = e.userid and h.userid = f.userid and h.userid = g.userid and h.userid = ?';
-		var sql = 'delete from auto where userid = ?'
+		var sql = 'delete from auto where userid = ?';
 		connection.query(sql, userid, function (err, result) {
 			if (err) {
 				console.log('[DELETE ERROR] - ', err.message);

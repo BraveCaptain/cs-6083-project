@@ -67,6 +67,7 @@
               <th>Policy Type</th>
               <th>Policy Name</th>
               <th>Policy Amount per Month</th>
+              <th>Operation</th>
             </tr>
           </thead>
           <tfoot>
@@ -75,6 +76,7 @@
               <th>Policy Type</th>
               <th>Policy Name</th>
               <th>Policy Amount per Month</th>
+              <th>Operation</th>
             </tr>
           </tfoot>
           <tbody>
@@ -84,6 +86,12 @@
               <td>{{$value.type}}</td>
               <td>{{$value.policyname}}</td>
               <td>${{$value.amount}}</td>
+              <td>
+                <form method="post">
+                  <input type="hidden" name="policyid" value={{$value.policyid}}>
+                  <input type="submit" value="delete">
+                </form>
+              </td>
             </tr>
             {{/each}}
           </tbody>

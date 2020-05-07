@@ -75,7 +75,7 @@
                                       <select name="autoname" id="autoname" class="form-control">
                                         <option value="" selected disabled> -Please Select- </option>
 		                                    {{each AutoInsurancesInfo.autoNames}}
-			                                    <option value = {{$value.autoname}}>{{$value.autoname}}</option>
+			                                    <option>{{$value.autoname}}</option>
 			                                  {{/each}}
 		                                  </select>
                                     </div>
