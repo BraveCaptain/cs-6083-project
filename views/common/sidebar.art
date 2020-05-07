@@ -35,6 +35,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Option:</h6>
             <a class="collapse-item" href="homeRegister">Register new home </a>
+            <a class="collapse-item" href="homeUpdate">Update home information</a>
             <a class="collapse-item" href="homeDisplay">List current homes</a>
           </div>
         </div>
@@ -50,13 +51,32 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Option:</h6>
             <a class="collapse-item" href="autoRegister">Register new auto </a>
+            <a class="collapse-item" href="autoUpdate">Update auto information</a>
             <a class="collapse-item" href="autoDisplay">List current autos</a>
+            <!--
             <a class="collapse-item" href="driverRegister">Register new driver </a>
             <a class="collapse-item" href="driverDisplay">List current drivers</a>
+            <a class="collapse-item" href="driverUpdate">Update driver information</a>
+            -->
           </div>
         </div>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDrivers" aria-expanded="true"
+          aria-controls="collapseDrivers">
+          <i class="fas fa-fw fa-user"></i>
+          <span>My Driver</span>
+        </a>
+        <div id="collapseDrivers" class="collapse" aria-labelledby="headingDrivers" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Option:</h6>
+            <a class="collapse-item" href="driverRegister">Register new driver </a>
+            <a class="collapse-item" href="driverDisplay">List current drivers</a>
+            <a class="collapse-item" href="driverUpdate">Update driver information</a>
+          </div>
+        </div>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
