@@ -5,8 +5,8 @@ const xss = require('xss');
 
 exports.createAdmin = createAdmin;
 exports.loginAdmin = loginAdmin;
-exports.getUsers = getUsers;
-
+exports.getAdmins = getAdmins;
+exports.logoutAdmin = logoutAdmin;
 function createAdmin(req, res, next) {
     console.log('enter function createAdmin');
     const id = xss(req.body.userid);
@@ -106,10 +106,10 @@ function loginAdmin(req, res, next) {
     })
 }
 
-function getUsers(req, res, next) {
+function getAdmins(req, res, next) {
     database.setUpDatabase(function(connection) {
         connection.connect();
-        var sql = 'select userid, fname, lname from user';
+        var sql = 'select adminid from admin';
         connection.query(sql, [], function(err, result) {
             if(err) {
                 console.log('[SELECT ERROR] - ', err.message);
@@ -118,8 +118,8 @@ function getUsers(req, res, next) {
             }
             console.log(result);
             if(result.length == 0) {
-                console.log('no user currently');
-                res.send('no such user currently');
+                console.log('no admin currently');
+                res.send('no such admin currently');
                 return;
             }
             res.render('admin/dashboard', {
@@ -129,3 +129,9 @@ function getUsers(req, res, next) {
     });
 }
 
+function logoutAdmin(req, res, next) {
+    req.session.destroy(function () {
+        res.clearCookie('connect.sid');
+        res.redirect('/admin/login');
+    });
+}

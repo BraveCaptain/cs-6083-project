@@ -34,8 +34,7 @@
         <div id="collapseAdminUsers" class="collapse" aria-labelledby="headingAdminUsers" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Option:</h6>
-            <a class="collapse-item" href="adminUserDisplay">List users </a>
-            <a class="collapse-item" href="homeDisplay">Delete users</a>
+            <a class="collapse-item" href="adminUserDisplay">List and delete users </a>
           </div>
         </div>
       </li>
@@ -52,7 +51,6 @@
             <h6 class="collapse-header">Option:</h6>
             <a class="collapse-item" href="adminPolicyDisplay">List policy </a>
             <a class="collapse-item" href="adminPolicyRegister">Add new policy </a>
-            <a class="collapse-item" href="autoRegister">Delete policy </a>
           </div>
         </div>
       </li>

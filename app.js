@@ -57,6 +57,7 @@ const userDriverUpdate = require('./routes/user/driver/driverUpdate');
 
 const adminLogin = require('./routes/admin/login');
 const adminRegister = require('./routes/admin/register');
+const adminLogout = require('./routes/admin/adminLogout');
 const adminDashboard = require('./routes/admin/dashboard');
 const adminUserDisplay = require('./routes/admin/userDisplay');
 const adminPolicyDisplay = require('./routes/admin/policyDisplay');
@@ -77,6 +78,8 @@ app.use('/', require('./middleware/loginGuard'));
 app.use('/admin/login', adminLogin);
 app.use('/admin/register', adminRegister);
 app.use('/admin/dashboard', adminDashboard);
+app.use('/admin/logout', adminLogout);
+
 
 app.use('/admin/adminUserDisplay', adminUserDisplay);
 

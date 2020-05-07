@@ -25,7 +25,7 @@ function correctUserInfo(userInfo) {
             userInfo.maritalstatus = 'Single';
             break;
         case 'W':
-            userInfo.maritalstatus = 'Widow';
+            userInfo.maritalstatus = 'Widow/Widower';
             break;
         default:
             break;
@@ -83,19 +83,23 @@ function correctHomeInfo(homeInfos) {
         }
         switch(homeInfos[i].swimmingpool) {
             case ('U'): {
-                homeInfos[i].swimmingpool = "Underground";
+                homeInfos[i].swimmingpool = "Underground swimming pool";
                 break;
             }
             case ('O'): {
-                homeInfos[i].swimmingpool = "Overground";
+                homeInfos[i].swimmingpool = "Overground swimming pool";
                 break;
             }
             case ('I'): {
-                homeInfos[i].swimmingpool = "Indoor";
+                homeInfos[i].swimmingpool = "Indoor swimming pool";
                 break;
             }
             case ('M'): {
-                homeInfos[i].swimmingpool = "Multiple";
+                homeInfos[i].swimmingpool = "Multiple swimming pool";
+                break;
+            }
+            case(null): {
+                homeInfos[i].swimmingpool = "No swimming pool";
                 break;
             }
             default: {
@@ -121,17 +125,17 @@ function correctHomeInfo(homeInfos) {
 
 function correctAutoInfo(autoInfos) {
     for (var i = 0; i < autoInfos.length; ++i) {
-        switch(autoInfos[i].staus){
+        switch(autoInfos[i].status){
             case('L'): {
-                autoInfos[i].staus = 'Leased';
+                autoInfos[i].status = 'Leased';
                 break;
             }
             case('F'): {
-                autoInfos[i].staus = 'Financed';
+                autoInfos[i].status = 'Financed';
                 break;
             }
             case('O'): {
-                autoInfos[i].staus = 'Owned';
+                autoInfos[i].status = 'Owned';
                 break;
             }
             default: {

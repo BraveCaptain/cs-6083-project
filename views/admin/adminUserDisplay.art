@@ -12,20 +12,17 @@
   <!-- Page level plugins -->
   <script src="/vendor/chart.js/Chart.min.js"></script>
 
-  <!-- Page level custom scripts -->
-  <script src="/js/demo/chart-area-demo.js"></script>
-  <script src="/js/demo/chart-pie-demo.js"></script>
+ 
   <meta name="author" content="">
 
-  <!--
+
   <script>
-    function registerHome() {
-      var res = formContentToJson($("#registerForm"));
-      //if user did not enter userid or password
-      return validateHomeInput(res);
+    function getUserId() {
+      var userid = $(deleteUserIcon).attr('data-id');
+      alert(userid);
     }
   </script>
-  -->
+
 
 </head>
 
@@ -74,6 +71,7 @@
               <th>Zipcode</th>
               <th>Gender</th>
               <th>Marital Status</th>
+              <th>Operation</th>
             </tr>
           </thead>
           <tfoot>
@@ -87,6 +85,7 @@
               <th>Zipcode</th>
               <th>Gender</th>
               <th>Marital Status</th>
+              <th>Operation</th>
             </tr>
           </tfoot>
           <tbody>
@@ -99,8 +98,15 @@
               <td>{{$value.city}}</td>
               <td>{{$value.street}}</td>
               <td>{{$value.zipcode}}</td>
-              <td>{{$value.gender}}</td>
-              <td>{{$value.maritalstatus}}</td>
+              <td>{{$value.gender == 'M' ? 'Male' : $value.gender == 'F' ? 'Female' : 'N/A'}}</td>
+              <td>{{$value.maritalstatus=='M'?'Married':$value.maritalstatus=='S'?'Single':'“Widow'}}</td>
+              <!--<td><i class="fas fa-trash delete" id="deleteUserIcon" onclick="return getUserId()" data-id={{$value.userid}}></i></td>-->
+              <td>
+                <form method="post">
+                  <input type="hidden" name="userid" value={{$value.userid}}>
+                  <input type="submit" value="delete">
+                </form>
+              </td>
             </tr>
             {{/each}}
           </tbody>

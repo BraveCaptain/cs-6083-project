@@ -361,7 +361,9 @@ function getAutosInfo(req, res, next) {
 				return;
 			}
 			var autoInfo = result;
+			common.correctAutoInfo(autoInfo);
 			console.log(autoInfo);
+
 			connection.end();
 			res.render('user/auto/autoDisplay', {
 				autoInfo: autoInfo
