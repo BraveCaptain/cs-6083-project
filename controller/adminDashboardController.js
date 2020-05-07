@@ -128,11 +128,11 @@ function adminDeleteHome(req,res,next){
 												res.send('SQL query error');
 												return;
 											}
-											adminUserInfo = result;
-											common.correctUserInfo(adminUserInfo);
+											adminHomeInfo = result;
+											common.correctHomeInfo(adminHomeInfo);
 											//console.log(userInfo);
-											res.render('admin/adminUserDisplay', {
-												adminUserInfo: adminUserInfo
+											res.render('admin/adminHomeDisplay', {
+												adminHomeInfo: adminHomeInfo
 											});
 										});
 									}
