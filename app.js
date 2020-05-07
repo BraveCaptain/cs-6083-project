@@ -28,6 +28,8 @@ app.engine('art', require('express-art-template'));
 app.use(express.static(path.join(__dirname, 'static')));
 
 //router module
+const error = require('./routes/error');
+
 const userLogin = require('./routes/user/login');
 const userLogout = require('./routes/user/logout');
 const userRegister = require('./routes/user/register');
@@ -73,6 +75,8 @@ const adminDriverDisplay = require('./routes/admin/driverDisplay');
 app.use('/', require('./middleware/loginGuard'));
 
 //apply module for request
+
+app.use('/error', error);
 
 //admin
 app.use('/admin/login', adminLogin);

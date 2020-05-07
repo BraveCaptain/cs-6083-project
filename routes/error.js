@@ -7,6 +7,4 @@ login.get('/',(req, res) =>{
     res.render('error');
 });
 
-login.post('/', userController.loginUser);
-
 module.exports = login;
