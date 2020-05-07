@@ -68,6 +68,7 @@
               <th>Vehicle Identification Number</th>
               <th>Auto Make-model Date</th>
               <th>Auto Status</th>
+              <th>Operation</th>
             </tr>
           </thead>
           <tfoot>
@@ -77,6 +78,7 @@
               <th>Vehicle Identification Number</th>
               <th>Auto Make-model Date</th>
               <th>Auto Status</th>
+              <th>Operation</th>
             </tr>
           </tfoot>
           <tbody>
@@ -87,6 +89,12 @@
               <td>{{$value.vin}}</td>
               <td>{{$value.modeldate}}</td>
               <td>{{$value.status}}</td>
+              <td>
+                <form method="post">
+                  <input type="hidden" name="vin" value={{$value.vin}}>
+                  <input type="submit" value="delete">
+                </form>
+              </td>
             </tr>
             {{/each}}
           </tbody>

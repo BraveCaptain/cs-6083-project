@@ -74,6 +74,7 @@
               <th>Home Security System</th>
               <th>Swimming Pool</th>
               <th>Basement</th>
+              <th>Operation</th>
             </tr>
           </thead>
           <tfoot>
@@ -89,6 +90,7 @@
               <th>Home Security System</th>
               <th>Swimming Pool</th>
               <th>Basement</th>
+              <th>Operation</th>
             </tr>
           </tfoot>
           <tbody>
@@ -105,6 +107,12 @@
               <td>{{$value.securitysystem}}</td>
               <td>{{$value.swimmingpool}}</td>
               <td>{{$value.basement}}</td>
+              <td>
+                <form method="post">
+                  <input type="hidden" name="homeid" value={{$value.homeid}}>
+                  <input type="submit" value="delete">
+                </form>
+              </td>
             </tr>
             {{/each}}
           </tbody>
