@@ -113,7 +113,7 @@ function getAutosUpdateInfo(req, res, next) {
 			}
 			autoInfo = result;
 			console.log(autoInfo);
-			res.render('user/autoUpdate', {
+			res.render('user/auto/autoUpdate', {
 				autoInfo: autoInfo
 			});
 		});

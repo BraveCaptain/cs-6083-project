@@ -4,7 +4,7 @@ const userAuto = require('../../../controller/autoController');
 const auto = express.Router();
 
 auto.get('/', (req, res) => {
-    res.render('user/autoRegister');
+    res.render('user/auto/autoRegister');
 })
 auto.post('/',userAuto.createAuto);
 
