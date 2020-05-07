@@ -23,7 +23,8 @@
     "express": "^4.17.1",
     "express-art-template": "^1.0.1",
     "express-session": "^1.17.1",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "xss": "^1.0.6"
   },
   "devDependencies": {},
   "description": ""
