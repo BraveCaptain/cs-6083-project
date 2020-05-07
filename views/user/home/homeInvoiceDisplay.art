@@ -66,17 +66,24 @@
           <thead>
             <tr>
               <th>Home Invoice ID</th>
+              <th>Policy Name</th>
+              <th>Home Name</th>
               <th>Payment Duedate</th>
               <th>Invoice Amount</th>
               <th>Unpaid Amount</th>
+              <th>Policy End Date</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
               <th>Home Invoice ID</th>
+              <th>Policy Name</th>
+              <th>Home Name</th>
               <th>Payment Duedate</th>
+              <th>Policy End Date</th>
               <th>Invoice Amount</th>
               <th>Unpaid Amount</th>
+              
             </tr>
           </tfoot>
           <tbody>
@@ -84,9 +91,13 @@
 
             <tr>
               <td>{{$value.hpid}}</td>
+              <td>{{$value.policyname}}</td>
+              <td>{{$value.homename}}</td>
               <td>{{$value.paymentduedate}}</td>
+              <td>{{$value.enddate}}</td>
               <td>${{$value.amount}}</td>
               <td>${{$value.leftamount}}</td>
+              
             </tr>
             {{/each}}
           </tbody>

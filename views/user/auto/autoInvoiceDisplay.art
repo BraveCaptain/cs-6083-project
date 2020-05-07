@@ -66,7 +66,10 @@
           <thead>
             <tr>
               <th>Auto Invoice ID</th>
+              <th>Policy Name</th>
+              <th>Auto Name</th>
               <th>Payment Duedate</th>
+              <th>Policy End Date
               <th>Invoice Amount</th>
               <th>Unpaid Amount</th>
             </tr>
@@ -74,7 +77,10 @@
           <tfoot>
             <tr>
               <th>Auto Invoice ID</th>
+              <th>Policy Name</th>
+              <th>Auto Name</th>
               <th>Payment Duedate</th>
+              <th>Policy End Date
               <th>Invoice Amount</th>
               <th>Unpaid Amount</th>
             </tr>
@@ -84,7 +90,10 @@
 
             <tr>
               <td>{{$value.apid}}</td>
+              <td>{{$value.policyname}}</td>
+              <td>{{$value.autoname}}</td>
               <td>{{$value.paymentduedate}}</td>
+              <td>{{$value.enddate}}</td>
               <td>${{$value.amount}}</td>
               <td>${{$value.leftamount}}</td>
             </tr>

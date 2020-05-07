@@ -59,17 +59,17 @@ function createAuto(req, res, next) {
 	})
 }
 
-function getAutoInvoiceInfo(req, res, next) { 
-    const userid = xss(req.session.userid);
+function getAutoInvoiceInfo(req, res, next) {
+	const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-		var sql = 'select apid, paymentduedate, amount, (amount-amountpaid)leftamount from auto_policy where userid = ?';
+		var sql = 'select apid, paymentduedate, amount, (amount-amountpaid)leftamount, enddate, autoname, policyname from auto_policy where userid = ?';
 		connection.query(sql, [userid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send('SQL query error');
 				return;
-            }
+			}
 			autoInvoiceInfo = result;
 			console.log(autoInvoiceInfo);
 
@@ -80,8 +80,8 @@ function getAutoInvoiceInfo(req, res, next) {
 	});
 }
 
-function getAutoPayInfo(req, res, next) { 
-    const userid = xss(req.session.userid);
+function getAutoPayInfo(req, res, next) {
+	const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select paymentid, paymentdate, method, apid, amount from apayment where userid = ?';
@@ -90,7 +90,7 @@ function getAutoPayInfo(req, res, next) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send('SQL query error');
 				return;
-            }
+			}
 			autoPayInfo = result;
 			console.log(autoPayInfo);
 
@@ -105,8 +105,8 @@ function getAutosUpdateInfo(req, res, next) {
 	const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-        var sql = 'select autoname, vin from auto where userid = ?'
-        connection.query(sql, [userid], function (err, result) {
+		var sql = 'select autoname, vin from auto where userid = ?'
+		connection.query(sql, [userid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send('SQL query error');
@@ -122,15 +122,15 @@ function getAutosUpdateInfo(req, res, next) {
 }
 
 function updateAuto(req, res, next) {
-    console.log(req.body);
-    const userid = xss(req.session.userid);
+	console.log(req.body);
+	const userid = xss(req.session.userid);
 	const modeldate = xss(req.body.modeldate);
-    const autoname = xss(req.body.autoname);
-    const vin = xss(req.body.vin);
-    const status = xss(req.body.status);
+	const autoname = xss(req.body.autoname);
+	const vin = xss(req.body.vin);
+	const status = xss(req.body.status);
 	//verify
 	database.setUpDatabase(function (connection) {
-        console.log('here')
+		console.log('here')
 		connection.connect();
 		//issue: auto name
 		var sql = 'select * from auto where autoname = ? and userid = ?';
@@ -144,23 +144,49 @@ function updateAuto(req, res, next) {
 				console.log('already exist autoname: ', autoname);
 				res.send("already exist autoname");
 				return;
-            }
-            sql = 'update auto set autoname = ?, modeldate = ?, status = ? where vin = ?';
-			var addSqlParams = [autoname, modeldate, status, vin];
-                
-			connection.query(sql, addSqlParams, function (err, result) {
-				if (err) {
-					console.log('[INSERT ERROR] - ', err.message)
-					res.send("SQL update error");
-					return;
-				}
-				console.log('--------------------------INSERT----------------------------')
-				console.log('INSERT ID:', result)
-				console.log('------------------------------------------------------------')
-				//issue 01: 注册成功alert
-				connection.end();
-				res.redirect(301, '/dashboard');
-			})
+			} else {
+				sql = 'select autoname from auto where vin = ?'
+				connection.query(sql, vin, function (err, result) {
+					if (err) {
+						console.log('[SELECT ERROR] - ', err.message);
+						res.send("SQL query error");
+						return;
+					} else {
+						var oldAutoName = result[0].autoname;
+						sql = 'update auto set autoname = ?, modeldate = ?, status = ? where vin = ?';
+						var addSqlParams = [autoname, modeldate, status, vin];
+
+						connection.query(sql, addSqlParams, function (err, result) {
+							if (err) {
+								console.log('[INSERT ERROR] - ', err.message)
+								res.send("SQL update error");
+								return;
+							} else {
+								sql = 'update driver set autoname = ? where userid = ? and vin = ?';
+								connection.query(sql, [autoname, userid, vin], function (err, result) {
+									if (err) {
+										console.log('[SELECT ERROR] - ', err.message);
+										res.send("SQL query error");
+										return;
+									} else {
+										sql = 'update auto_policy set autoname = ? where autoname = ?';
+										connection.query(sql, [autoname, oldAutoName], function (err, result) {
+											if (err) {
+												console.log('[SELECT ERROR] - ', err.message);
+												res.send("SQL query error");
+												return;
+											} else {
+												connection.end();
+												res.redirect(301, '/dashboard');
+											}
+										})
+									}
+								})
+							}
+						})
+					}
+				})
+			}
 		})
 	})
 }
@@ -187,8 +213,7 @@ function payAutoInsurance(req, res, next) {
 				console.log('pay too much');
 				res.send('payment amount is greater than remaining amount');
 				return;
-			}
-			else {
+			} else {
 				var sql = 'insert into apayment (userid, paymentdate, method, apid, amount) values (?, NOW(), ?, ?, ?)';
 				connection.query(sql, [userid, method, apid, paymentAmount], function (err, result) {
 					if (err) {

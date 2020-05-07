@@ -182,7 +182,6 @@ function payHomeInsurance(req, res, next) {
 	});
 }
 
-
 function createHomeInsurance(req, res, next) {
 	const userid = xss(req.session.userid);
 	const homename = xss(req.body.homename);
@@ -370,7 +369,7 @@ function getHomeInvoiceInfo(req, res, next) {
     const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-		var sql = 'select hpid, paymentduedate, amount, (amount-amountpaid)leftamount from home_policy where userid = ?';
+		var sql = 'select hpid, paymentduedate, amount, (amount-amountpaid)leftamount, enddate, homename, policyname from home_policy where userid = ?';
 		connection.query(sql, [userid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
