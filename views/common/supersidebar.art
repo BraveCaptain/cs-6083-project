@@ -65,7 +65,7 @@
         <div id="collapseAdiminHomes" class="collapse" aria-labelledby="headingAdiminHomes" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Option:</h6>
-            <a class="collapse-item" href="adminHomeDisplay">List homes </a>
+            <a class="collapse-item" href="adminHomeDisplay">List and delete homes </a>
           </div>
         </div>
       </li>
@@ -79,7 +79,7 @@
         <div id="collapseAdiminAutos" class="collapse" aria-labelledby="headingAdiminAutos" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Option:</h6>
-            <a class="collapse-item" href="adminAutoDisplay">List autos </a>
+            <a class="collapse-item" href="adminAutoDisplay">List  and delete autos </a>
             <a class="collapse-item" href="adminDriverDisplay">List drivers </a>
           </div>
         </div>
