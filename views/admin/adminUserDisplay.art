@@ -99,7 +99,7 @@
               <td>{{$value.street}}</td>
               <td>{{$value.zipcode}}</td>
               <td>{{$value.gender == 'M' ? 'Male' : $value.gender == 'F' ? 'Female' : 'N/A'}}</td>
-              <td>{{$value.maritalstatus=='M'?'Married':$value.maritalstatus=='S'?'Single':'“Widow'}}</td>
+              <td>{{$value.maritalstatus=='M'?'Married':$value.maritalstatus=='S'?'Single':'“Widow/Widower'}}</td>
               <!--<td><i class="fas fa-trash delete" id="deleteUserIcon" onclick="return getUserId()" data-id={{$value.userid}}></i></td>-->
               <td>
                 <form method="post">
