@@ -23,7 +23,7 @@ function getUserInfo(req, res, next) {
 				return;
 			}
 			userInfo = result[0];
-			common.correctUserInfo(userInfo);
+			//common.correctUserInfo(userInfo);
 			//console.log(userInfo);
 			res.render('user/dashboard', {
 				userInfo: userInfo

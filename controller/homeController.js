@@ -17,8 +17,8 @@ function getHomesUpdateInfo(req, res, next) {
 	const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-        var sql = 'select homename, homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement from home where userid = ?'
-        connection.query(sql, [userid], function (err, result) {
+		var sql = 'select homename, homeid, purchasedate, purchasevalue, area, type, autofirenotification, securitysystem, swimmingpool, basement from home where userid = ?'
+		connection.query(sql, [userid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send('SQL query error');
@@ -34,20 +34,20 @@ function getHomesUpdateInfo(req, res, next) {
 }
 
 function updateHome(req, res, next) {
-    console.log(req.body);
-    const userid = xss(req.session.userid);
+	console.log(req.body);
+	const userid = xss(req.session.userid);
 	const purchasedate = xss(req.body.purchasedate);
 	const purchasevalue = xss(req.body.purchasevalue);
 	const area = xss(req.body.area);
 	const type = xss(req.body.type);
 	const autofirenotification = xss(req.body.autofirenotification);
 	const securitysystem = xss(req.body.securitysystem);
-	const swimmingpool =xss(req.body.swimmingpool);
+	const swimmingpool = xss(req.body.swimmingpool);
 	const basement = xss(req.body.basement);
-    const homename = xss(req.body.homename);
+	const homename = xss(req.body.homename);
 	const homeid = xss(req.body.homeid);
 	database.setUpDatabase(function (connection) {
-        console.log('here')
+		console.log('here')
 		connection.connect();
 		var sql = 'select homename from home where homeid = ?';
 		connection.query(sql, [homeid], function (err, result) {
@@ -55,7 +55,7 @@ function updateHome(req, res, next) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send("SQL query error");
 				return;
-			} else{
+			} else {
 				var oldhomename = result[0].homename;
 				console.log('oldhomename is: ', oldhomename);
 				sql = 'select * from home where homename = ? and userid = ?';
@@ -151,8 +151,7 @@ function payHomeInsurance(req, res, next) {
 				console.log('pay too much');
 				res.send('payment amount is greater than remaining amount');
 				return;
-			}
-			else {
+			} else {
 				var sql = 'insert into hpayment (userid, paymentdate, method, hpid, amount) values (?, NOW(), ?, ?, ?)';
 				connection.query(sql, [userid, method, hpid, paymentAmount], function (err, result) {
 					if (err) {
@@ -194,15 +193,22 @@ function createHomeInsurance(req, res, next) {
 	console.log(monthDifference);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-		var customerSql = 'select * from customer where customer.userid = ? and customer.type = "H"';
-		connection.query(customerSql, userid, function (err, result) {
+		var sql = 'select amount from policy where policy.policyname = ?'
+		connection.query(sql, [policyname], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send('SQL query error');
 				return;
 			} else if (result.length == 0) {
-				var sql = 'insert into customer (type, userid) values ("H", ?)';
-				connection.query(sql, userid, function (err, result) {
+				console.log('no such policy');
+				res.send('no such policy');
+				return;
+			} else {
+				var price = result[0].amount;
+				sql = 'insert into home_policy (userid, startdate, enddate, amount, homename, policyname, paymentduedate, amountpaid) values (?, ?, ?, ?, ?, ?, ?, 0)';
+				var sqlParam = [userid, startdate, enddate, price * monthDifference, homename, policyname, enddate];
+				console.log(sqlParam);
+				connection.query(sql, sqlParam, function (err, result) {
 					if (err) {
 						console.log('[SELECT ERROR] - ', err.message);
 						res.send('SQL query error');
@@ -211,36 +217,8 @@ function createHomeInsurance(req, res, next) {
 					console.log('--------------------------INSERT----------------------------')
 					console.log('INSERT ID:', result)
 					console.log('------------------------------------------------------------')
-				});
-			} else {
-				var sql = 'select amount from policy where policy.policyname = ?'
-				connection.query(sql, [policyname], function (err, result) {
-					if (err) {
-						console.log('[SELECT ERROR] - ', err.message);
-						res.send('SQL query error');
-						return;
-					} else if (result.length == 0) {
-						console.log('no such policy');
-						res.send('no such policy');
-						return;
-					} else {
-						var price = result[0].amount;
-						sql = 'insert into home_policy (userid, startdate, enddate, amount, homename, policyname, paymentduedate, amountpaid) values (?, ?, ?, ?, ?, ?, ?, 0)';
-						var sqlParam = [userid, startdate, enddate, price * monthDifference, homename, policyname, enddate];
-						console.log(sqlParam);
-						connection.query(sql, sqlParam, function (err, result) {
-							if (err) {
-								console.log('[SELECT ERROR] - ', err.message);
-								res.send('SQL query error');
-								return;
-							}
-							console.log('--------------------------INSERT----------------------------')
-							console.log('INSERT ID:', result)
-							console.log('------------------------------------------------------------')
-							connection.end();
-							res.redirect(301, '/dashboard');
-						});
-					}
+					connection.end();
+					res.redirect(301, '/dashboard');
 				});
 			}
 		});
@@ -300,7 +278,7 @@ function getHomesInfo(req, res, next) {
 			}
 			homeInfo = result;
 			console.log(homeInfo);
-			common.correctHomeInfo(homeInfo);
+			//common.correctHomeInfo(homeInfo);
 			res.render('user/home/homeDisplay', {
 				homeInfo: homeInfo
 			});
@@ -326,8 +304,8 @@ function createHome(req, res, next) {
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		//issue: home name
-		var sql = 'select * from home where home.homename = ?';
-		connection.query(sql, homename, function (err, result) {
+		var sql = 'select * from home where homename = ? and userid = ?';
+		connection.query(sql, [homename, userid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send("SQL query error");
@@ -365,8 +343,8 @@ function createHome(req, res, next) {
 	})
 }
 
-function getHomeInvoiceInfo(req, res, next) { 
-    const userid = xss(req.session.userid);
+function getHomeInvoiceInfo(req, res, next) {
+	const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select hpid, paymentduedate, amount, (amount-amountpaid)leftamount, enddate, homename, policyname from home_policy where userid = ?';
@@ -375,7 +353,7 @@ function getHomeInvoiceInfo(req, res, next) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send('SQL query error');
 				return;
-            }
+			}
 			homeInvoiceInfo = result;
 			console.log(homeInvoiceInfo);
 
@@ -386,8 +364,8 @@ function getHomeInvoiceInfo(req, res, next) {
 	});
 }
 
-function getHomePayInfo(req, res, next) { 
-    const userid = xss(req.session.userid);
+function getHomePayInfo(req, res, next) {
+	const userid = xss(req.session.userid);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		var sql = 'select paymentid, paymentdate, method, hpid, amount from hpayment where userid = ?';
@@ -396,7 +374,7 @@ function getHomePayInfo(req, res, next) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send('SQL query error');
 				return;
-            }
+			}
 			homePayInfo = result;
 			console.log(homePayInfo);
 
@@ -406,4 +384,3 @@ function getHomePayInfo(req, res, next) {
 		});
 	});
 }
-

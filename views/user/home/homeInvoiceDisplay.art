@@ -60,18 +60,15 @@
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
-
-
           <thead>
             <tr>
               <th>Home Invoice ID</th>
               <th>Policy Name</th>
               <th>Home Name</th>
               <th>Payment Duedate</th>
+              <th>Policy End Date</th>
               <th>Invoice Amount</th>
               <th>Unpaid Amount</th>
-              <th>Policy End Date</th>
             </tr>
           </thead>
           <tfoot>

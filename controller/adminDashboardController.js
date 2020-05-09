@@ -66,7 +66,7 @@ function adminDeleteAuto(req,res,next){
 														return;
 													}
 													adminAutoInfo = result;
-													common.correctAutoInfo(adminAutoInfo);
+													//common.correctAutoInfo(adminAutoInfo);
 													//console.log(userInfo);
 													res.render('admin/adminAutoDisplay', {
 														adminAutoInfo: adminAutoInfo
@@ -129,7 +129,7 @@ function adminDeleteHome(req,res,next){
 												return;
 											}
 											adminHomeInfo = result;
-											common.correctHomeInfo(adminHomeInfo);
+											//common.correctHomeInfo(adminHomeInfo);
 											//console.log(userInfo);
 											res.render('admin/adminHomeDisplay', {
 												adminHomeInfo: adminHomeInfo
@@ -204,7 +204,7 @@ function adminDeletePolicy(req,res,next){
 															}
 															else{
 																adminPolicyInfo = result;
-																common.correctUserInfo(adminPolicyInfo);
+																//common.correctUserInfo(adminPolicyInfo);
 																//console.log(userInfo);
 																res.render('admin/adminPolicyDisplay', {
 																	adminPolicyInfo: adminPolicyInfo
@@ -313,7 +313,7 @@ function adminDeleteUser(req, res, next) {
 																					else {
 																						adminUserInfo = result;
 																						//connection.end();
-																						common.correctUserInfo(adminUserInfo);
+																						//common.correctUserInfo(adminUserInfo);
 																						//console.log(userInfo);
 																						res.render('admin/adminUserDisplay', {
 																						adminUserInfo: adminUserInfo
@@ -354,7 +354,7 @@ function adminGetUserInfo(req, res, next) {
 				return;
 			}
 			adminUserInfo = result;
-			common.correctUserInfo(adminUserInfo);
+			//common.correctUserInfo(adminUserInfo);
 			//console.log(userInfo);
 			res.render('admin/adminUserDisplay', {
 				adminUserInfo: adminUserInfo
@@ -375,7 +375,7 @@ function adminGetPolicyInfo(req, res, next) {
 				return;
 			}
 			adminPolicyInfo = result;
-			common.correctUserInfo(adminPolicyInfo);
+			//common.correctUserInfo(adminPolicyInfo);
 			//console.log(userInfo);
 			res.render('admin/adminPolicyDisplay', {
 				adminPolicyInfo: adminPolicyInfo
@@ -438,7 +438,7 @@ function adminGetHomeInfo(req, res, next) {
 				return;
 			}
 			adminHomeInfo = result;
-			common.correctHomeInfo(adminHomeInfo);
+			//common.correctHomeInfo(adminHomeInfo);
 			//console.log(userInfo);
 			res.render('admin/adminHomeDisplay', {
 				adminHomeInfo: adminHomeInfo
@@ -459,7 +459,7 @@ function adminGetAutoInfo(req, res, next) {
 				return;
 			}
 			adminAutoInfo = result;
-			common.correctAutoInfo(adminAutoInfo);
+			//common.correctAutoInfo(adminAutoInfo);
 			//console.log(userInfo);
 			res.render('admin/adminAutoDisplay', {
 				adminAutoInfo: adminAutoInfo
@@ -480,7 +480,7 @@ function adminGetHomeInvoiceInfo(req, res, next) {
 				return;
 			}
 			adminHomeInvoiceInfo = result;
-			common.correctUserInfo(adminHomeInvoiceInfo);
+			//common.correctUserInfo(adminHomeInvoiceInfo);
 			//console.log(userInfo);
 			res.render('admin/adminHomeInvoiceDisplay', {
 				adminHomeInvoiceInfo: adminHomeInvoiceInfo
@@ -501,7 +501,7 @@ function adminGetAutoInvoiceInfo(req, res, next) {
 				return;
 			}
 			adminAutoInvoiceInfo = result;
-			common.correctUserInfo(adminAutoInvoiceInfo);
+			//common.correctUserInfo(adminAutoInvoiceInfo);
 			//console.log(userInfo);
 			res.render('admin/adminAutoInvoiceDisplay', {
 				adminAutoInvoiceInfo: adminAutoInvoiceInfo
@@ -522,7 +522,7 @@ function adminGetHomePayInfo(req, res, next) {
 				return;
 			}
 			adminHomePayInfo = result;
-			common.correctUserInfo(adminHomePayInfo);
+			//common.correctUserInfo(adminHomePayInfo);
 			//console.log(userInfo);
 			res.render('admin/adminHomePayDisplay', {
 				adminHomePayInfo: adminHomePayInfo
@@ -544,7 +544,7 @@ function adminGetAutoPayInfo(req, res, next) {
 				return;
 			}
 			adminAutoPayInfo = result;
-			common.correctUserInfo(adminAutoPayInfo);
+			//common.correctUserInfo(adminAutoPayInfo);
 			//console.log(userInfo);
 			res.render('admin/adminAutoPayDisplay', {
 				adminAutoPayInfo: adminAutoPayInfo

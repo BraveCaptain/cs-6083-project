@@ -27,8 +27,8 @@ function createAuto(req, res, next) {
 	database.setUpDatabase(function (connection) {
 		connection.connect();
 		//issue: home name
-		var sql = 'select * from auto where auto.autoname = ?';
-		connection.query(sql, autoname, function (err, result) {
+		var sql = 'select * from auto where autoname = ? and userid = ?';
+		connection.query(sql, [autoname, userid], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send("SQL query error");
@@ -281,15 +281,22 @@ function createAutoInsurance(req, res, next) {
 	console.log(monthDifference);
 	database.setUpDatabase(function (connection) {
 		connection.connect();
-		var customerSql = 'select * from customer where customer.userid = ? and customer.type = "A"';
-		connection.query(customerSql, userid, function (err, result) {
+		var sql = 'select amount from policy where policy.policyname = ?'
+		connection.query(sql, [policyname], function (err, result) {
 			if (err) {
 				console.log('[SELECT ERROR] - ', err.message);
 				res.send('SQL query error');
 				return;
 			} else if (result.length == 0) {
-				var sql = 'insert into customer (type, userid) values ("A", ?)';
-				connection.query(sql, userid, function (err, result) {
+				console.log('no such policy');
+				res.send('no such policy');
+				return;
+			} else {
+				var price = result[0].amount;
+				sql = 'insert into auto_policy (userid, startdate, enddate, amount, autoname, policyname, paymentduedate, amountpaid) values (?, ?, ?, ?, ?, ?, ?, 0)';
+				var sqlParam = [userid, startdate, enddate, price * monthDifference, autoname, policyname, enddate];
+				console.log(sqlParam);
+				connection.query(sql, sqlParam, function (err, result) {
 					if (err) {
 						console.log('[SELECT ERROR] - ', err.message);
 						res.send('SQL query error');
@@ -298,36 +305,8 @@ function createAutoInsurance(req, res, next) {
 					console.log('--------------------------INSERT----------------------------')
 					console.log('INSERT ID:', result)
 					console.log('------------------------------------------------------------')
-				});
-			} else {
-				var sql = 'select amount from policy where policy.policyname = ?'
-				connection.query(sql, [policyname], function (err, result) {
-					if (err) {
-						console.log('[SELECT ERROR] - ', err.message);
-						res.send('SQL query error');
-						return;
-					} else if (result.length == 0) {
-						console.log('no such policy');
-						res.send('no such policy');
-						return;
-					} else {
-						var price = result[0].amount;
-						sql = 'insert into auto_policy (userid, startdate, enddate, amount, autoname, policyname, paymentduedate, amountpaid) values (?, ?, ?, ?, ?, ?, ?, 0)';
-						var sqlParam = [userid, startdate, enddate, price * monthDifference, autoname, policyname, enddate];
-						console.log(sqlParam);
-						connection.query(sql, sqlParam, function (err, result) {
-							if (err) {
-								console.log('[SELECT ERROR] - ', err.message);
-								res.send('SQL query error');
-								return;
-							}
-							console.log('--------------------------INSERT----------------------------')
-							console.log('INSERT ID:', result)
-							console.log('------------------------------------------------------------')
-							connection.end();
-							res.redirect(301, '/dashboard');
-						});
-					}
+					connection.end();
+					res.redirect(301, '/dashboard');
 				});
 			}
 		});
@@ -386,7 +365,7 @@ function getAutosInfo(req, res, next) {
 				return;
 			}
 			var autoInfo = result;
-			common.correctAutoInfo(autoInfo);
+			//common.correctAutoInfo(autoInfo);
 			console.log(autoInfo);
 
 			connection.end();

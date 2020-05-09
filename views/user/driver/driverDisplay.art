@@ -71,6 +71,7 @@
               <th>Driver Birthdate</th>
               <th>Auto Vin</th>
               <th>Auto Name</th>
+              <th>Operation</th>
             </tr>
           </thead>
           <tfoot>
@@ -81,6 +82,7 @@
               <th>Driver Birthdate</th>
               <th>Auto Vin</th>
               <th>Auto Name</th>
+              <th>Operation</th>
             </tr>
           </tfoot>
           <tbody>
@@ -93,6 +95,10 @@
               <td>{{$value.birthdate}}</td>
               <td>{{$value.vin}}</td>
               <td>{{$value.autoname}}</td>
+              <td>
+                  <i class="fas fa-edit"></i>
+                  <i class="fas fa-trash"></i>
+              </td>
             </tr>
             {{/each}}
           </tbody>

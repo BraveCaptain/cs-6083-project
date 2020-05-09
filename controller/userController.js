@@ -148,7 +148,7 @@ function updateUserProfile(req, res, next) {
         connection.connect();
         var password = bcrypt.hashSync(plainTextPassword, saltRound);
         if (gender == 'NULL') {
-            var sql = 'update user set password = ?, fname = ?, lname = ?, state = ?, city = ?, street = ?, zipcode = ?, maritalstatus = ? where userid = ?';
+            var sql = 'update user set password = ?, fname = ?, lname = ?, state = ?, city = ?, street = ?, zipcode = ?, maritalstatus = ?, gender = null where userid = ?';
             var sqlParams = [password, fname, lname, state, city, street, zipcode, maritalstatus, userid];
             //console.log(addSqlParams);
         } else {
